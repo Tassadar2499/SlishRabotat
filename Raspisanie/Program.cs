@@ -9,7 +9,6 @@ namespace Raspisanie
 {
 	static class Program
 	{
-		//asas
 		/// <summary>
 		/// Главная точка входа для приложения.
 		/// </summary>
