@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Raspisanie
 {
-	public partial class addSubjects : Form
+	public partial class formaAddSubjects : Form
 	{
-		public addSubjects()
+		public formaAddSubjects()
 		{
 			InitializeComponent();
 		}

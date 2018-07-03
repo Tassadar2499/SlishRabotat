@@ -16,7 +16,7 @@ namespace Raspisanie
 		static void Main(){
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new formOfClasses());
+			Application.Run(new formAddGrades());
 		}
 		public static string[] returnArrayOfClasses(){
 			var text = File.ReadAllText("Classes.txt").Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);

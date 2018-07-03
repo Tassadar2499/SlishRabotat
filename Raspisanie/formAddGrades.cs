@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Raspisanie
 {
-	public partial class formOfClasses : Form
+	public partial class formAddGrades : Form
 	{
 		public static string[] checkedGrades;
-		public formOfClasses()
+		public formAddGrades()
 		{
 			InitializeComponent();
 			var classes = Program.returnArrayOfClasses();
@@ -53,7 +53,7 @@ namespace Raspisanie
 
 		private void NextClick(object sender, EventArgs e)
 		{
-			addSubjects form = new addSubjects();
+			formaAddSubjects form = new formaAddSubjects();
 			form.Show();
 		}
 	}
