@@ -9,7 +9,7 @@ namespace Raspisanie
 {
 	static class Program
 	{
-		/// <summary>
+		/// <summary>ыы
 		/// Главная точка входа для приложения.
 		/// </summary>
 		[STAThread]
