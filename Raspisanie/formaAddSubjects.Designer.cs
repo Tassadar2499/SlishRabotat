@@ -34,7 +34,7 @@
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(218, 405);
+			this.button1.Location = new System.Drawing.Point(261, 431);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(75, 23);
 			this.button1.TabIndex = 0;
@@ -42,12 +42,12 @@
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
-			// checkedListBox1
+			// checkedListBoxOfSubjects
 			// 
 			this.checkedListBoxOfSubjects.FormattingEnabled = true;
 			this.checkedListBoxOfSubjects.Location = new System.Drawing.Point(0, 0);
-			this.checkedListBoxOfSubjects.Name = "checkedListBox1";
-			this.checkedListBoxOfSubjects.Size = new System.Drawing.Size(283, 379);
+			this.checkedListBoxOfSubjects.Name = "checkedListBoxOfSubjects";
+			this.checkedListBoxOfSubjects.Size = new System.Drawing.Size(214, 454);
 			this.checkedListBoxOfSubjects.TabIndex = 1;
 			this.checkedListBoxOfSubjects.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
 			// 
@@ -55,7 +55,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(491, 477);
 			this.Controls.Add(this.checkedListBoxOfSubjects);
 			this.Controls.Add(this.button1);
 			this.Name = "formaAddSubjects";

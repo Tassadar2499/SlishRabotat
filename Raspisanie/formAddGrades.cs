@@ -39,16 +39,20 @@ namespace Raspisanie
 			}
 		}
 
-		private void button2_Click(object sender, EventArgs e)
+		private void showClick(object sender, EventArgs e)
 		{
-			Grades grades = new Grades(checkedGrades);
-			string[] names = grades.getNames();
 			string output = "";
-			foreach (var element in names) {
-				output += element;
-				output += " ";
-			}
-			MessageBox.Show(output);
+			if (checkedGrades != null)
+			{
+				foreach (var element in checkedGrades)
+				{
+					output += element;
+					output += " ";
+				}
+				MessageBox.Show(output);
+			}				
+			else
+				MessageBox.Show("Нажми на кнопку сохранить");
 		}
 
 		private void NextClick(object sender, EventArgs e)

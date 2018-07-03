@@ -39,15 +39,4 @@ namespace Raspisanie
 			return dictionary;
 		}
 	}
-	public class Grades
-	{
-		private static string[] names;
-
-		public Grades(string[] arrOfClasses)
-		{
-			names = arrOfClasses;
-		}
-
-		public string[] getNames() { return names; }
-	}
 }
