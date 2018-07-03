@@ -6,7 +6,22 @@ using System.Threading.Tasks;
 
 namespace Raspisanie
 {
-	class Subject
+	public class Subject
 	{
+		public string Name
+		{
+			get; set;
+		}
+
+		public int Difficult
+		{
+			get; set;
+		}
+
+		public Subject(string name, int difficult)
+		{
+			Name = name;
+			Difficult = difficult;
+		}
 	}
 }

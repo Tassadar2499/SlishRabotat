@@ -14,7 +14,11 @@ namespace Raspisanie
 			if (checkedObj == null)
 				MessageBox.Show("Нажми на кнопку сохранить");
 
-			MessageBox.Show(string.Join(" ", checkedObj));				
+			else if (checkedObj.Length == 0)
+				MessageBox.Show("Выбери хотя бы 1 предмет");
+
+			else
+				MessageBox.Show(string.Join(" ", checkedObj));				
 		}
 
 		public static IEnumerable<string> CheckedListToStrings(CheckedListBox checkedList)

@@ -19,8 +19,9 @@ namespace Raspisanie
 		{
 			InitializeComponent();
 
-			var classes = SchedlueMaker.GetClasses();
-			checkedListOfClasses.Items.AddRange(classes);
+			foreach(var schoolClass in SchedlueMaker.GetClasses().Select(a => a.Name))
+				checkedListOfClasses.Items.Add(schoolClass);
+
 			checkedListOfClasses.CheckOnClick = true;
 			checkedListOfClasses.MultiColumn = true;
 		}

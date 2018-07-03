@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace Raspisanie
 {
-	class SchoolClass
+	public class SchoolClass
 	{
+		public string Name
+		{
+			get; set;
+		}
+
+		public SchoolClass(string name)
+		{
+			Name = name;
+		}
 	}
 }

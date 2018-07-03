@@ -9,15 +9,17 @@ namespace Raspisanie
 {
 	public static class SchedlueMaker
 	{
-		public static string[] GetClasses()
+		public static IEnumerable<SchoolClass> GetClasses()
 		{
-			return File.ReadAllText("Classes.txt").Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+			var text = File.ReadAllText("Classes.txt").Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+			foreach (var str in text)
+				yield return new SchoolClass(str);
 		}
 
-		public static Dictionary<string, int> GetSubjects()
+		public static IEnumerable<Subject> GetSubjects()
 		{
 			var text = File.ReadAllText("Subjects.txt").Split(new char[] { '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-			var dictionary = new Dictionary<string, int>();
 
 			for (var i = 0; i < text.Length; i++)
 			{
@@ -25,10 +27,9 @@ namespace Raspisanie
 				var index = str.LastIndexOf('-');
 				var subject = str.Substring(0, index);
 				var difficult = str.Substring(index + 1);
-				dictionary.Add(subject, Int32.Parse(difficult));
-			}
 
-			return dictionary;
+				yield return new Subject(subject, Int32.Parse(difficult));
+			}
 		}
 	}
 }

@@ -19,7 +19,7 @@ namespace Raspisanie
 			InitializeComponent();
 			var subjectsDictionary = SchedlueMaker.GetSubjects();
 
-			foreach (var subj in subjectsDictionary.Keys)
+			foreach (var subj in subjectsDictionary.Select(a => a.Name))
 				checkedListBoxOfSubjects.Items.Add(subj);
 
 			checkedListBoxOfSubjects.CheckOnClick = true;
