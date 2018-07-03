@@ -14,6 +14,7 @@ namespace Raspisanie
 	public partial class FormAddGrades : Form
 	{
 		public static string[] checkedGrades;
+
 		public FormAddGrades()
 		{
 			InitializeComponent();

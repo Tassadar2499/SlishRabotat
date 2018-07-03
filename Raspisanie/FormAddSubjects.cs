@@ -13,6 +13,7 @@ namespace Raspisanie
 	public partial class FormAddSubjects : Form
 	{
 		public static string[] checkedSubjects;
+
 		public FormAddSubjects()
 		{
 			InitializeComponent();
