@@ -9,10 +9,6 @@ namespace Raspisanie
 {
 	static class Program
 	{
-		///123
-		/// <summary>
-		/// Главная точка входа для приложения.
-		/// </summary>
 		[STAThread]
 		static void Main()
 		{
@@ -20,16 +16,16 @@ namespace Raspisanie
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new formAddGrades());
 		}
-		public static string[] returnArrayOfClasses()
+		public static string[] GetArrayOfClasses()
 		{
-			var text = File.ReadAllText("Classes.txt").Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-			return text;
+			return File.ReadAllText("Classes.txt").Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 		}
-		public static Dictionary<string, int> returnDictionaryOfSubjects()
+		public static Dictionary<string, int> GetDictionaryOfSubjects()
 		{
 			var text = File.ReadAllText("Subjects.txt").Split(new char[] { '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 			var dictionary = new Dictionary<string, int>();
-			for (int i = 0; i < text.Length; i++)
+
+			for (var i = 0; i < text.Length; i++)
 			{
 				var str = text[i];
 				var index = str.LastIndexOf('-');
@@ -37,9 +33,10 @@ namespace Raspisanie
 				var difficult = str.Substring(index + 1);
 				dictionary.Add(subject, Int32.Parse(difficult));
 			}
+
 			return dictionary;
 		}
-		public static void show(string[] checkedObj)
+		public static void ShowOnMessageBox(string[] checkedObj)
 		{
 			string output = "";
 			if (checkedObj != null)
@@ -54,16 +51,14 @@ namespace Raspisanie
 			else
 				MessageBox.Show("Нажми на кнопку сохранить");
 		}
-		public static string[] save(CheckedListBox checkedList)
+		public static string[] SaveList(CheckedListBox checkedList)
 		{
 			var arrOfChecked = checkedList.CheckedItems;
 			var checkedObj = new string[arrOfChecked.Count];
-			var iterator = 0;
-			foreach (var element in arrOfChecked)
-			{
-				checkedObj[iterator] = element.ToString();
-				iterator++;
-			}
+
+			for (var i = 0; i < arrOfChecked.Count; i++)
+				checkedObj[i] = arrOfChecked[i].ToString();
+
 			return checkedObj;
 		}
 	}

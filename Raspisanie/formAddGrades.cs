@@ -17,7 +17,7 @@ namespace Raspisanie
 		public formAddGrades()
 		{
 			InitializeComponent();
-			var classes = Program.returnArrayOfClasses();
+			var classes = Program.GetArrayOfClasses();
 			checkedListOfClasses.Items.AddRange(classes);
 			checkedListOfClasses.CheckOnClick = true;
 			checkedListOfClasses.MultiColumn = true;
@@ -30,12 +30,12 @@ namespace Raspisanie
 
 		private void saveClick(object sender, EventArgs e)
 		{
-			checkedGrades = Program.save(checkedListOfClasses);
+			checkedGrades = Program.SaveList(checkedListOfClasses);
 		}
 
 		private void showClick(object sender, EventArgs e)
 		{
-			Program.show(checkedGrades);
+			Program.ShowOnMessageBox(checkedGrades);
 		}
 
 		private void NextClick(object sender, EventArgs e)

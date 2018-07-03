@@ -16,7 +16,7 @@ namespace Raspisanie
 		public formaAddSubjects()
 		{
 			InitializeComponent();
-			var subjectsDictionary = Program.returnDictionaryOfSubjects();
+			var subjectsDictionary = Program.GetDictionaryOfSubjects();
 			foreach (var subj in subjectsDictionary.Keys)
 			{
 				checkedListBoxOfSubjects.Items.Add(subj);
@@ -26,7 +26,7 @@ namespace Raspisanie
 
 		private void saveClick(object sender, EventArgs e)
 		{
-			checkedSubjects = Program.save(checkedListBoxOfSubjects);
+			checkedSubjects = Program.SaveList(checkedListBoxOfSubjects);
 		}
 
 		private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace Raspisanie
 
 		private void showClick(object sender, EventArgs e)
 		{
-			Program.show(checkedSubjects);
+			Program.ShowOnMessageBox(checkedSubjects);
 		}
 	}
 }
