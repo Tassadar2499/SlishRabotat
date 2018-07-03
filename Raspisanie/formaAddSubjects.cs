@@ -12,6 +12,7 @@ namespace Raspisanie
 {
 	public partial class formaAddSubjects : Form
 	{
+		public static string[] checkedSubjects;
 		public formaAddSubjects()
 		{
 			InitializeComponent();
@@ -23,9 +24,9 @@ namespace Raspisanie
 			checkedListBoxOfSubjects.CheckOnClick = true;
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+		private void saveClick(object sender, EventArgs e)
 		{
-
+			checkedSubjects = Program.save(checkedListBoxOfSubjects);
 		}
 
 		private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -33,5 +34,9 @@ namespace Raspisanie
 
 		}
 
+		private void showClick(object sender, EventArgs e)
+		{
+			Program.show(checkedSubjects);
+		}
 	}
 }

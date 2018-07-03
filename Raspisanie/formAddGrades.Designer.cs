@@ -36,7 +36,7 @@
 			// 
 			// checkedListOfClasses
 			// 
-			this.checkedListOfClasses.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.checkedListOfClasses.Cursor = System.Windows.Forms.Cursors.Default;
 			this.checkedListOfClasses.FormattingEnabled = true;
 			this.checkedListOfClasses.Location = new System.Drawing.Point(0, 0);
 			this.checkedListOfClasses.Name = "checkedListOfClasses";
@@ -68,6 +68,7 @@
 			// 
 			// button3
 			// 
+			this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.button3.Location = new System.Drawing.Point(351, 350);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(75, 23);
@@ -76,7 +77,7 @@
 			this.button3.UseVisualStyleBackColor = true;
 			this.button3.Click += new System.EventHandler(this.NextClick);
 			// 
-			// formOfClasses
+			// formAddGrades
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -85,7 +86,7 @@
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.checkedListOfClasses);
-			this.Name = "formOfClasses";
+			this.Name = "formAddGrades";
 			this.Text = "Добавить классы";
 			this.ResumeLayout(false);
 

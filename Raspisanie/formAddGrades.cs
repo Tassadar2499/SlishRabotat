@@ -30,29 +30,12 @@ namespace Raspisanie
 
 		private void saveClick(object sender, EventArgs e)
 		{
-			var arrayOfCheckedClasses = checkedListOfClasses.CheckedItems;
-			checkedGrades = new string[arrayOfCheckedClasses.Count];
-			var iterator = 0;
-			foreach (var element in arrayOfCheckedClasses) {
-				checkedGrades[iterator] = element.ToString();
-				iterator++;
-			}
+			checkedGrades = Program.save(checkedListOfClasses);
 		}
 
 		private void showClick(object sender, EventArgs e)
 		{
-			string output = "";
-			if (checkedGrades != null)
-			{
-				foreach (var element in checkedGrades)
-				{
-					output += element;
-					output += " ";
-				}
-				MessageBox.Show(output);
-			}				
-			else
-				MessageBox.Show("Нажми на кнопку сохранить");
+			Program.show(checkedGrades);
 		}
 
 		private void NextClick(object sender, EventArgs e)

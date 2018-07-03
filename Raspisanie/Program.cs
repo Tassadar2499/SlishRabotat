@@ -9,7 +9,7 @@ namespace Raspisanie
 {
 	static class Program
 	{
-		/// <summary>//dd
+		/// <summary>
 		/// Главная точка входа для приложения.
 		/// </summary>
 		[STAThread]
@@ -37,6 +37,33 @@ namespace Raspisanie
 				dictionary.Add(subject, Int32.Parse(difficult));
 			}
 			return dictionary;
+		}
+		public static void show(string[] checkedObj)
+		{
+			string output = "";
+			if (checkedObj != null)
+			{
+				foreach (var element in checkedObj)
+				{
+					output += element;
+					output += " ";
+				}
+				MessageBox.Show(output);
+			}
+			else
+				MessageBox.Show("Нажми на кнопку сохранить");
+		}
+		public static string[] save(CheckedListBox checkedList)
+		{
+			var arrOfChecked = checkedList.CheckedItems;
+			var checkedObj = new string[arrOfChecked.Count];
+			var iterator = 0;
+			foreach (var element in arrOfChecked)
+			{
+				checkedObj[iterator] = element.ToString();
+				iterator++;
+			}
+			return checkedObj;
 		}
 	}
 }
