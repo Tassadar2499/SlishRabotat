@@ -42,7 +42,7 @@
 			this.button1.TabIndex = 0;
 			this.button1.Text = "Сохранить";
 			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.saveClick);
+			this.button1.Click += new System.EventHandler(this.SaveClick);
 			// 
 			// checkedListBoxOfSubjects
 			// 
@@ -51,7 +51,7 @@
 			this.checkedListBoxOfSubjects.Name = "checkedListBoxOfSubjects";
 			this.checkedListBoxOfSubjects.Size = new System.Drawing.Size(214, 454);
 			this.checkedListBoxOfSubjects.TabIndex = 1;
-			this.checkedListBoxOfSubjects.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+			this.checkedListBoxOfSubjects.SelectedIndexChanged += new System.EventHandler(this.CheckedListBox1_SelectedIndexChanged);
 			// 
 			// button2
 			// 
@@ -62,7 +62,7 @@
 			this.button2.TabIndex = 2;
 			this.button2.Text = "Что вышло";
 			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.showClick);
+			this.button2.Click += new System.EventHandler(this.ShowClick);
 			// 
 			// formaAddSubjects
 			// 

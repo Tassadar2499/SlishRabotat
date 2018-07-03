@@ -72,6 +72,7 @@
     <Compile Include="formAddGrades.Designer.cs">
       <DependentUpon>formAddGrades.cs</DependentUpon>
     </Compile>
+    <Compile Include="IDataWorker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="formaAddSubjects.resx">

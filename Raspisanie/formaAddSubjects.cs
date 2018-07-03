@@ -24,17 +24,17 @@ namespace Raspisanie
 			checkedListBoxOfSubjects.CheckOnClick = true;
 		}
 
-		private void saveClick(object sender, EventArgs e)
+		private void SaveClick(object sender, EventArgs e)
 		{
-			checkedSubjects = Program.SaveList(checkedListBoxOfSubjects);
+			checkedSubjects = Program.CheckedListToStrings(checkedListBoxOfSubjects).ToArray();
 		}
 
-		private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
 		}
 
-		private void showClick(object sender, EventArgs e)
+		private void ShowClick(object sender, EventArgs e)
 		{
 			Program.ShowOnMessageBox(checkedSubjects);
 		}

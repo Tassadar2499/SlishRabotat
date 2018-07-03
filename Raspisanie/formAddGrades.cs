@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Raspisanie
 {
-	public partial class formAddGrades : Form
+	public partial class FormAddGrades : Form
 	{
 		public static string[] checkedGrades;
-		public formAddGrades()
+		public FormAddGrades()
 		{
 			InitializeComponent();
 			var classes = Program.GetArrayOfClasses();
@@ -23,17 +23,17 @@ namespace Raspisanie
 			checkedListOfClasses.MultiColumn = true;
 		}
 
-		private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
 		}
 
-		private void saveClick(object sender, EventArgs e)
+		private void SaveClick(object sender, EventArgs e)
 		{
-			checkedGrades = Program.SaveList(checkedListOfClasses);
+			checkedGrades = Program.CheckedListToStrings(checkedListOfClasses).ToArray();
 		}
 
-		private void showClick(object sender, EventArgs e)
+		private void ShowClick(object sender, EventArgs e)
 		{
 			Program.ShowOnMessageBox(checkedGrades);
 		}

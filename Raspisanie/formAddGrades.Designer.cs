@@ -1,6 +1,6 @@
 ﻿namespace Raspisanie
 {
-	partial class formAddGrades
+	partial class FormAddGrades
 	{
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -42,7 +42,7 @@
 			this.checkedListOfClasses.Name = "checkedListOfClasses";
 			this.checkedListOfClasses.Size = new System.Drawing.Size(450, 259);
 			this.checkedListOfClasses.TabIndex = 0;
-			this.checkedListOfClasses.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+			this.checkedListOfClasses.SelectedIndexChanged += new System.EventHandler(this.CheckedListBox1_SelectedIndexChanged);
 			// 
 			// button1
 			// 
@@ -53,7 +53,7 @@
 			this.button1.TabIndex = 1;
 			this.button1.Text = "Сохранить";
 			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.saveClick);
+			this.button1.Click += new System.EventHandler(this.SaveClick);
 			// 
 			// button2
 			// 
@@ -64,7 +64,7 @@
 			this.button2.TabIndex = 2;
 			this.button2.Text = "Что вышло";
 			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.showClick);
+			this.button2.Click += new System.EventHandler(this.ShowClick);
 			// 
 			// button3
 			// 
