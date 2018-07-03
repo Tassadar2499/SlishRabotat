@@ -9,17 +9,29 @@ namespace Raspisanie
 {
 	public static class SchedlueMaker
 	{
-		public static IEnumerable<SchoolClass> GetClasses()
+		public static SchoolClass[] SchoolClasses
 		{
-			var text = File.ReadAllText("Classes.txt").Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+			get;
+			private set;
+		}
+
+		public static Teacher[] Teachers
+		{
+			get;
+			private set;
+		}
+
+		public static IEnumerable<SchoolClass> LoadClasses(string path)
+		{
+			var text = File.ReadAllText(path).Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
 			foreach (var str in text)
 				yield return new SchoolClass(str);
 		}
 
-		public static IEnumerable<Subject> GetSubjects()
+		public static IEnumerable<Subject> LoadSubjects(string path)
 		{
-			var text = File.ReadAllText("Subjects.txt").Split(new char[] { '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+			var text = File.ReadAllText(path).Split(new char[] { '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
 			for (var i = 0; i < text.Length; i++)
 			{

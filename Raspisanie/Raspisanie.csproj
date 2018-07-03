@@ -72,6 +72,7 @@
     <Compile Include="FormAddGrades.Designer.cs">
       <DependentUpon>FormAddGrades.cs</DependentUpon>
     </Compile>
+    <Compile Include="Schedlue.cs" />
     <Compile Include="SchedlueMaker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

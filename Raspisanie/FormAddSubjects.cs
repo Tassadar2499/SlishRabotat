@@ -17,7 +17,7 @@ namespace Raspisanie
 		public FormAddSubjects()
 		{
 			InitializeComponent();
-			var subjectsDictionary = SchedlueMaker.GetSubjects();
+			var subjectsDictionary = SchedlueMaker.LoadSubjects();
 
 			foreach (var subj in subjectsDictionary.Select(a => a.Name))
 				checkedListBoxOfSubjects.Items.Add(subj);
