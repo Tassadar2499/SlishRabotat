@@ -15,9 +15,19 @@ namespace Raspisanie
 		public formaAddSubjects()
 		{
 			InitializeComponent();
+			var subjectsDictionary = Program.returnDictionaryOfSubjects();
+			foreach (var subj in subjectsDictionary.Keys)
+			{
+				checkedListBoxOfSubjects.Items.Add(subj);
+			}
 		}
 
 		private void button1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
 		}
