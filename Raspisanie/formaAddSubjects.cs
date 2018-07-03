@@ -20,6 +20,7 @@ namespace Raspisanie
 			{
 				checkedListBoxOfSubjects.Items.Add(subj);
 			}
+			checkedListBoxOfSubjects.CheckOnClick = true;
 		}
 
 		private void button1_Click(object sender, EventArgs e)
