@@ -50,5 +50,11 @@ namespace Raspisanie
 			}
 			MessageBox.Show(output);
 		}
+
+		private void NextClick(object sender, EventArgs e)
+		{
+			addSubjects form = new addSubjects();
+			form.Show();
+		}
 	}
 }
