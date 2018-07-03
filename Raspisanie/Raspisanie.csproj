@@ -60,26 +60,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="formaAddSubjects.cs">
+    <Compile Include="FormAddSubjects.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formaAddSubjects.Designer.cs">
-      <DependentUpon>formaAddSubjects.cs</DependentUpon>
+    <Compile Include="FormAddSubjects.Designer.cs">
+      <DependentUpon>FormAddSubjects.cs</DependentUpon>
     </Compile>
-    <Compile Include="formAddGrades.cs">
+    <Compile Include="FormAddGrades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formAddGrades.Designer.cs">
-      <DependentUpon>formAddGrades.cs</DependentUpon>
+    <Compile Include="FormAddGrades.Designer.cs">
+      <DependentUpon>FormAddGrades.cs</DependentUpon>
     </Compile>
-    <Compile Include="IDataWorker.cs" />
+    <Compile Include="SchedlueMaker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="formaAddSubjects.resx">
-      <DependentUpon>formaAddSubjects.cs</DependentUpon>
+    <EmbeddedResource Include="FormAddSubjects.resx">
+      <DependentUpon>FormAddSubjects.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formAddGrades.resx">
-      <DependentUpon>formAddGrades.cs</DependentUpon>
+    <EmbeddedResource Include="FormAddGrades.resx">
+      <DependentUpon>FormAddGrades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,6 +1,6 @@
 ﻿namespace Raspisanie
 {
-	partial class formaAddSubjects
+	partial class FormAddSubjects
 	{
 		/// <summary>
 		/// Required designer variable.

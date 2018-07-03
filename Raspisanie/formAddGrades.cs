@@ -17,7 +17,8 @@ namespace Raspisanie
 		public FormAddGrades()
 		{
 			InitializeComponent();
-			var classes = Program.GetArrayOfClasses();
+
+			var classes = SchedlueMaker.GetClasses();
 			checkedListOfClasses.Items.AddRange(classes);
 			checkedListOfClasses.CheckOnClick = true;
 			checkedListOfClasses.MultiColumn = true;
@@ -40,7 +41,7 @@ namespace Raspisanie
 
 		private void NextClick(object sender, EventArgs e)
 		{
-			formaAddSubjects form = new formaAddSubjects();
+			FormAddSubjects form = new FormAddSubjects();
 			form.Show();
 		}
 	}

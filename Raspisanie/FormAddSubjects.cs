@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace Raspisanie
 {
-	public partial class formaAddSubjects : Form
+	public partial class FormAddSubjects : Form
 	{
 		public static string[] checkedSubjects;
-		public formaAddSubjects()
+		public FormAddSubjects()
 		{
 			InitializeComponent();
-			var subjectsDictionary = Program.GetDictionaryOfSubjects();
+			var subjectsDictionary = SchedlueMaker.GetSubjects();
+
 			foreach (var subj in subjectsDictionary.Keys)
-			{
 				checkedListBoxOfSubjects.Items.Add(subj);
-			}
+
 			checkedListBoxOfSubjects.CheckOnClick = true;
 		}
 
