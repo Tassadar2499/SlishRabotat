@@ -18,7 +18,7 @@ namespace Raspisanie
 		{
 			InitializeComponent();
 
-			foreach (var subj in SchedlueMaker.LoadSubjects("Teachers.txt").Select(a => a.Name))
+			foreach (var subj in SchedlueMaker.LoadSubjects("Subjects.txt").Select(a => a.Name))
 				checkedListBoxOfSubjects.Items.Add(subj);
 
 			checkedListBoxOfSubjects.CheckOnClick = true;
