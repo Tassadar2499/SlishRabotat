@@ -13,9 +13,15 @@ namespace Raspisanie
 			get; set;
 		}
 
+		public Schedlue Schedlue
+		{
+			get; set;
+		}
+
 		public SchoolClass(string name)
 		{
 			Name = name;
+			Schedlue = new Schedlue();
 		}
 	}
 }

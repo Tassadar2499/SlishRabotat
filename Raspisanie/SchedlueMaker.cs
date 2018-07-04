@@ -12,13 +12,13 @@ namespace Raspisanie
 		public static SchoolClass[] SchoolClasses
 		{
 			get;
-			private set;
+			set;
 		}
 
 		public static Teacher[] Teachers
 		{
 			get;
-			private set;
+			set;
 		}
 
 		static SchedlueMaker()
@@ -56,6 +56,11 @@ namespace Raspisanie
 
 				yield return new Subject(subject, Int32.Parse(difficult));
 			}
+		}
+
+		public static void CalculateSchedlue()
+		{
+			throw new Exception();
 		}
 	}
 }

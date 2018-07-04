@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Raspisanie
 {
-	class Schedlue
+	public class Schedlue
 	{
 		public enum WeekDay
 		{
@@ -21,15 +21,15 @@ namespace Raspisanie
 
 		public List<Subject[]> schedlue;
 
-		public Schedlue(int[] subjectsCountAtDay)
+		public Schedlue()
 		{
-			if (subjectsCountAtDay.Length != 7)
-				throw new ArgumentException("subjectsCountAtDay.Lenght must be 7");
+			var maxDay = 6;
+			var maxSubjects = 7;
 
 			schedlue = new List<Subject[]>();
 
-			for (int day = 0; day < subjectsCountAtDay.Length; day++)
-				schedlue[day] = new Subject[subjectsCountAtDay[day]];
+			for (int day = 0; day < maxDay; day++)
+				schedlue[day] = new Subject[maxSubjects];
 		}
 	}
 }
