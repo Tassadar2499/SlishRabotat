@@ -20,10 +20,6 @@ namespace Raspisanie
 		public FormAddGrades()
 		{
 			InitializeComponent();
-
-			foreach(var schoolClass in SchedlueMaker.SchoolClasses.Select(a => a.Name))
-				checkedListOfClasses.Items.Add(schoolClass);
-
 			checkedListOfClasses.CheckOnClick = true;
 			checkedListOfClasses.MultiColumn = true;
 		}
