@@ -31,7 +31,8 @@ namespace Raspisanie
 
 		private void NextClick(object sender, EventArgs e) //совместил кнопку save с кнопкой next
 		{
-			schoolClasses = Program.CheckedListBoxToStrings(checkedListOfClasses).ToArray();
+			schoolClasses = Program.ListToStrings(checkedListOfClasses).ToArray();
+			Program.ShowOnMessageBox(schoolClasses);
 			FormAddSubjects form = new FormAddSubjects();
 			form.Show();
 		}
@@ -41,6 +42,13 @@ namespace Raspisanie
 			SchedlueMaker.SchoolClasses = SchedlueMaker.LoadClasses("Classes.txt").ToArray();
 			foreach (var schoolClass in SchedlueMaker.SchoolClasses.Select(a => a.Name))
 				checkedListOfClasses.Items.Add(schoolClass);
+		}
+
+		private void DeleteDefaultGradesClick(object sender, EventArgs e)//удаляет классы из текстового файла
+		{
+			SchedlueMaker.SchoolClasses = SchedlueMaker.LoadClasses("Classes.txt").ToArray();
+			foreach (var schoolClass in SchedlueMaker.SchoolClasses.Select(a => a.Name))
+				checkedListOfClasses.Items.Remove(schoolClass);
 		}
 
 		private void TextAddClass(object sender, EventArgs e) //текстовое поле добавления
