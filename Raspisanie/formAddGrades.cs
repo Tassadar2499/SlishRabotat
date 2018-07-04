@@ -46,9 +46,10 @@ namespace Raspisanie
 
 		private void DeleteDefaultGradesClick(object sender, EventArgs e)//удаляет классы из текстового файла
 		{
-			SchedlueMaker.SchoolClasses = SchedlueMaker.LoadClasses("Classes.txt").ToArray();
+			var schoolClasses = SchedlueMaker.LoadClasses("Classes.txt").ToArray();
 			foreach (var schoolClass in SchedlueMaker.SchoolClasses.Select(a => a.Name))
-				checkedListOfClasses.Items.Remove(schoolClass);
+				if (schoolClasses.Select(a => a.Name).Contains(schoolClass))
+					checkedListOfClasses.Items.Remove(schoolClass);
 		}
 
 		private void TextAddClass(object sender, EventArgs e) //текстовое поле добавления
