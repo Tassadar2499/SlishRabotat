@@ -21,12 +21,18 @@ namespace Raspisanie
 				MessageBox.Show(string.Join(" ", checkedObj));				
 		}
 
-		public static IEnumerable<string> CheckedListToStrings(CheckedListBox checkedList)
+		public static IEnumerable<string> ListToStrings(CheckedListBox checkedList) //и это костыль
 		{
-			var arrOfChecked = checkedList.CheckedItems;
+			var arrOfChecked = checkedList.Items;
 
 			for (var i = 0; i < arrOfChecked.Count; i++)
 				yield return arrOfChecked[i].ToString();
+		}
+
+		public static string[] addClasses(string path)
+		{
+			var text = File.ReadAllText(path).Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+			return text;
 		}
 
 		[STAThread]

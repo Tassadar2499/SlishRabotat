@@ -13,15 +13,13 @@ namespace Raspisanie
 {
 	public partial class FormAddGrades : Form
 	{
-		public static string[] checkedGrades;
+		private static string[] checkedGrades; //grade это тоже класс по английски
+		private static string newClass = "";
+		public static string[] schoolClasses; //сюда сохраняются все названия классов, работаем мы с этим полем
 
 		public FormAddGrades()
 		{
 			InitializeComponent();
-
-			foreach(var schoolClass in SchedlueMaker.SchoolClasses.Select(a => a.Name))
-				checkedListOfClasses.Items.Add(schoolClass);
-
 			checkedListOfClasses.CheckOnClick = true;
 			checkedListOfClasses.MultiColumn = true;
 		}
@@ -31,20 +29,46 @@ namespace Raspisanie
 
 		}
 
-		private void SaveClick(object sender, EventArgs e)
+		private void NextClick(object sender, EventArgs e) //совместил кнопку save с кнопкой next
 		{
-			checkedGrades = Program.CheckedListToStrings(checkedListOfClasses).ToArray();
-		}
-
-		private void ShowClick(object sender, EventArgs e)
-		{
-			Program.ShowOnMessageBox(checkedGrades);
-		}
-
-		private void NextClick(object sender, EventArgs e)
-		{
+			schoolClasses = Program.ListToStrings(checkedListOfClasses).ToArray();
 			FormAddSubjects form = new FormAddSubjects();
 			form.Show();
+		}
+
+		private void AddDefaultGradesClick(object sender, EventArgs e) //добавляет классы из текстового файла
+		{
+			SchedlueMaker.SchoolClasses = SchedlueMaker.LoadClasses("Classes.txt").ToArray();
+			foreach (var schoolClass in SchedlueMaker.SchoolClasses.Select(a => a.Name))
+				checkedListOfClasses.Items.Add(schoolClass);
+		}
+
+		private void TextAddClass(object sender, EventArgs e) //текстовое поле добавления
+		{
+			newClass = addedClass.Text;
+		}
+
+		private void AddNewClass(object sender, EventArgs e) //кнопка добавления
+		{
+			checkedListOfClasses.Items.Add(newClass);
+			addedClass.Clear();
+		}
+
+		private void DeleteCheckedClasses(object sender, EventArgs e) 
+		{
+			checkedGrades = CheckedListToStrings(checkedListOfClasses).ToArray();
+			foreach (var checkedGrade in checkedGrades)
+			{
+				checkedListOfClasses.Items.Remove(checkedGrade);
+			}
+		}
+
+		public static IEnumerable<string> CheckedListToStrings(CheckedListBox checkedList) //пока что костыль
+		{
+			var arrOfChecked = checkedList.CheckedItems;
+
+			for (var i = 0; i < arrOfChecked.Count; i++)
+				yield return arrOfChecked[i].ToString();
 		}
 	}
 }

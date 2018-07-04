@@ -18,7 +18,7 @@ namespace Raspisanie
 		{
 			InitializeComponent();
 
-			foreach (var subj in SchedlueMaker.LoadSubjects("Subjects.txt").Select(a => a.Name))
+			foreach (var subj in SchedlueMaker.LoadSubjects("Teachers.txt").Select(a => a.Name))
 				checkedListBoxOfSubjects.Items.Add(subj);
 
 			checkedListBoxOfSubjects.CheckOnClick = true;
@@ -26,7 +26,7 @@ namespace Raspisanie
 
 		private void SaveClick(object sender, EventArgs e)
 		{
-			checkedSubjects = Program.CheckedListToStrings(checkedListBoxOfSubjects).ToArray();
+			checkedSubjects = CheckedListToStrings(checkedListBoxOfSubjects).ToArray();
 		}
 
 		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,6 +37,13 @@ namespace Raspisanie
 		private void ShowClick(object sender, EventArgs e)
 		{
 			Program.ShowOnMessageBox(checkedSubjects);
+		}
+		public static IEnumerable<string> CheckedListToStrings(CheckedListBox checkedList)
+		{
+			var arrOfChecked = checkedList.CheckedItems;
+
+			for (var i = 0; i < arrOfChecked.Count; i++)
+				yield return arrOfChecked[i].ToString();
 		}
 	}
 }
