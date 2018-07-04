@@ -19,7 +19,10 @@ namespace Raspisanie
 		{
 			InitializeComponent();
 
-			foreach(var schoolClass in SchedlueMaker.SchoolClasses.Select(a => a.Name))
+			SchedlueMaker.SchoolClasses = SchedlueMaker.LoadClasses("Classes.txt").ToArray();
+			//SchedlueMaker.Teachers = SchedlueMaker.LoadTeachers("Teachers.txt").ToArray();
+
+			foreach (var schoolClass in SchedlueMaker.SchoolClasses.Select(a => a.Name))
 				checkedListOfClasses.Items.Add(schoolClass);
 
 			checkedListOfClasses.CheckOnClick = true;

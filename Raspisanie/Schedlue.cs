@@ -26,10 +26,10 @@ namespace Raspisanie
 			var maxDay = 6;
 			var maxSubjects = 7;
 
-			schedlue = new List<Subject[]>();
+			schedlue = new List<Subject[]>(maxDay);
 
 			for (int day = 0; day < maxDay; day++)
-				schedlue[day] = new Subject[maxSubjects];
+				schedlue.Add(new Subject[maxSubjects]);
 		}
 	}
 }

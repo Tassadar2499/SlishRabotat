@@ -23,8 +23,7 @@ namespace Raspisanie
 
 		static SchedlueMaker()
 		{
-			SchoolClasses = LoadClasses("Classes.txt").ToArray();
-			//Teachers = LoadTeachers("Teachers.txt").ToArray();
+
 		}
 
 		private static IEnumerable<Teacher> LoadTeachers(string path)
