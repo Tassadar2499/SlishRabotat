@@ -21,6 +21,20 @@ namespace Raspisanie
 			private set;
 		}
 
+		static SchedlueMaker()
+		{
+			SchoolClasses = LoadClasses("Classes.txt").ToArray();
+			//Teachers = LoadTeachers("Teachers.txt").ToArray();
+		}
+
+		private static IEnumerable<Teacher> LoadTeachers(string path)
+		{
+			var text = File.ReadAllText(path).Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+
+			foreach (var str in text)
+				yield return new Teacher(str);
+		}
+
 		public static IEnumerable<SchoolClass> LoadClasses(string path)
 		{
 			var text = File.ReadAllText(path).Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);

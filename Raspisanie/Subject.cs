@@ -23,7 +23,7 @@ namespace Raspisanie
 			get; set;
 		}
 
-		public Subject(string name, int difficult, int countAtWeek)
+		public Subject(string name, int difficult, int countAtWeek = 0)
 		{
 			Name = name;
 			Difficult = difficult;
