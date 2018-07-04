@@ -31,7 +31,7 @@ namespace Raspisanie
 
 		private void NextClick(object sender, EventArgs e) //совместил кнопку save с кнопкой next
 		{
-			schoolClasses = Program.ListToStrings(checkedListOfClasses).ToArray();
+			schoolClasses = Program.CheckedListBoxToStrings(checkedListOfClasses).ToArray();
 			FormAddSubjects form = new FormAddSubjects();
 			form.Show();
 		}
@@ -56,19 +56,11 @@ namespace Raspisanie
 
 		private void DeleteCheckedClasses(object sender, EventArgs e) 
 		{
-			checkedGrades = CheckedListToStrings(checkedListOfClasses).ToArray();
+			checkedGrades = Program.CheckedListBoxToStrings(checkedListOfClasses).ToArray();
 			foreach (var checkedGrade in checkedGrades)
 			{
 				checkedListOfClasses.Items.Remove(checkedGrade);
 			}
-		}
-
-		public static IEnumerable<string> CheckedListToStrings(CheckedListBox checkedList) //пока что костыль
-		{
-			var arrOfChecked = checkedList.CheckedItems;
-
-			for (var i = 0; i < arrOfChecked.Count; i++)
-				yield return arrOfChecked[i].ToString();
 		}
 	}
 }
