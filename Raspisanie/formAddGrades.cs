@@ -31,7 +31,7 @@ namespace Raspisanie
 
 		private void NextClick(object sender, EventArgs e) //совместил кнопку save с кнопкой next
 		{
-			schoolClasses = Program.ListToStrings(checkedListOfClasses).ToArray();
+			schoolClasses = Program.CheckedListBoxToStrings(checkedListOfClasses).ToArray();
 			Program.ShowOnMessageBox(schoolClasses);
 			FormAddSubjects form = new FormAddSubjects();
 			form.Show();
