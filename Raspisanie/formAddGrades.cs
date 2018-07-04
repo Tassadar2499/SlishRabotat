@@ -64,12 +64,12 @@ namespace Raspisanie
 		}
 
 
-		//Bug: удаляет не выделенные классы, а все
 		private void DeleteCheckedClasses(object sender, EventArgs e) 
 		{
-			checkedGrades = Program.CheckedListBoxToStrings(checkedListOfClasses).ToArray();
-			foreach (var checkedGrade in checkedGrades)
-				checkedListOfClasses.Items.Remove(checkedGrade);
+			var checkedItems = checkedListOfClasses.CheckedItems;
+
+			for (var i = checkedListOfClasses.CheckedItems.Count - 1; i >= 0; i--)
+				checkedListOfClasses.Items.Remove(checkedListOfClasses.CheckedItems[i]);
 		}
 	}
 }
