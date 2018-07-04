@@ -9,17 +9,17 @@ namespace Raspisanie
 {
 	public static class SchedlueMaker
 	{
-		public static SchoolClass[] SchoolClasses
+		public static List<SchoolClass> SchoolClasses
 		{
 			get;
 			set;
-		}
+		} = new List<SchoolClass>();
 
-		public static Teacher[] Teachers
+		public static List<Teacher> Teachers
 		{
 			get;
 			set;
-		}
+		} = new List<Teacher>();
 
 		static SchedlueMaker()
 		{

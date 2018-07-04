@@ -20,6 +20,12 @@ namespace Raspisanie
 			checkedListOfClasses.MultiColumn = true;
 		}
 
+		public void CheckedListOfClasses_AddItem(string item)
+		{
+			if (!checkedListOfClasses.Items.Contains(item))
+				checkedListOfClasses.Items.Add(item);
+		}
+
 		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
@@ -35,16 +41,18 @@ namespace Raspisanie
 
 		private void AddDefaultGradesClick(object sender, EventArgs e) //добавляет классы из текстового файла
 		{
-			SchedlueMaker.SchoolClasses = SchedlueMaker.LoadClasses("Classes.txt").ToArray();
-			foreach (var schoolClass in SchedlueMaker.SchoolClasses.Select(a => a.Name))
-				checkedListOfClasses.Items.Add(schoolClass);
-		}
+			var schoolClasses = SchedlueMaker.LoadClasses("Classes.txt").Select(a => a.Name);
 
+			foreach (var schoolClass in schoolClasses)
+				CheckedListOfClasses_AddItem(schoolClass);
+		}
+		
 		private void DeleteDefaultGradesClick(object sender, EventArgs e)//удаляет классы из текстового файла
 		{
-			var schoolClasses = SchedlueMaker.LoadClasses("Classes.txt").ToArray();
-			foreach (var schoolClass in SchedlueMaker.SchoolClasses.Select(a => a.Name))
-				if (schoolClasses.Select(a => a.Name).Contains(schoolClass))
+			var schoolClasses = SchedlueMaker.LoadClasses("Classes.txt").Select(a => a.Name);
+
+			foreach (var schoolClass in schoolClasses)
+				if (schoolClasses.Contains(schoolClass))
 					checkedListOfClasses.Items.Remove(schoolClass);
 		}
 
@@ -55,7 +63,7 @@ namespace Raspisanie
 
 		private void AddNewClass(object sender, EventArgs e) //кнопка добавления
 		{
-			checkedListOfClasses.Items.Add(addedClass.Text);
+			CheckedListOfClasses_AddItem(addedClass.Text);
 			addedClass.Clear();
 		}
 
