@@ -13,10 +13,6 @@ namespace Raspisanie
 {
 	public partial class FormAddGrades : Form
 	{
-		private static string[] checkedGrades; //grade это тоже класс по английски
-		private static string newClass = "";
-		public static string[] schoolClasses; //сюда сохраняются все названия классов, работаем мы с этим полем
-
 		public FormAddGrades()
 		{
 			InitializeComponent();
@@ -31,7 +27,7 @@ namespace Raspisanie
 
 		private void NextClick(object sender, EventArgs e) //совместил кнопку save с кнопкой next
 		{
-			schoolClasses = Program.CheckedListBoxToStrings(checkedListOfClasses).ToArray();
+			var schoolClasses = Program.CheckedListBoxToStrings(checkedListOfClasses).ToArray();
 			Program.ShowOnMessageBox(schoolClasses);
 			FormAddSubjects form = new FormAddSubjects();
 			form.Show();
@@ -54,12 +50,12 @@ namespace Raspisanie
 
 		private void TextAddClass(object sender, EventArgs e) //текстовое поле добавления
 		{
-			newClass = addedClass.Text;
+
 		}
 
 		private void AddNewClass(object sender, EventArgs e) //кнопка добавления
 		{
-			checkedListOfClasses.Items.Add(newClass);
+			checkedListOfClasses.Items.Add(addedClass.Text);
 			addedClass.Clear();
 		}
 
