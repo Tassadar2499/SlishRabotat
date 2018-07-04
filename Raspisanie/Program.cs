@@ -22,6 +22,7 @@ namespace Raspisanie
 		}
 
 		public static IEnumerable<string> CheckedListBoxToStrings(CheckedListBox checkedList) //и это костыль
+			//это не работающий костыль
 		{
 			var arrOfChecked = checkedList.Items;
 
