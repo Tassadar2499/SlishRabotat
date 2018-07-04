@@ -44,7 +44,7 @@ namespace Raspisanie
 				checkedListOfClasses.Items.Add(schoolClass);
 		}
 
-		private void DeleteDefaultClasses(object sender, EventArgs e)
+		private void DeleteDefaultGradesClick(object sender, EventArgs e)//удаляет классы из текстового файла
 		{
 			SchedlueMaker.SchoolClasses = SchedlueMaker.LoadClasses("Classes.txt").ToArray();
 			foreach (var schoolClass in SchedlueMaker.SchoolClasses.Select(a => a.Name))

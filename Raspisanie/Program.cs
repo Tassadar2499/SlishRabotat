@@ -29,12 +29,6 @@ namespace Raspisanie
 				yield return arrOfChecked[i].ToString();
 		}
 
-		public static string[] addClasses(string path)
-		{
-			var text = File.ReadAllText(path).Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-			return text;
-		}
-
 		[STAThread]
 		static void Main()
 		{
