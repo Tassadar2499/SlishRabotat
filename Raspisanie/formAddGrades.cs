@@ -32,6 +32,7 @@ namespace Raspisanie
 		private void NextClick(object sender, EventArgs e) //совместил кнопку save с кнопкой next
 		{
 			schoolClasses = Program.ListToStrings(checkedListOfClasses).ToArray();
+			Program.ShowOnMessageBox(schoolClasses);
 			FormAddSubjects form = new FormAddSubjects();
 			form.Show();
 		}
@@ -41,6 +42,13 @@ namespace Raspisanie
 			SchedlueMaker.SchoolClasses = SchedlueMaker.LoadClasses("Classes.txt").ToArray();
 			foreach (var schoolClass in SchedlueMaker.SchoolClasses.Select(a => a.Name))
 				checkedListOfClasses.Items.Add(schoolClass);
+		}
+
+		private void DeleteDefaultClasses(object sender, EventArgs e)
+		{
+			SchedlueMaker.SchoolClasses = SchedlueMaker.LoadClasses("Classes.txt").ToArray();
+			foreach (var schoolClass in SchedlueMaker.SchoolClasses.Select(a => a.Name))
+				checkedListOfClasses.Items.Remove(schoolClass);
 		}
 
 		private void TextAddClass(object sender, EventArgs e) //текстовое поле добавления
@@ -54,7 +62,7 @@ namespace Raspisanie
 			addedClass.Clear();
 		}
 
-		private void DeleteCheckedClasses(object sender, EventArgs e) 
+		private void DeleteCheckedClasses(object sender, EventArgs e)
 		{
 			checkedGrades = CheckedListToStrings(checkedListOfClasses).ToArray();
 			foreach (var checkedGrade in checkedGrades)
