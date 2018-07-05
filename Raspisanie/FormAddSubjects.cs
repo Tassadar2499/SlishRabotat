@@ -21,13 +21,13 @@ namespace Raspisanie
 			checkedListBoxOfSubjects.CheckOnClick = true;
 		}
 
-		public void CheckedListOfSubjects_AddItem(string item)
+		public void CheckedListOfSubjects_AddItem(string item) //Методы одинаковы
 		{
 			if (!checkedListBoxOfSubjects.Items.Contains(item))
 				checkedListBoxOfSubjects.Items.Add(item);
 		}
 
-		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e) //Методы одинаковы
 		{
 
 		}
@@ -38,7 +38,7 @@ namespace Raspisanie
 			Program.ShowOnMessageBox(checkedSubjects);
 		}
 
-		private void AddDefaultSubjectsClick(object sender, EventArgs e)
+		private void AddDefaultSubjectsClick(object sender, EventArgs e) //Методы одинаковы
 		{
 			foreach (var subj in SchedlueMaker.LoadSubjects("Subjects.txt").Select(a => a.Name))
 				checkedListBoxOfSubjects.Items.Add(subj);
@@ -47,7 +47,7 @@ namespace Raspisanie
 
 		}
 
-		private void DeleteDefaultSubjectsClick(object sender, EventArgs e)
+		private void DeleteDefaultSubjectsClick(object sender, EventArgs e) //Методы одинаковы
 		{
 			var schoolSubjects = SchedlueMaker.LoadSubjects("Subjects.txt").Select(a => a.Name);
 
@@ -73,13 +73,13 @@ namespace Raspisanie
 			addedSubject.AutoCompleteSource = AutoCompleteSource.CustomSource;
 		}
 
-		private void AddNewSubject(object sender, EventArgs e)
+		private void AddNewSubjectClick(object sender, EventArgs e) //Методы одинаковы
 		{
 			CheckedListOfSubjects_AddItem(addedSubject.Text);
 			addedSubject.Clear();
 		}
 
-		private void DeleteCheckedSubjectsClick(object sender, EventArgs e)
+		private void DeleteCheckedSubjectsClick(object sender, EventArgs e) //Методы одинаковы
 		{
 			var checkedItems = checkedListBoxOfSubjects.CheckedItems;
 

@@ -125,7 +125,7 @@
 			this.button7.TabIndex = 9;
 			this.button7.Text = "Добавить предмет";
 			this.button7.UseVisualStyleBackColor = true;
-			this.button7.Click += new System.EventHandler(this.AddNewSubject);
+			this.button7.Click += new System.EventHandler(this.AddNewSubjectClick);
 			// 
 			// FormAddSubjects
 			// 
