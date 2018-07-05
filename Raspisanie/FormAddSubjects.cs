@@ -91,7 +91,9 @@ namespace Raspisanie
 		private void SortingByAlphabet(object sender, EventArgs e)
 		{
 			var schoolSubjects = Program.ListBoxToStrings(checkedListBoxOfSubjects).ToArray();
-			Sorting.SortingByAlphabet(schoolSubjects);
+
+			Array.Sort(schoolSubjects);
+
 			checkedListBoxOfSubjects.Items.Clear();
 			checkedListBoxOfSubjects.Items.AddRange(schoolSubjects);
 		}

@@ -81,7 +81,8 @@ namespace Raspisanie
 		{
 			var schoolClasses = Program.ListBoxToStrings(checkedListOfClasses).ToArray();
 
-			Sorting.SortingByNumber(schoolClasses);
+			Array.Sort(schoolClasses, new SortingStringByNumber());
+
 			checkedListOfClasses.Items.Clear();
 
 			foreach (var schoolClass in schoolClasses)
