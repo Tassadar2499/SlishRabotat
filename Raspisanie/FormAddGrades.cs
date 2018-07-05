@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace Raspisanie
 {
 	public partial class FormAddGrades : Form
-	{//
+	{
 		public FormAddGrades()
 		{
 			InitializeComponent();
@@ -33,7 +33,7 @@ namespace Raspisanie
 
 		private void NextClick(object sender, EventArgs e) //совместил кнопку save с кнопкой next
 		{
-			var schoolClasses = Program.CheckedListBoxToStrings(checkedListOfClasses).ToArray();
+			var schoolClasses = Program.ListBoxToStrings(checkedListOfClasses).ToArray();
 			Program.ShowOnMessageBox(schoolClasses);
 			FormAddSubjects form = new FormAddSubjects();
 			form.Show();
@@ -74,6 +74,15 @@ namespace Raspisanie
 
 			for (var i = checkedListOfClasses.CheckedItems.Count - 1; i >= 0; i--)
 				checkedListOfClasses.Items.Remove(checkedListOfClasses.CheckedItems[i]);
+		}
+
+		private void SortingByNumberClick(object sender, EventArgs e)
+		{
+			var schoolClasses = Program.ListBoxToStrings(checkedListOfClasses).ToArray();
+			Sorting.SortingByNumber(schoolClasses);
+			checkedListOfClasses.Items.Clear();
+			foreach (var schoolClass in schoolClasses)
+				CheckedListOfClasses_AddItem(schoolClass);
 		}
 	}
 }

@@ -26,7 +26,7 @@ namespace Raspisanie
 
 		private void SaveClick(object sender, EventArgs e)
 		{
-			checkedSubjects = Program.CheckedListBoxToStrings(checkedListBoxOfSubjects).ToArray();
+			checkedSubjects = Program.ListBoxToStrings(checkedListBoxOfSubjects).ToArray();
 		}
 
 		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)

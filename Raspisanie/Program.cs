@@ -21,7 +21,7 @@ namespace Raspisanie
 				MessageBox.Show(string.Join(" ", checkedObj));				
 		}
 
-		public static IEnumerable<string> CheckedListBoxToStrings(CheckedListBox checkedList) //и это костыль
+		public static IEnumerable<string> ListBoxToStrings(CheckedListBox checkedList) //и это костыль
 			//это не работающий костыль
 		{
 			var arrOfChecked = checkedList.Items;
