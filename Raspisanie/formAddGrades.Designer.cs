@@ -86,7 +86,7 @@
 			this.button2.TabIndex = 6;
 			this.button2.Text = "Добавить класс";
 			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.AddNewClass);
+			this.button2.Click += new System.EventHandler(this.AddNewClassClick);
 			// 
 			// button4
 			// 
@@ -96,7 +96,7 @@
 			this.button4.TabIndex = 7;
 			this.button4.Text = "Удалить выбранные классы";
 			this.button4.UseVisualStyleBackColor = true;
-			this.button4.Click += new System.EventHandler(this.DeleteCheckedClasses);
+			this.button4.Click += new System.EventHandler(this.DeleteCheckedClassesClick);
 			// 
 			// button5
 			// 

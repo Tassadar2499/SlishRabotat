@@ -62,14 +62,14 @@ namespace Raspisanie
 
 		}
 
-		private void AddNewClass(object sender, EventArgs e) //кнопка добавления
+		private void AddNewClassClick(object sender, EventArgs e) //кнопка добавления
 		{
 			CheckedListOfClasses_AddItem(addedClass.Text);
 			addedClass.Clear();
 		}
 
 
-		private void DeleteCheckedClasses(object sender, EventArgs e) 
+		private void DeleteCheckedClassesClick(object sender, EventArgs e) 
 		{
 			var checkedItems = checkedListOfClasses.CheckedItems;
 
