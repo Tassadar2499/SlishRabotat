@@ -20,18 +20,18 @@ namespace Raspisanie
 			checkedListOfClasses.MultiColumn = true;
 		}
 
-		public void CheckedListOfClasses_AddItem(string item)
+		public void CheckedListOfClasses_AddItem(string item) //Методы одинаковы
 		{
 			if (!checkedListOfClasses.Items.Contains(item))
 				checkedListOfClasses.Items.Add(item);
 		}
 
-		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)//Методы одинаковы
 		{
 
 		}
 
-		private void NextClick(object sender, EventArgs e) //совместил кнопку save с кнопкой next
+		private void NextClick(object sender, EventArgs e)
 		{
 			var schoolClasses = Program.ListBoxToStrings(checkedListOfClasses).ToArray();
 			Program.ShowOnMessageBox(schoolClasses);
@@ -40,7 +40,7 @@ namespace Raspisanie
 			this.Hide();
 		}
 
-		private void AddDefaultGradesClick(object sender, EventArgs e) //добавляет классы из текстового файла
+		private void AddDefaultGradesClick(object sender, EventArgs e) //Методы одинаковы
 		{
 			var schoolClasses = SchedlueMaker.LoadClasses("Classes.txt").Select(a => a.Name);
 
@@ -48,7 +48,7 @@ namespace Raspisanie
 				CheckedListOfClasses_AddItem(schoolClass);
 		}
 		
-		private void DeleteDefaultGradesClick(object sender, EventArgs e)//удаляет классы из текстового файла
+		private void DeleteDefaultGradesClick(object sender, EventArgs e)//Методы одинаковы
 		{
 			var schoolClasses = SchedlueMaker.LoadClasses("Classes.txt").Select(a => a.Name);
 
@@ -57,19 +57,19 @@ namespace Raspisanie
 					checkedListOfClasses.Items.Remove(schoolClass);
 		}
 
-		private void TextAddClass(object sender, EventArgs e) //текстовое поле добавления
+		private void TextAddClass(object sender, EventArgs e)
 		{
 
 		}
 
-		private void AddNewClassClick(object sender, EventArgs e) //кнопка добавления
+		private void AddNewClassClick(object sender, EventArgs e) //Методы одинаковы
 		{
 			CheckedListOfClasses_AddItem(addedClass.Text);
 			addedClass.Clear();
 		}
 
 
-		private void DeleteCheckedClassesClick(object sender, EventArgs e) 
+		private void DeleteCheckedClassesClick(object sender, EventArgs e) //Методы одинаковы
 		{
 			var checkedItems = checkedListOfClasses.CheckedItems;
 

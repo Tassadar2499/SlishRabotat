@@ -36,6 +36,7 @@ namespace Raspisanie
 		{
 			checkedSubjects = Program.ListBoxToStrings(checkedListBoxOfSubjects).ToArray();
 			Program.ShowOnMessageBox(checkedSubjects);
+			Application.Exit();
 		}
 
 		private void AddDefaultSubjectsClick(object sender, EventArgs e) //Методы одинаковы
