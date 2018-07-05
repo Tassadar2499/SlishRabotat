@@ -14,6 +14,12 @@ namespace Raspisanie
 			int[] intArray = createIntArray(stringArray);
 			BubbleSort(intArray, stringArray);
 		}
+
+		public static void SortingByAlphabet(string[] stringArray)
+		{
+			Array.Sort(stringArray);
+		}
+
 		private static void BubbleSort(int[] intArray, string[] stringArray)
 		{
 

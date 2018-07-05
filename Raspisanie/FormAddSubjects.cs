@@ -38,5 +38,20 @@ namespace Raspisanie
 		{
 			Program.ShowOnMessageBox(checkedSubjects);
 		}
+
+		private void SortingByAlphabet(object sender, EventArgs e)
+		{
+			var schoolSubjects = Program.ListBoxToStrings(checkedListBoxOfSubjects).ToArray();
+			Sorting.SortingByAlphabet(schoolSubjects);
+			checkedListBoxOfSubjects.Items.Clear();
+			checkedListBoxOfSubjects.Items.AddRange(schoolSubjects);
+		}
+
+		private void GoToPreviousFormClick(object sender, EventArgs e)
+		{
+			FormAddGrades formAddGrades = new FormAddGrades();
+			this.Close();
+			formAddGrades.Show();
+		}
 	}
 }

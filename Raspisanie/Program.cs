@@ -35,7 +35,10 @@ namespace Raspisanie
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new FormAddGrades());
+			FormAddGrades formAddGrades = new FormAddGrades();
+			Application.Run(formAddGrades);
+			//FormAddSubjects formAddSubjects = new FormAddSubjects();
+			//Application.Run(formAddSubjects);
 		}
 	}
 }
