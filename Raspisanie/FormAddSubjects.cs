@@ -30,7 +30,7 @@ namespace Raspisanie
 		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e) //Методы одинаковы
 		{
 
-		}//
+		}
 
 		private void NextClick(object sender, EventArgs e)
 		{
