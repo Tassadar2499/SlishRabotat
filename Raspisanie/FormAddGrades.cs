@@ -80,8 +80,10 @@ namespace Raspisanie
 		private void SortingByNumberClick(object sender, EventArgs e)
 		{
 			var schoolClasses = Program.ListBoxToStrings(checkedListOfClasses).ToArray();
+
 			Sorting.SortingByNumber(schoolClasses);
 			checkedListOfClasses.Items.Clear();
+
 			foreach (var schoolClass in schoolClasses)
 				CheckedListOfClasses_AddItem(schoolClass);
 		}
