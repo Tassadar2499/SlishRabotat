@@ -13,8 +13,6 @@ namespace Raspisanie
 {
 	public partial class FormAddSubjects : Form
 	{
-		public static string[] checkedSubjects;
-
 		public FormAddSubjects()
 		{
 			InitializeComponent();
@@ -34,7 +32,7 @@ namespace Raspisanie
 
 		private void NextClick(object sender, EventArgs e)
 		{
-			checkedSubjects = Program.ListBoxToStrings(checkedListBoxOfSubjects).ToArray();
+			var checkedSubjects = Program.ListBoxToStrings(checkedListBoxOfSubjects).ToArray();
 			Program.ShowOnMessageBox(checkedSubjects);
 			Application.Exit();
 		}
