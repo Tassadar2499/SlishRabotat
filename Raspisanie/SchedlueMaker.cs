@@ -57,6 +57,21 @@ namespace Raspisanie
 			}
 		}
 
+		public static void SaveSchedlue(string path)
+		{
+			foreach (var schoolClass in SchoolClasses)
+			{
+				File.AppendAllText(path, schoolClass.Name + ":\n");
+
+				for (int day = 0; day < schoolClass.schedlue.Count; day++)
+				{
+					for (int lesson = 0; lesson < schoolClass.schedlue[day].Length; lesson++)
+						File.AppendAllText(path, schoolClass.schedlue[day][lesson].Name);
+					File.AppendAllText(path, "\n");
+				}
+			}
+		}
+
 		public static void CalculateSchedlue()
 		{
 			//предмет, у какого клаасса этот предмет
