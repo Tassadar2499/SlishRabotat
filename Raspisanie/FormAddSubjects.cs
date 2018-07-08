@@ -43,7 +43,6 @@ namespace Raspisanie
 				subjectsCheckedListBox.Items.Add(subj);
 
 			subjectsCheckedListBox.CheckOnClick = true;
-
 		}
 
 		private void DeleteDefaultSubjectsClick(object sender, EventArgs e)
