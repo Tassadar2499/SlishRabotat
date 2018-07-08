@@ -115,7 +115,7 @@
 			this.addedSubject.Name = "addedSubject";
 			this.addedSubject.Size = new System.Drawing.Size(100, 20);
 			this.addedSubject.TabIndex = 8;
-			this.addedSubject.TextChanged += new System.EventHandler(this.textAddSubject);
+			this.addedSubject.TextChanged += new System.EventHandler(this.TextAddSubject);
 			// 
 			// button7
 			// 
