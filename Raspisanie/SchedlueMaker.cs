@@ -113,6 +113,7 @@ namespace Raspisanie
 						if (classFree && teacherFree)
 						{
 							subject.Item2.PutLesson((DayOfWeek)place.Item1, place.Item2, subject.Item1);
+							subject.Item2.Subjects[subject.Item1].PutLesson((DayOfWeek)place.Item1, place.Item2, subject.Item1);
 							break;
 						}
 					}
