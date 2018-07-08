@@ -18,10 +18,16 @@ namespace Raspisanie
 			get; set;
 		}
 
-		public SchoolClass(string name)
+		public Dictionary<Subject, int> SubjectCountAtWeek
+		{
+			get; set;
+		}
+
+		public SchoolClass(string name, Dictionary<Subject, int> subjectCountAtWeek)
 		{
 			Name = name;
 			Schedlue = new Schedlue();
+			SubjectCountAtWeek = subjectCountAtWeek;
 		}
 	}
 }
