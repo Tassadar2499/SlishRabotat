@@ -107,10 +107,10 @@ namespace Raspisanie
 					foreach (var place in allPlace)
 					{
 						//если класс и препод свободен в этот момент
-						var classFree = subject.Item2.IsFreeAt((DayOfWeek)place.Item1, place.Item2);
-						var teacherFree = subject.Item2.Subjects[subject.Item1].IsFreeAt((DayOfWeek)place.Item1, place.Item2);
+						var classIsFree = subject.Item2.IsFreeAt((DayOfWeek)place.Item1, place.Item2);
+						var teacherIsFree = subject.Item2.Subjects[subject.Item1].IsFreeAt((DayOfWeek)place.Item1, place.Item2);
 
-						if (classFree && teacherFree)
+						if (classIsFree && teacherIsFree)
 						{
 							subject.Item2.PutLesson((DayOfWeek)place.Item1, place.Item2, subject.Item1);
 							subject.Item2.Subjects[subject.Item1].PutLesson((DayOfWeek)place.Item1, place.Item2, subject.Item1);
