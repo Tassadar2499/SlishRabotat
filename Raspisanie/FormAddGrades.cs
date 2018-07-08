@@ -22,7 +22,7 @@ namespace Raspisanie
 
 		public void CheckedListOfClasses_AddItem(string item) //Методы одинаковы
 		{
-			if (!checkedListOfClasses.Items.Contains(item))
+			if (item != "" && !checkedListOfClasses.Items.Contains(item))
 				checkedListOfClasses.Items.Add(item);
 		}
 
