@@ -16,14 +16,14 @@ namespace Raspisanie
 		public FormAddGrades()
 		{
 			InitializeComponent();
-			checkedListOfClasses.CheckOnClick = true;
-			checkedListOfClasses.MultiColumn = true;
+			classesCheckedList.CheckOnClick = true;
+			classesCheckedList.MultiColumn = true;
 		}
 
 		public void CheckedListOfClasses_AddItem(string item) //Методы одинаковы
 		{
-			if (item != "" && !checkedListOfClasses.Items.Contains(item))
-				checkedListOfClasses.Items.Add(item);
+			if (item != "" && !classesCheckedList.Items.Contains(item))
+				classesCheckedList.Items.Add(item);
 		}
 
 		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)//Методы одинаковы
@@ -33,7 +33,7 @@ namespace Raspisanie
 
 		private void NextClick(object sender, EventArgs e)
 		{
-			var schoolClasses = Program.ListBoxToStrings(checkedListOfClasses).ToArray();
+			var schoolClasses = Program.ListBoxToStrings(classesCheckedList).ToArray();
 			Program.ShowOnMessageBox(schoolClasses);
 			FormAddSubjects formAddSubjects = new FormAddSubjects();
 			formAddSubjects.Show();
@@ -54,7 +54,7 @@ namespace Raspisanie
 
 			foreach (var schoolClass in schoolClasses)
 				if (schoolClasses.Contains(schoolClass))
-					checkedListOfClasses.Items.Remove(schoolClass);
+					classesCheckedList.Items.Remove(schoolClass);
 		}
 
 		private void TextAddClass(object sender, EventArgs e)
@@ -64,29 +64,34 @@ namespace Raspisanie
 
 		private void AddNewClassClick(object sender, EventArgs e) //Методы одинаковы
 		{
-			CheckedListOfClasses_AddItem(addedClass.Text);
-			addedClass.Clear();
+			CheckedListOfClasses_AddItem(addClassTextBox.Text);
+			addClassTextBox.Clear();
 		}
 
 
 		private void DeleteCheckedClassesClick(object sender, EventArgs e) //Методы одинаковы
 		{
-			var checkedItems = checkedListOfClasses.CheckedItems;
+			var checkedItems = classesCheckedList.CheckedItems;
 
-			for (var i = checkedListOfClasses.CheckedItems.Count - 1; i >= 0; i--)
-				checkedListOfClasses.Items.Remove(checkedListOfClasses.CheckedItems[i]);
+			for (var i = classesCheckedList.CheckedItems.Count - 1; i >= 0; i--)
+				classesCheckedList.Items.Remove(classesCheckedList.CheckedItems[i]);
 		}
 
 		private void SortingByNumberClick(object sender, EventArgs e)
 		{
-			var schoolClasses = Program.ListBoxToStrings(checkedListOfClasses).ToArray();
+			var schoolClasses = Program.ListBoxToStrings(classesCheckedList).ToArray();
 
 			Array.Sort(schoolClasses, new SortingStringByNumber());
 
-			checkedListOfClasses.Items.Clear();
+			classesCheckedList.Items.Clear();
 
 			foreach (var schoolClass in schoolClasses)
 				CheckedListOfClasses_AddItem(schoolClass);
+		}
+
+		private void FormAddGrades_Load(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

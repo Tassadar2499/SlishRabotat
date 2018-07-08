@@ -26,7 +26,7 @@ namespace Raspisanie
 		public Schedlue()
 		{
 			var maxDay = 6;
-			var maxLesson = 7;
+			//var maxLesson = 7;
 
 			schedlue = new List<Subject[]>(maxDay);
 			schedlueWeights = new List<double[]>

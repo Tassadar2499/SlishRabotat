@@ -16,13 +16,13 @@ namespace Raspisanie
 		public FormAddSubjects()
 		{
 			InitializeComponent();
-			checkedListBoxOfSubjects.CheckOnClick = true;
+			subjectsCheckedListBox.CheckOnClick = true;
 		}
 
 		public void CheckedListOfSubjects_AddItem(string item) //Методы одинаковы
 		{
-			if (item != "" && !checkedListBoxOfSubjects.Items.Contains(item))
-				checkedListBoxOfSubjects.Items.Add(item);
+			if (item != "" && !subjectsCheckedListBox.Items.Contains(item))
+				subjectsCheckedListBox.Items.Add(item);
 		}
 
 		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e) //Методы одинаковы
@@ -32,7 +32,7 @@ namespace Raspisanie
 
 		private void NextClick(object sender, EventArgs e)
 		{
-			var checkedSubjects = Program.ListBoxToStrings(checkedListBoxOfSubjects).ToArray();
+			var checkedSubjects = Program.ListBoxToStrings(subjectsCheckedListBox).ToArray();
 			Program.ShowOnMessageBox(checkedSubjects);
 			Application.Exit();
 		}
@@ -40,9 +40,9 @@ namespace Raspisanie
 		private void AddDefaultSubjectsClick(object sender, EventArgs e) //Методы одинаковы
 		{
 			foreach (var subj in SchedlueMaker.LoadSubjects("Subjects.txt").Select(a => a.Name))
-				checkedListBoxOfSubjects.Items.Add(subj);
+				subjectsCheckedListBox.Items.Add(subj);
 
-			checkedListBoxOfSubjects.CheckOnClick = true;
+			subjectsCheckedListBox.CheckOnClick = true;
 
 		}
 
@@ -52,7 +52,7 @@ namespace Raspisanie
 
 			foreach (var schoolSubject in schoolSubjects)
 				if (schoolSubjects.Contains(schoolSubject))
-					checkedListBoxOfSubjects.Items.Remove(schoolSubject);
+					subjectsCheckedListBox.Items.Remove(schoolSubject);
 		}
 
 		private void TextAddSubject(object sender, EventArgs e)
@@ -67,33 +67,33 @@ namespace Raspisanie
 			}
 			AutoCompleteStringCollection source = new AutoCompleteStringCollection();
 			source.AddRange(text);			
-			addedSubject.AutoCompleteCustomSource = source;
-			addedSubject.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-			addedSubject.AutoCompleteSource = AutoCompleteSource.CustomSource;
+			subjectTextBox.AutoCompleteCustomSource = source;
+			subjectTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+			subjectTextBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
 		}
 
 		private void AddNewSubjectClick(object sender, EventArgs e) //Методы одинаковы
 		{
-			CheckedListOfSubjects_AddItem(addedSubject.Text);
-			addedSubject.Clear();
+			CheckedListOfSubjects_AddItem(subjectTextBox.Text);
+			subjectTextBox.Clear();
 		}
 
 		private void DeleteCheckedSubjectsClick(object sender, EventArgs e) //Методы одинаковы
 		{
-			var checkedItems = checkedListBoxOfSubjects.CheckedItems;
+			var checkedItems = subjectsCheckedListBox.CheckedItems;
 
-			for (var i = checkedListBoxOfSubjects.CheckedItems.Count - 1; i >= 0; i--)
-				checkedListBoxOfSubjects.Items.Remove(checkedListBoxOfSubjects.CheckedItems[i]);
+			for (var i = subjectsCheckedListBox.CheckedItems.Count - 1; i >= 0; i--)
+				subjectsCheckedListBox.Items.Remove(subjectsCheckedListBox.CheckedItems[i]);
 		}
 
 		private void SortingByAlphabet(object sender, EventArgs e)
 		{
-			var schoolSubjects = Program.ListBoxToStrings(checkedListBoxOfSubjects).ToArray();
+			var schoolSubjects = Program.ListBoxToStrings(subjectsCheckedListBox).ToArray();
 
 			Array.Sort(schoolSubjects);
 
-			checkedListBoxOfSubjects.Items.Clear();
-			checkedListBoxOfSubjects.Items.AddRange(schoolSubjects);
+			subjectsCheckedListBox.Items.Clear();
+			subjectsCheckedListBox.Items.AddRange(schoolSubjects);
 		}
 
 		private void GoToPreviousFormClick(object sender, EventArgs e)
