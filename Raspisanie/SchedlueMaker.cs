@@ -67,7 +67,17 @@ namespace Raspisanie
 
 			allSubjects.OrderBy(a => a.Item1.Difficult);
 			
+			foreach (var subject in allSubjects)
+			{
+				var allPlace = new List<Tuple<DayOfWeek, int, int>>();
 
+				for (var day = 0; day < subject.Item3.schedlue.Count; day++)
+					for (var lesson = 0; lesson < subject.Item3.schedlue[day].Length; lesson++)
+					{
+
+					}
+						
+			}
 		}
 	}
 }
