@@ -20,13 +20,13 @@ namespace Raspisanie
 			classesCheckedList.MultiColumn = true;
 		}
 
-		public void CheckedListOfClasses_AddItem(string item) //Методы одинаковы
+		public void CheckedListOfClasses_AddItem(string item)
 		{
 			if (item != "" && !classesCheckedList.Items.Contains(item))
 				classesCheckedList.Items.Add(item);
 		}
 
-		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)//Методы одинаковы
+		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
 		}
@@ -40,15 +40,15 @@ namespace Raspisanie
 			this.Hide();
 		}
 
-		private void AddDefaultGradesClick(object sender, EventArgs e) //Методы одинаковы
+		private void AddDefaultGradesClick(object sender, EventArgs e)
 		{
 			var schoolClasses = SchedlueMaker.LoadClasses("Classes.txt").Select(a => a.Name);
 
 			foreach (var schoolClass in schoolClasses)
 				CheckedListOfClasses_AddItem(schoolClass);
 		}
-		
-		private void DeleteDefaultGradesClick(object sender, EventArgs e)//Методы одинаковы
+
+		private void DeleteDefaultGradesClick(object sender, EventArgs e)
 		{
 			var schoolClasses = SchedlueMaker.LoadClasses("Classes.txt").Select(a => a.Name);
 
@@ -62,14 +62,14 @@ namespace Raspisanie
 
 		}
 
-		private void AddNewClassClick(object sender, EventArgs e) //Методы одинаковы
+		private void AddNewClassClick(object sender, EventArgs e)
 		{
 			CheckedListOfClasses_AddItem(addClassTextBox.Text);
 			addClassTextBox.Clear();
 		}
 
 
-		private void DeleteCheckedClassesClick(object sender, EventArgs e) //Методы одинаковы
+		private void DeleteCheckedClassesClick(object sender, EventArgs e)
 		{
 			var checkedItems = classesCheckedList.CheckedItems;
 
