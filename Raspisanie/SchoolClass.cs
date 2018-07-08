@@ -10,18 +10,22 @@ namespace Raspisanie
 	{
 		public string Name
 		{
-			get; set;
+			get;
+			set;
 		}
 
-		public Dictionary<Subject, int> SubjectCountAtWeek
+		public Dictionary<Subject, Tuple<int, Teacher>> SubjectSetting
 		{
-			get; set;
-		}
+			get;
+			set;
+		} = new Dictionary<Subject, Tuple<int, Teacher>>();
 
-		public SchoolClass(string name, Dictionary<Subject, int> subjectCountAtWeek)
+		public void AddSubject(Subject subject, int countLessenPerWeek, Teacher teacher)
+			=> SubjectSetting.Add(subject, new Tuple<int, Teacher>(countLessenPerWeek, teacher));
+
+		public SchoolClass(string name)
 		{
 			Name = name;
-			SubjectCountAtWeek = subjectCountAtWeek;
 		}
 	}
 }

@@ -90,8 +90,9 @@ namespace Raspisanie
 				for (int i = 0; i < subject.Item3.SubjectCountAtWeek[subject.Item1]; i++)
 				foreach (var place in allPlace)
 				{
-					//если свободен в этот момент
-					if (subject.Item3.IsFreeAt((DayOfWeek)place.Item1, place.Item2))
+					//если класс и препод свободен в этот момент
+					if (subject.Item3.IsFreeAt((DayOfWeek)place.Item1, place.Item2)
+							&& )
 					{
 						subject.Item3.PutLesson((DayOfWeek)place.Item1, place.Item2, subject.Item1);
 						break;
