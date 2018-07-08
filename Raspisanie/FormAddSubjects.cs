@@ -21,7 +21,7 @@ namespace Raspisanie
 
 		public void CheckedListOfSubjects_AddItem(string item) //Методы одинаковы
 		{
-			if (!checkedListBoxOfSubjects.Items.Contains(item))
+			if (item != "" && !checkedListBoxOfSubjects.Items.Contains(item))
 				checkedListBoxOfSubjects.Items.Add(item);
 		}
 
