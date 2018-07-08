@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Raspisanie
 {
-	public class Teacher
+	public class Teacher : Schedlue
 	{
 		public string Name
 		{

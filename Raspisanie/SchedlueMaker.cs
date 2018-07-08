@@ -64,6 +64,10 @@ namespace Raspisanie
 			foreach (var schoolClass in SchoolClasses)
 				foreach (var subject in schoolClass.SubjectCountAtWeek)
 					allSubjects.Add(new Tuple<Subject, int, SchoolClass>(subject.Key, subject.Value, schoolClass));
+
+			allSubjects.OrderBy(a => a.Item1.Difficult);
+			
+
 		}
 	}
 }

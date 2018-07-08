@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace Raspisanie
 {
-	public class SchoolClass
+	public class SchoolClass : Schedlue
 	{
 		public string Name
-		{
-			get; set;
-		}
-
-		public Schedlue Schedlue
 		{
 			get; set;
 		}
@@ -26,7 +21,6 @@ namespace Raspisanie
 		public SchoolClass(string name, Dictionary<Subject, int> subjectCountAtWeek)
 		{
 			Name = name;
-			Schedlue = new Schedlue();
 			SubjectCountAtWeek = subjectCountAtWeek;
 		}
 	}
