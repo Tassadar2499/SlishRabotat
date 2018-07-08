@@ -21,6 +21,13 @@ namespace Raspisanie
 
 		public List<Subject[]> schedlue;
 
+		public bool IsFreeAt(WeekDay day, int lessonNumber)
+		{
+			if (schedlue[(int)day][lessonNumber] == null)
+				return false;
+			return true;
+		}
+
 		public Schedlue()
 		{
 			var maxDay = 6;

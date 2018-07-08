@@ -59,7 +59,7 @@ namespace Raspisanie
 
 		public static void CalculateSchedlue()
 		{
-			throw new Exception();
+			
 		}
 	}
 }
