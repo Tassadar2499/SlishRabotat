@@ -19,13 +19,13 @@ namespace Raspisanie
 			subjectsCheckedListBox.CheckOnClick = true;
 		}
 
-		public void CheckedListOfSubjects_AddItem(string item) //Методы одинаковы
+		public void CheckedListOfSubjects_AddItem(string item)
 		{
 			if (item != "" && !subjectsCheckedListBox.Items.Contains(item))
 				subjectsCheckedListBox.Items.Add(item);
 		}
 
-		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e) //Методы одинаковы
+		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
 		}
@@ -37,7 +37,7 @@ namespace Raspisanie
 			Application.Exit();
 		}
 
-		private void AddDefaultSubjectsClick(object sender, EventArgs e) //Методы одинаковы
+		private void AddDefaultSubjectsClick(object sender, EventArgs e)
 		{
 			foreach (var subj in SchedlueMaker.LoadSubjects("Subjects.txt").Select(a => a.Name))
 				subjectsCheckedListBox.Items.Add(subj);
@@ -46,7 +46,7 @@ namespace Raspisanie
 
 		}
 
-		private void DeleteDefaultSubjectsClick(object sender, EventArgs e) //Методы одинаковы
+		private void DeleteDefaultSubjectsClick(object sender, EventArgs e)
 		{
 			var schoolSubjects = SchedlueMaker.LoadSubjects("Subjects.txt").Select(a => a.Name);
 
@@ -63,22 +63,22 @@ namespace Raspisanie
 				var str = text[i];
 				var index = str.LastIndexOf('-');
 				var subject = str.Substring(0, index);
-				text.SetValue(subject,i);
+				text.SetValue(subject, i);
 			}
 			AutoCompleteStringCollection source = new AutoCompleteStringCollection();
-			source.AddRange(text);			
+			source.AddRange(text);
 			subjectTextBox.AutoCompleteCustomSource = source;
 			subjectTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 			subjectTextBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
 		}
 
-		private void AddNewSubjectClick(object sender, EventArgs e) //Методы одинаковы
+		private void AddNewSubjectClick(object sender, EventArgs e)
 		{
 			CheckedListOfSubjects_AddItem(subjectTextBox.Text);
 			subjectTextBox.Clear();
 		}
 
-		private void DeleteCheckedSubjectsClick(object sender, EventArgs e) //Методы одинаковы
+		private void DeleteCheckedSubjectsClick(object sender, EventArgs e)
 		{
 			var checkedItems = subjectsCheckedListBox.CheckedItems;
 
