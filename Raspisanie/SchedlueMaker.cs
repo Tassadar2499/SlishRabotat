@@ -39,7 +39,7 @@ namespace Raspisanie
 			var text = File.ReadAllText(path).Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
 			foreach (var str in text)
-				yield return new SchoolClass(str);
+				yield return new SchoolClass(str, new Dictionary<Subject, int>());
 		}
 
 		public static IEnumerable<Subject> LoadSubjects(string path)
@@ -59,7 +59,11 @@ namespace Raspisanie
 
 		public static void CalculateSchedlue()
 		{
-			
+			var allSubjects = new List<Tuple<Subject, int, SchoolClass>>();
+
+			foreach (var schoolClass in SchoolClasses)
+				foreach (var subject in schoolClass.SubjectCountAtWeek)
+					allSubjects.Add(new Tuple<Subject, int, SchoolClass>(subject.Key, subject.Value, schoolClass));
 		}
 	}
 }
