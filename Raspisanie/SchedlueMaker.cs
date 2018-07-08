@@ -59,24 +59,44 @@ namespace Raspisanie
 
 		public static void CalculateSchedlue()
 		{
+			//предмет, сложность, у какого клаасса этот предмет
 			var allSubjects = new List<Tuple<Subject, int, SchoolClass>>();
 
+			//берем все предметы всех классов
 			foreach (var schoolClass in SchoolClasses)
 				foreach (var subject in schoolClass.SubjectCountAtWeek)
 					allSubjects.Add(new Tuple<Subject, int, SchoolClass>(subject.Key, subject.Value, schoolClass));
 
+			//сортируем по убыванию
 			allSubjects.OrderBy(a => a.Item1.Difficult);
 			
+			//пытаемся поставить предметы в расписание
 			foreach (var subject in allSubjects)
 			{
-				var allPlace = new List<Tuple<DayOfWeek, int, int>>();
+				//уроки в которые будем ставить предметы
+				//день, урок, вес
+				var allPlace = new List<Tuple<int, int, double>>();
 
-				for (var day = 0; day < subject.Item3.schedlue.Count; day++)
-					for (var lesson = 0; lesson < subject.Item3.schedlue[day].Length; lesson++)
+				//берем все уроки
+				for (var day = 0; day < subject.Item3.schedlueWeights.Count; day++)
+					for (var lesson = 0; lesson < subject.Item3.schedlueWeights[day].Length; lesson++)
+						allPlace.Add(new Tuple<int, int, double>
+							(day, lesson, subject.Item3.schedlueWeights[day][lesson]));
+
+				//сортируем по весам
+				allPlace.OrderBy(a => a.Item3);
+
+				//ставим
+				for (int i = 0; i < subject.Item3.SubjectCountAtWeek[subject.Item1]; i++)
+				foreach (var place in allPlace)
+				{
+					//если свободен в этот момент
+					if (subject.Item3.IsFreeAt((DayOfWeek)place.Item1, place.Item2))
 					{
-
+						subject.Item3.PutLesson((DayOfWeek)place.Item1, place.Item2, subject.Item1);
+						break;
 					}
-						
+				}
 			}
 		}
 	}
