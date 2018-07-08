@@ -103,6 +103,7 @@ namespace Raspisanie
 
 				//ставим
 				for (int i = 0; i < subject.Item1.CountAtWeek; i++)
+				{
 					foreach (var place in allPlace)
 					{
 						//если класс и препод свободен в этот момент
@@ -115,6 +116,7 @@ namespace Raspisanie
 							break;
 						}
 					}
+				}
 			}
 		}
 	}
