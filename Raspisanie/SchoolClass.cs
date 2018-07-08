@@ -14,14 +14,14 @@ namespace Raspisanie
 			set;
 		}
 
-		public Dictionary<Subject, Tuple<int, Teacher>> SubjectSetting
+		public Dictionary<Subject, Teacher> Subjects
 		{
 			get;
 			set;
-		} = new Dictionary<Subject, Tuple<int, Teacher>>();
+		} = new Dictionary<Subject, Teacher>();
 
-		public void AddSubject(Subject subject, int countLessenPerWeek, Teacher teacher)
-			=> SubjectSetting.Add(subject, new Tuple<int, Teacher>(countLessenPerWeek, teacher));
+		public void AddSubject(Subject subject, Teacher teacher)
+			=> Subjects.Add(subject, teacher);
 
 		public SchoolClass(string name)
 		{

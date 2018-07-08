@@ -39,7 +39,7 @@ namespace Raspisanie
 			var text = File.ReadAllText(path).Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
 			foreach (var str in text)
-				yield return new SchoolClass(str, new Dictionary<Subject, int>());
+				yield return new SchoolClass(str);
 		}
 
 		public static IEnumerable<Subject> LoadSubjects(string path)
@@ -59,17 +59,17 @@ namespace Raspisanie
 
 		public static void CalculateSchedlue()
 		{
-			//предмет, сложность, у какого клаасса этот предмет
-			var allSubjects = new List<Tuple<Subject, int, SchoolClass>>();
+			//предмет, у какого клаасса этот предмет
+			var allSubjects = new List<Tuple<Subject, SchoolClass>>();
 
 			//берем все предметы всех классов
 			foreach (var schoolClass in SchoolClasses)
-				foreach (var subject in schoolClass.SubjectCountAtWeek)
-					allSubjects.Add(new Tuple<Subject, int, SchoolClass>(subject.Key, subject.Value, schoolClass));
+				foreach (var subject in schoolClass.Subjects)
+					allSubjects.Add(new Tuple<Subject, SchoolClass>(subject.Key, schoolClass));
 
 			//сортируем по убыванию
 			allSubjects.OrderBy(a => a.Item1.Difficult);
-			
+
 			//пытаемся поставить предметы в расписание
 			foreach (var subject in allSubjects)
 			{
@@ -78,26 +78,28 @@ namespace Raspisanie
 				var allPlace = new List<Tuple<int, int, double>>();
 
 				//берем все уроки
-				for (var day = 0; day < subject.Item3.schedlueWeights.Count; day++)
-					for (var lesson = 0; lesson < subject.Item3.schedlueWeights[day].Length; lesson++)
+				for (var day = 0; day < subject.Item2.schedlueWeights.Count; day++)
+					for (var lesson = 0; lesson < subject.Item2.schedlueWeights[day].Length; lesson++)
 						allPlace.Add(new Tuple<int, int, double>
-							(day, lesson, subject.Item3.schedlueWeights[day][lesson]));
+							(day, lesson, subject.Item2.schedlueWeights[day][lesson]));
 
 				//сортируем по весам
 				allPlace.OrderBy(a => a.Item3);
 
 				//ставим
-				for (int i = 0; i < subject.Item3.SubjectCountAtWeek[subject.Item1]; i++)
-				foreach (var place in allPlace)
-				{
-					//если класс и препод свободен в этот момент
-					if (subject.Item3.IsFreeAt((DayOfWeek)place.Item1, place.Item2)
-							&& )
+				for (int i = 0; i < subject.Item1.CountAtWeek; i++)
+					foreach (var place in allPlace)
 					{
-						subject.Item3.PutLesson((DayOfWeek)place.Item1, place.Item2, subject.Item1);
-						break;
+						//если класс и препод свободен в этот момент
+						var classFree = subject.Item2.IsFreeAt((DayOfWeek)place.Item1, place.Item2);
+						var teacherFree = subject.Item2.Subjects[subject.Item1].IsFreeAt((DayOfWeek)place.Item1, place.Item2);
+
+						if (classFree && teacherFree)
+						{
+							subject.Item2.PutLesson((DayOfWeek)place.Item1, place.Item2, subject.Item1);
+							break;
+						}
 					}
-				}
 			}
 		}
 	}
