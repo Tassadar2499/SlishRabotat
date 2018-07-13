@@ -7,8 +7,8 @@ using System.Windows.Forms;
 
 namespace Raspisanie
 {
-	static class Program//
-	{
+	static class Program
+	{//
 		public static void ShowOnMessageBox(string[] checkedObj)
 		{
 			if (checkedObj == null)
