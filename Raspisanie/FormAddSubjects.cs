@@ -98,7 +98,7 @@ namespace Raspisanie
 		private void GoToPreviousFormClick(object sender, EventArgs e)
 		{
 			FormAddGrades formAddGrades = new FormAddGrades();
-			this.Close();
+			Close();
 			formAddGrades.Show();
 		}
 	}
