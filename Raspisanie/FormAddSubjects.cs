@@ -13,6 +13,7 @@ namespace Raspisanie
 {
 	public partial class FormAddSubjects : Form
 	{
+		public static string[] checkedSubjects; //к этому полю потом и будем обращаться в программе
 		public FormAddSubjects()
 		{
 			InitializeComponent();
@@ -32,9 +33,11 @@ namespace Raspisanie
 
 		private void NextClick(object sender, EventArgs e)
 		{
-			var checkedSubjects = Program.ListBoxToStrings(subjectsCheckedListBox).ToArray();
+			checkedSubjects = Program.ListBoxToStrings(subjectsCheckedListBox).ToArray();
 			Program.ShowOnMessageBox(checkedSubjects);
-			Application.Exit();
+			FormFillingTheClasses formFillingTheClasses = new FormFillingTheClasses();
+			formFillingTheClasses.Show();
+			Close();
 		}
 
 		private void AddDefaultSubjectsClick(object sender, EventArgs e)

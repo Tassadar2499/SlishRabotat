@@ -13,11 +13,14 @@ namespace Raspisanie
 {
 	public partial class FormAddGrades : Form
 	{
+		public static string[] schoolClasses; //к этому полю и будем потом обращаться в программе
 		public FormAddGrades()
 		{
 			InitializeComponent();
 			classesCheckedList.CheckOnClick = true;
 			classesCheckedList.MultiColumn = true;
+			if (schoolClasses != null)
+			classesCheckedList.Items.AddRange(schoolClasses);
 		}
 
 		public void CheckedListOfClasses_AddItem(string item)
@@ -33,7 +36,7 @@ namespace Raspisanie
 
 		private void NextClick(object sender, EventArgs e)
 		{
-			var schoolClasses = Program.ListBoxToStrings(classesCheckedList).ToArray();
+			schoolClasses = Program.ListBoxToStrings(classesCheckedList).ToArray();
 			Program.ShowOnMessageBox(schoolClasses);
 			FormAddSubjects formAddSubjects = new FormAddSubjects();
 			formAddSubjects.Show();
@@ -93,5 +96,6 @@ namespace Raspisanie
 		{
 
 		}
+
 	}
 }
