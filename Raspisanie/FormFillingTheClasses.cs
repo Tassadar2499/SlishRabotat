@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//
 namespace Raspisanie
 {
 	public partial class FormFillingTheClasses : Form
@@ -32,6 +31,11 @@ namespace Raspisanie
 			{
 				var tab = tabControlClasses.GetControl(i);
 			}
+		}
+
+		private void FormFillingTheClasses_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			Application.Exit();
 		}
 	}
 }

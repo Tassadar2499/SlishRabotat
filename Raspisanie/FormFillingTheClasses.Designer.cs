@@ -48,6 +48,7 @@
 			this.Controls.Add(this.tabControlClasses);
 			this.Name = "FormFillingTheClasses";
 			this.Text = "FormFillingTheClasses";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormFillingTheClasses_FormClosing);
 			this.ResumeLayout(false);
 
 		}

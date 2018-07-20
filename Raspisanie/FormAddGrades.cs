@@ -41,7 +41,7 @@ namespace Raspisanie
 			Program.ShowOnMessageBox(schoolClasses);
 			FormAddSubjects formAddSubjects = new FormAddSubjects();
 			formAddSubjects.Show();
-			this.Hide();
+			Hide();
 		}
 
 		private void AddDefaultGradesClick(object sender, EventArgs e)

@@ -38,7 +38,7 @@ namespace Raspisanie
 			Program.ShowOnMessageBox(checkedSubjects);
 			FormFillingTheClasses formFillingTheClasses = new FormFillingTheClasses();
 			formFillingTheClasses.Show();
-			Close();
+			Hide();
 		}
 
 		private void AddDefaultSubjectsClick(object sender, EventArgs e)
@@ -104,6 +104,11 @@ namespace Raspisanie
 			FormAddGrades formAddGrades = new FormAddGrades();
 			Close();
 			formAddGrades.Show();
+		}
+
+		private void FormAddSubjects_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			Application.Exit();
 		}
 	}
 }
