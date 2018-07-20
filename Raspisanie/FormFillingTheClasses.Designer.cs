@@ -36,7 +36,7 @@
 			this.tabControlClasses.Location = new System.Drawing.Point(0, 32);
 			this.tabControlClasses.Name = "tabControlClasses";
 			this.tabControlClasses.SelectedIndex = 0;
-			this.tabControlClasses.Size = new System.Drawing.Size(788, 220);
+			this.tabControlClasses.Size = new System.Drawing.Size(764, 232);
 			this.tabControlClasses.TabIndex = 0;
 			this.tabControlClasses.SelectedIndexChanged += new System.EventHandler(this.TabControlClasses_SelectedIndexChanged);
 			// 

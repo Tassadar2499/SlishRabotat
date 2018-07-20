@@ -38,7 +38,10 @@ namespace Raspisanie
 
 		private static void TabSelected(object sender, TabControlEventArgs e)
 		{
-			MessageBox.Show(e.TabPage.Text);
+			//MessageBox.Show(e.TabPage.Text);
+			var className = e.TabPage.Text;
+			MessageBox.Show(className);
+			e.TabPage.ForeColor = Color.Red;
 		}
 
 		private void FormFillingTheClasses_FormClosing(object sender, FormClosingEventArgs e)

@@ -39,9 +39,14 @@ namespace Raspisanie
 		{
 			schoolClasses = Program.ListBoxToStrings(classesCheckedList).ToArray();
 			Program.ShowOnMessageBox(schoolClasses);
+			Program.grades = new SchoolClass[schoolClasses.Length]; //это для себя оставил, потестировать не удаляй плез
+			for (int i = 0; i < Program.grades.Length; i++)
+			{
+				Program.grades[i] = new SchoolClass(schoolClasses[i]);
+			}
 			FormAddSubjects formAddSubjects = new FormAddSubjects();
 			formAddSubjects.Show();
-			this.Hide();
+			Hide();
 		}
 
 		private void AddDefaultGradesClick(object sender, EventArgs e)
