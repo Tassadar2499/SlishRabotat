@@ -13,7 +13,8 @@ namespace Raspisanie
 {
 	public partial class FormAddSubjects : Form
 	{
-		public static string[] checkedSubjects; //к этому полю потом и будем обращаться в программе
+		public static string[] checkedSubjects;
+
 		public FormAddSubjects()
 		{
 			InitializeComponent();
