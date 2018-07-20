@@ -38,7 +38,7 @@
 			this.tabControlClasses.SelectedIndex = 0;
 			this.tabControlClasses.Size = new System.Drawing.Size(788, 220);
 			this.tabControlClasses.TabIndex = 0;
-			this.tabControlClasses.SelectedIndexChanged += new System.EventHandler(this.tabControlClasses_SelectedIndexChanged);
+			this.tabControlClasses.SelectedIndexChanged += new System.EventHandler(this.TabControlClasses_SelectedIndexChanged);
 			// 
 			// FormFillingTheClasses
 			// 

@@ -18,14 +18,14 @@ namespace Raspisanie
 			var schoolClasses = FormAddGrades.schoolClasses;
 			foreach (var grade in schoolClasses)
 			{
-				TabPage newClass = new TabPage();
+				var newClass = new TabPage();
 				newClass.Text = grade;
 				tabControlClasses.TabPages.Add(newClass);
 				tabControlClasses.Multiline = true;
 			}
 		}
 
-		private void tabControlClasses_SelectedIndexChanged(object sender, EventArgs e)
+		private void TabControlClasses_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			var tabs = tabControlClasses.Controls;
 			for (int i = 0; i < tabControlClasses.TabCount; i++)
