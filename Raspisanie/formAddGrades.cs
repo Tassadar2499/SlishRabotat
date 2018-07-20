@@ -13,7 +13,8 @@ namespace Raspisanie
 {
 	public partial class FormAddGrades : Form
 	{
-		public static string[] schoolClasses; //к этому полю и будем потом обращаться в программе
+		public static string[] schoolClasses;
+
 		public FormAddGrades()
 		{
 			InitializeComponent();
