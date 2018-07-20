@@ -102,7 +102,7 @@ namespace Raspisanie
 		private void GoToPreviousFormClick(object sender, EventArgs e)
 		{
 			FormAddGrades formAddGrades = new FormAddGrades();
-			Close();
+			Hide();
 			formAddGrades.Show();
 		}
 

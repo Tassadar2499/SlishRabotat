@@ -11,6 +11,7 @@ namespace Raspisanie
 {
 	public partial class FormFillingTheClasses : Form
 	{
+		public static string x;
 		public FormFillingTheClasses()
 		{
 			InitializeComponent();
@@ -20,17 +21,24 @@ namespace Raspisanie
 				TabPage newClass = new TabPage();
 				newClass.Text = grade;
 				tabControlClasses.TabPages.Add(newClass);
-				tabControlClasses.Multiline = true;
 			}
+			tabControlClasses.Multiline = true;
 		}
 
-		private void tabControlClasses_SelectedIndexChanged(object sender, EventArgs e)
+		private void TabControlClasses_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			var tabs = tabControlClasses.Controls;
-			for (int i = 0; i < tabControlClasses.TabCount; i++)
-			{
-				var tab = tabControlClasses.GetControl(i);
-			}
+			//tabControlClasses.Click += (sende, args) =>
+			//{
+			//	Program.ShowOnMessageBox(FormAddSubjects.checkedSubjects);
+			//};
+			tabControlClasses.Selected -= TabSelected;
+			tabControlClasses.Selected += TabSelected;
+			//tabPage1.BackColor = Color.Red;
+		}
+
+		private static void TabSelected(object sender, TabControlEventArgs e)
+		{
+			MessageBox.Show(e.TabPage.Text);
 		}
 
 		private void FormFillingTheClasses_FormClosing(object sender, FormClosingEventArgs e)

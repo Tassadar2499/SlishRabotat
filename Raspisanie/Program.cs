@@ -8,7 +8,8 @@ using System.Windows.Forms;
 namespace Raspisanie
 {
 	static class Program
-	{//
+	{
+		public static SchoolClass[] grades; //не удаляй плез, мне чисто потестить
 		public static void ShowOnMessageBox(string[] checkedObj)
 		{
 			if (checkedObj == null)
@@ -36,6 +37,7 @@ namespace Raspisanie
 			Application.SetCompatibleTextRenderingDefault(false);
 			FormAddGrades formAddGrades = new FormAddGrades();
 			Application.Run(formAddGrades);
+			int x = 0;
 		}
 	}
 }
