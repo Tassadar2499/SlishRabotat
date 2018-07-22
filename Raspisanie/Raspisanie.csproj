@@ -72,6 +72,12 @@
     <Compile Include="FormAddGrades.Designer.cs">
       <DependentUpon>FormAddGrades.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAddTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddTeacher.Designer.cs">
+      <DependentUpon>FormAddTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCountAndDifficulty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddGrades.resx">
       <DependentUpon>FormAddGrades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddTeacher.resx">
+      <DependentUpon>FormAddTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCountAndDifficulty.resx">
       <DependentUpon>FormCountAndDifficulty.cs</DependentUpon>

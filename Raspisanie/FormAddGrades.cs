@@ -33,6 +33,9 @@ namespace Raspisanie
 		{
 			schoolClasses = Program.ListBoxToStrings(classesCheckedList).ToArray();
 			Program.ShowOnMessageBox(schoolClasses);
+			FormAddTeacher formAddTeacher = new FormAddTeacher();
+			formAddTeacher.Show();
+			Hide();
 		}
 
 		private void AddDefaultGradesClick(object sender, EventArgs e)
