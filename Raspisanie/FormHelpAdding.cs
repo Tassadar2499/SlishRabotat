@@ -23,26 +23,7 @@ namespace Raspisanie
 			subjOfCurrentClass = new List<Subject>();
 			nameOfClass = className;
 		}
-		private void SaveClick(object sender, EventArgs e)
-		{
-			for (var i = listOfSubjects.Items.Count - 1; i >= 0; i--)
-				if (!listOfSubjects.GetItemChecked(i))
-					listOfSubjects.Items.RemoveAt(i);
 
-			var index = 0;
-			for (int i = 0; i < Program.grades.Length; i++)
-			{
-				if (Program.grades[i].Name == nameOfClass)
-				{
-					index = i;
-					break;
-				}
-			}
-			foreach (var subj in subjOfCurrentClass)
-			{
-				Program.grades[index].AddSubject(subj, new Teacher("Козя"));
-			}
-		}
 		private void checkedListBoxOfSubjectsSelect(object sender, EventArgs e)
 		{
 			listOfSubjects.DoubleClick -= SubjectSelecting;
@@ -57,7 +38,30 @@ namespace Raspisanie
 			formCountAndDifficulty.Show();
 		}
 
-		
+		private void DeleteClick(object sender, EventArgs e)
+		{
+
+			for (var i = listOfSubjects.CheckedItems.Count - 1; i >= 0; i--)
+				listOfSubjects.Items.Remove(listOfSubjects.CheckedItems[i]);
+		}
+
+		private void FormHelpAdding_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			var index = 0;
+			for (int i = 0; i < Program.grades.Length; i++)
+			{
+				if (Program.grades[i].Name == nameOfClass)
+				{
+					index = i;
+					break;
+				}
+			}
+			foreach (var subj in subjOfCurrentClass)
+			{
+				Program.grades[index].AddSubject(subj, new Teacher("Козя"));
+			}
+		}
+
 		#region
 		private void LabelClassNameClick(object sender, EventArgs e)
 		{
@@ -67,10 +71,6 @@ namespace Raspisanie
 		private void label1_Click(object sender, EventArgs e)
 		{
 
-		}
-		private void FormHelpAdding_FormClosing(object sender, FormClosingEventArgs e)
-		{
-			
 		}
 		#endregion
 	}
