@@ -78,6 +78,12 @@
     <Compile Include="FormFillingTheClasses.Designer.cs">
       <DependentUpon>FormFillingTheClasses.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHelpAdding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHelpAdding.Designer.cs">
+      <DependentUpon>FormHelpAdding.cs</DependentUpon>
+    </Compile>
     <Compile Include="Schedlue.cs" />
     <Compile Include="SchedlueMaker.cs" />
     <Compile Include="Program.cs" />
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormFillingTheClasses.resx">
       <DependentUpon>FormFillingTheClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHelpAdding.resx">
+      <DependentUpon>FormHelpAdding.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

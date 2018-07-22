@@ -36,7 +36,7 @@ namespace Raspisanie
 		{
 			checkedSubjects = Program.ListBoxToStrings(subjectsCheckedListBox).ToArray();
 			Program.ShowOnMessageBox(checkedSubjects);
-			FormFillingTheClasses formFillingTheClasses = new FormFillingTheClasses();
+			FormFillingTheClasses formFillingTheClasses = new FormFillingTheClasses(FormAddGrades.schoolClasses);
 			formFillingTheClasses.Show();
 			Hide();
 		}

@@ -11,11 +11,9 @@ namespace Raspisanie
 {
 	public partial class FormFillingTheClasses : Form
 	{
-		public static string x;
-		public FormFillingTheClasses()
+		public FormFillingTheClasses(string[] schoolClasses)
 		{
 			InitializeComponent();
-			var schoolClasses = FormAddGrades.schoolClasses;
 			foreach (var grade in schoolClasses)
 			{
 				TabPage newClass = new TabPage();
@@ -27,21 +25,14 @@ namespace Raspisanie
 
 		private void TabControlClasses_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			//tabControlClasses.Click += (sende, args) =>
-			//{
-			//	Program.ShowOnMessageBox(FormAddSubjects.checkedSubjects);
-			//};
 			tabControlClasses.Selected -= TabSelected;
 			tabControlClasses.Selected += TabSelected;
-			//tabPage1.BackColor = Color.Red;
 		}
 
 		private static void TabSelected(object sender, TabControlEventArgs e)
 		{
-			//MessageBox.Show(e.TabPage.Text);
-			var className = e.TabPage.Text;
-			MessageBox.Show(className);
-			e.TabPage.ForeColor = Color.Red;
+			FormHelpAdding formHelpAdding = new FormHelpAdding(e.TabPage.Text, FormAddSubjects.checkedSubjects);
+			formHelpAdding.Show();
 		}
 
 		private void FormFillingTheClasses_FormClosing(object sender, FormClosingEventArgs e)

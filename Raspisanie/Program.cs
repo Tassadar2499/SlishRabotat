@@ -37,7 +37,6 @@ namespace Raspisanie
 			Application.SetCompatibleTextRenderingDefault(false);
 			FormAddGrades formAddGrades = new FormAddGrades();
 			Application.Run(formAddGrades);
-			int x = 0;
 		}
 	}
 }
