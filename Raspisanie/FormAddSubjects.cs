@@ -27,11 +27,6 @@ namespace Raspisanie
 				subjectsCheckedListBox.Items.Add(item);
 		}
 
-		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
-
 		private void NextClick(object sender, EventArgs e)
 		{
 			checkedSubjects = Program.ListBoxToStrings(subjectsCheckedListBox).ToArray();
@@ -110,5 +105,11 @@ namespace Raspisanie
 		{
 			Application.Exit();
 		}
+		#region
+		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
+		}
+		#endregion
 	}
 }

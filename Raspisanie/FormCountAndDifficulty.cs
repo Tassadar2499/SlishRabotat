@@ -23,21 +23,6 @@ namespace Raspisanie
 			nameOfSubj = nameOfSubject;
 		}
 
-		private void label1_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void label2_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void label3_Click(object sender, EventArgs e)
-		{
-
-		}
-
 		private void SaveClick(object sender, EventArgs e)
 		{
 			subject = new Subject(nameOfSubj, dificulty, countAtWeek);
@@ -55,5 +40,21 @@ namespace Raspisanie
 		{
 			countAtWeek = (int) numericCountAtWeek.Value;
 		}
+		#region
+		private void NameOfSubjLabelClick(object sender, EventArgs e)
+		{
+
+		}
+
+		private void difficultyLabelClick(object sender, EventArgs e)
+		{
+
+		}
+
+		private void CountAtWeekLabelClick(object sender, EventArgs e)
+		{
+
+		}
+		#endregion
 	}
 }

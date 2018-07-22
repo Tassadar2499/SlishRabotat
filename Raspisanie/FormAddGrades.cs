@@ -28,12 +28,7 @@ namespace Raspisanie
 			if (item != "" && !classesCheckedList.Items.Contains(item))
 				classesCheckedList.Items.Add(item);
 		}
-
-		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
-
+		
 		private void NextClick(object sender, EventArgs e)
 		{
 			schoolClasses = Program.ListBoxToStrings(classesCheckedList).ToArray();
@@ -65,11 +60,6 @@ namespace Raspisanie
 					classesCheckedList.Items.Remove(schoolClass);
 		}
 
-		private void TextAddClass(object sender, EventArgs e)
-		{
-
-		}
-
 		private void AddNewClassClick(object sender, EventArgs e)
 		{
 			CheckedListOfClasses_AddItem(addClassTextBox.Text);
@@ -96,11 +86,21 @@ namespace Raspisanie
 			foreach (var schoolClass in schoolClasses)
 				CheckedListOfClasses_AddItem(schoolClass);
 		}
-
+		#region
 		private void FormAddGrades_Load(object sender, EventArgs e)
 		{
 
 		}
 
+		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void TextAddClass(object sender, EventArgs e)
+		{
+
+		}
+		#endregion
 	}
 }

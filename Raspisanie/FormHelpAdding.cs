@@ -12,7 +12,6 @@ namespace Raspisanie
 {
 	public partial class FormHelpAdding : Form
 	{
-		public static CheckedListBox listBox; //пришлось добавить этот ебучий костыль для того, чтобы получить доступ к названию предмета в методе SubjectSelecting исправь плез, если сможешь
 		public static List<Subject> subjOfCurrentClass;
 		string nameOfClass;
 		public FormHelpAdding(string className, string[] subjects)
@@ -21,7 +20,6 @@ namespace Raspisanie
 			listOfSubjects.Items.AddRange(subjects);
 			listOfSubjects.CheckOnClick = true;
 			labelClassName.Text += className;
-			listBox = listOfSubjects;
 			subjOfCurrentClass = new List<Subject>();
 			nameOfClass = className;
 		}
@@ -30,7 +28,6 @@ namespace Raspisanie
 			for (var i = listOfSubjects.Items.Count - 1; i >= 0; i--)
 				if (!listOfSubjects.GetItemChecked(i))
 					listOfSubjects.Items.RemoveAt(i);
-			listBox = listOfSubjects;
 
 			var index = 0;
 			for (int i = 0; i < Program.grades.Length; i++)
@@ -43,7 +40,7 @@ namespace Raspisanie
 			}
 			foreach (var subj in subjOfCurrentClass)
 			{
-				Program.grades[index].AddSubject(subj, new Teacher("gg"));
+				Program.grades[index].AddSubject(subj, new Teacher("Козя"));
 			}
 		}
 		private void checkedListBoxOfSubjectsSelect(object sender, EventArgs e)
@@ -56,7 +53,6 @@ namespace Raspisanie
 		{
 			CheckedListBox kek = (CheckedListBox) sender;
 			var nameOfSubject = kek.SelectedItem;
-			//string nameOfSubject = listBox.Items[e.Index].ToString();
 			FormCountAndDifficulty formCountAndDifficulty = new FormCountAndDifficulty(nameOfSubject.ToString());
 			formCountAndDifficulty.Show();
 		}
@@ -72,11 +68,10 @@ namespace Raspisanie
 		{
 
 		}
-		#endregion
-
 		private void FormHelpAdding_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			
 		}
+		#endregion
 	}
 }

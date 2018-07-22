@@ -46,7 +46,7 @@
 			this.label1.Size = new System.Drawing.Size(61, 13);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Предмет - ";
-			this.label1.Click += new System.EventHandler(this.label1_Click);
+			this.label1.Click += new System.EventHandler(this.NameOfSubjLabelClick);
 			// 
 			// label2
 			// 
@@ -56,7 +56,7 @@
 			this.label2.Size = new System.Drawing.Size(63, 13);
 			this.label2.TabIndex = 2;
 			this.label2.Text = "Сложность";
-			this.label2.Click += new System.EventHandler(this.label2_Click);
+			this.label2.Click += new System.EventHandler(this.difficultyLabelClick);
 			// 
 			// label3
 			// 
@@ -66,7 +66,7 @@
 			this.label3.Size = new System.Drawing.Size(116, 13);
 			this.label3.TabIndex = 4;
 			this.label3.Text = "Количество в неделю";
-			this.label3.Click += new System.EventHandler(this.label3_Click);
+			this.label3.Click += new System.EventHandler(this.CountAtWeekLabelClick);
 			// 
 			// button1
 			// 
