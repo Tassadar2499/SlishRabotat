@@ -12,7 +12,9 @@ namespace Raspisanie
 {
 	public partial class FormHelpAdding : Form
 	{
-		public static CheckedListBox listBox;
+		public static CheckedListBox listBox; //пришлось добавить этот ебучий костыль для того, чтобы получить доступ к названию предмета в методе SubjectSelecting исправь плез, если сможешь
+		public static List<Subject> subjOfCurrentClass;
+		string nameOfClass;
 		public FormHelpAdding(string className, string[] subjects)
 		{
 			InitializeComponent();
@@ -20,6 +22,8 @@ namespace Raspisanie
 			listOfSubjects.CheckOnClick = true;
 			labelClassName.Text += className;
 			listBox = listOfSubjects;
+			subjOfCurrentClass = new List<Subject>();
+			nameOfClass = className;
 		}
 		private void SaveClick(object sender, EventArgs e)
 		{
@@ -40,6 +44,8 @@ namespace Raspisanie
 			FormCountAndDifficulty formCountAndDifficulty = new FormCountAndDifficulty(nameOfSubject);
 			formCountAndDifficulty.Show();
 		}
+
+		
 		#region
 		private void LabelClassNameClick(object sender, EventArgs e)
 		{
@@ -51,5 +57,22 @@ namespace Raspisanie
 
 		}
 		#endregion
+
+		private void FormHelpAdding_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			var index = 0;
+			for (int i = 0; i < Program.grades.Length; i++)
+			{
+				if (Program.grades[i].Name == nameOfClass)
+				{
+					index = i;
+					break;
+				}
+			}
+			foreach (var subj in FormHelpAdding.subjOfCurrentClass)
+			{
+				Program.grades[index].AddSubject(subj, new Teacher("gg"));
+			}
+		}
 	}
 }

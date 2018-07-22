@@ -33,6 +33,19 @@ namespace Raspisanie
 		{
 			FormHelpAdding formHelpAdding = new FormHelpAdding(e.TabPage.Text, FormAddSubjects.checkedSubjects);
 			formHelpAdding.Show();
+			var index = 0;
+			for (int i = 0; i < Program.grades.Length; i++)
+			{
+				if (Program.grades[i].Name == e.TabPage.Text)
+				{
+					index = i;
+					break;
+				}
+			}
+			foreach (var subj in FormHelpAdding.subjOfCurrentClass)
+			{
+				Program.grades[index].AddSubject(subj,new Teacher("gg"));
+			}
 		}
 
 		private void FormFillingTheClasses_FormClosing(object sender, FormClosingEventArgs e)

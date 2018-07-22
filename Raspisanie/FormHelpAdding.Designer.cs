@@ -86,6 +86,7 @@
 			this.Controls.Add(this.listOfSubjects);
 			this.Name = "FormHelpAdding";
 			this.Text = "FormHelpAdding";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormHelpAdding_FormClosing);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
