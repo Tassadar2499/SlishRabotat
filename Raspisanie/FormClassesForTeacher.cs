@@ -12,16 +12,24 @@ namespace Raspisanie
 {
 	public partial class FormClassesForTeacher : Form
 	{
-		public FormClassesForTeacher(string nameOfTeacher, string[] subjects)
+		public FormClassesForTeacher(string nameOfTeacher, string[] classes)
 		{
 			InitializeComponent();
-			listOfClasses.Items.AddRange(subjects);
+			listOfClasses.Items.AddRange(classes);
 			labelTeacher.Text += nameOfTeacher;
 		}
 
 		private void CheckedListOfSubjectsSelect(object sender, EventArgs e)
 		{
+			listOfClasses.DoubleClick -= DoubleClicking;
+			listOfClasses.DoubleClick += DoubleClicking;
+		}
 
+		private static void DoubleClicking(object sender, EventArgs e)
+		{
+			CheckedListBox kek = (CheckedListBox)sender;
+			var nameOfClass = kek.SelectedItem;
+			FormSubjectsForTeacher formSubjectsForTeacher = new FormSubjectsForTeacher(nameOfClass.ToString());
 		}
 
 		private void LabelTeacherClick(object sender, EventArgs e)

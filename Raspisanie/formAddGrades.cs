@@ -18,8 +18,6 @@ namespace Raspisanie
 		public FormAddGrades()
 		{
 			InitializeComponent();
-			classesCheckedList.CheckOnClick = true;
-			classesCheckedList.MultiColumn = true;
 			if (schoolClasses != null)
 			classesCheckedList.Items.AddRange(schoolClasses);
 			flagOfSaveClicking = false;
@@ -35,6 +33,9 @@ namespace Raspisanie
 		{
 			schoolClasses = Program.ListBoxToStrings(classesCheckedList).ToArray();
 			Program.ShowOnMessageBox(schoolClasses);
+			FormAddTeacher formAddTeacher = new FormAddTeacher();
+			formAddTeacher.Show();
+			Hide();
 		}
 
 		private void AddDefaultGradesClick(object sender, EventArgs e)
@@ -114,7 +115,7 @@ namespace Raspisanie
 		{
 			flagOfSaveClicking = true;
 			schoolClasses = Program.ListBoxToStrings(classesCheckedList).ToArray();
-			Program.grades = new SchoolClass[schoolClasses.Length]; //это для себя оставил, потестировать не удаляй плез
+			Program.grades = new SchoolClass[schoolClasses.Length];
 			for (int i = 0; i < Program.grades.Length; i++)
 			{
 				Program.grades[i] = new SchoolClass(schoolClasses[i]);
@@ -127,6 +128,11 @@ namespace Raspisanie
 		}
 
 		private void TextAddClass(object sender, EventArgs e)
+		{
+
+		}
+
+		private void TextFieldClick(object sender, EventArgs e)
 		{
 
 		}
