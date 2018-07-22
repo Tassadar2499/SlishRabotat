@@ -18,7 +18,6 @@ namespace Raspisanie
 		{
 			InitializeComponent();
 			listOfSubjects.Items.AddRange(subjects);
-			listOfSubjects.CheckOnClick = true;
 			labelClassName.Text += className;
 			subjOfCurrentClass = new List<Subject>();
 			nameOfClass = className;

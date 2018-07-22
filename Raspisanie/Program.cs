@@ -10,6 +10,7 @@ namespace Raspisanie
 	static class Program
 	{
 		public static SchoolClass[] grades; //не удаляй плез, мне чисто потестить
+		public static Teacher[] teachers;
 		public static void ShowOnMessageBox(string[] checkedObj)
 		{
 			if (checkedObj == null)
@@ -38,6 +39,7 @@ namespace Raspisanie
 			FormAddSubjects formAddSubjects = new FormAddSubjects();
 			Application.Run(formAddSubjects);
 			var testing = grades;
+			var testing2 = teachers;
 			var ew = 0;
 		}
 	}
