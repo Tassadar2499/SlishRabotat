@@ -31,17 +31,33 @@ namespace Raspisanie
 				if (!listOfSubjects.GetItemChecked(i))
 					listOfSubjects.Items.RemoveAt(i);
 			listBox = listOfSubjects;
+
+			var index = 0;
+			for (int i = 0; i < Program.grades.Length; i++)
+			{
+				if (Program.grades[i].Name == nameOfClass)
+				{
+					index = i;
+					break;
+				}
+			}
+			foreach (var subj in subjOfCurrentClass)
+			{
+				Program.grades[index].AddSubject(subj, new Teacher("gg"));
+			}
 		}
 		private void checkedListBoxOfSubjectsSelect(object sender, EventArgs e)
 		{
-			listOfSubjects.ItemCheck -= SubjectSelecting;
-			listOfSubjects.ItemCheck += SubjectSelecting;
+			listOfSubjects.DoubleClick -= SubjectSelecting;
+			listOfSubjects.DoubleClick += SubjectSelecting;
 		}
 
-		private static void SubjectSelecting(object sender, ItemCheckEventArgs e)
+		private static void SubjectSelecting(object sender, EventArgs e)
 		{
-			string nameOfSubject = listBox.Items[e.Index].ToString();
-			FormCountAndDifficulty formCountAndDifficulty = new FormCountAndDifficulty(nameOfSubject);
+			CheckedListBox kek = (CheckedListBox) sender;
+			var nameOfSubject = kek.SelectedItem;
+			//string nameOfSubject = listBox.Items[e.Index].ToString();
+			FormCountAndDifficulty formCountAndDifficulty = new FormCountAndDifficulty(nameOfSubject.ToString());
 			formCountAndDifficulty.Show();
 		}
 
@@ -60,19 +76,7 @@ namespace Raspisanie
 
 		private void FormHelpAdding_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			var index = 0;
-			for (int i = 0; i < Program.grades.Length; i++)
-			{
-				if (Program.grades[i].Name == nameOfClass)
-				{
-					index = i;
-					break;
-				}
-			}
-			foreach (var subj in FormHelpAdding.subjOfCurrentClass)
-			{
-				Program.grades[index].AddSubject(subj, new Teacher("gg"));
-			}
+			
 		}
 	}
 }
