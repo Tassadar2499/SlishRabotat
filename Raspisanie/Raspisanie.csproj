@@ -78,12 +78,6 @@
     <Compile Include="FormCountAndDifficulty.Designer.cs">
       <DependentUpon>FormCountAndDifficulty.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormFillingTheClasses.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormFillingTheClasses.Designer.cs">
-      <DependentUpon>FormFillingTheClasses.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormHelpAdding.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,9 +100,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCountAndDifficulty.resx">
       <DependentUpon>FormCountAndDifficulty.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormFillingTheClasses.resx">
-      <DependentUpon>FormFillingTheClasses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHelpAdding.resx">
       <DependentUpon>FormHelpAdding.cs</DependentUpon>

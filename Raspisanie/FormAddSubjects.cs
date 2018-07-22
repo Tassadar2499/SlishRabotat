@@ -31,8 +31,8 @@ namespace Raspisanie
 		{
 			checkedSubjects = Program.ListBoxToStrings(subjectsCheckedListBox).ToArray();
 			Program.ShowOnMessageBox(checkedSubjects);
-			FormFillingTheClasses formFillingTheClasses = new FormFillingTheClasses(FormAddGrades.schoolClasses);
-			formFillingTheClasses.Show();
+			FormAddGrades formAddGrades = new FormAddGrades();
+			formAddGrades.Show();
 			Hide();
 		}
 
@@ -92,13 +92,6 @@ namespace Raspisanie
 
 			subjectsCheckedListBox.Items.Clear();
 			subjectsCheckedListBox.Items.AddRange(schoolSubjects);
-		}
-
-		private void GoToPreviousFormClick(object sender, EventArgs e)
-		{
-			FormAddGrades formAddGrades = new FormAddGrades();
-			Hide();
-			formAddGrades.Show();
 		}
 
 		private void FormAddSubjects_FormClosing(object sender, FormClosingEventArgs e)

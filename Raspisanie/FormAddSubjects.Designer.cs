@@ -31,7 +31,6 @@
 			this.subjectsCheckedListBox = new System.Windows.Forms.CheckedListBox();
 			this.nextButton = new System.Windows.Forms.Button();
 			this.sortByAlpButton = new System.Windows.Forms.Button();
-			this.prewButton = new System.Windows.Forms.Button();
 			this.addDefaultSubjectButton = new System.Windows.Forms.Button();
 			this.deleteDefaultSubject = new System.Windows.Forms.Button();
 			this.deleteCheckedButton = new System.Windows.Forms.Button();
@@ -68,16 +67,6 @@
 			this.sortByAlpButton.Text = "Отсортировать по алфавиту";
 			this.sortByAlpButton.UseVisualStyleBackColor = true;
 			this.sortByAlpButton.Click += new System.EventHandler(this.SortingByAlphabet);
-			// 
-			// prewButton
-			// 
-			this.prewButton.Location = new System.Drawing.Point(245, 442);
-			this.prewButton.Name = "prewButton";
-			this.prewButton.Size = new System.Drawing.Size(75, 23);
-			this.prewButton.TabIndex = 4;
-			this.prewButton.Text = "Назад";
-			this.prewButton.UseVisualStyleBackColor = true;
-			this.prewButton.Click += new System.EventHandler(this.GoToPreviousFormClick);
 			// 
 			// addDefaultSubjectButton
 			// 
@@ -137,7 +126,6 @@
 			this.Controls.Add(this.deleteCheckedButton);
 			this.Controls.Add(this.deleteDefaultSubject);
 			this.Controls.Add(this.addDefaultSubjectButton);
-			this.Controls.Add(this.prewButton);
 			this.Controls.Add(this.sortByAlpButton);
 			this.Controls.Add(this.nextButton);
 			this.Controls.Add(this.subjectsCheckedListBox);
@@ -155,7 +143,6 @@
 		private System.Windows.Forms.Button addDefaultSubjectButton;
 		private System.Windows.Forms.Button nextButton;
 		private System.Windows.Forms.Button sortByAlpButton;
-		private System.Windows.Forms.Button prewButton;
 		private System.Windows.Forms.Button deleteDefaultSubject;
 		private System.Windows.Forms.Button deleteCheckedButton;
 		private System.Windows.Forms.Button addSubjectButton;

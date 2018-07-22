@@ -36,6 +36,8 @@
 			this.deleteCheckedClassesButton = new System.Windows.Forms.Button();
 			this.deleteDefaultClassesButton = new System.Windows.Forms.Button();
 			this.sortByNumberButton = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// classesCheckedList
@@ -46,7 +48,7 @@
 			this.classesCheckedList.Name = "classesCheckedList";
 			this.classesCheckedList.Size = new System.Drawing.Size(782, 424);
 			this.classesCheckedList.TabIndex = 0;
-			this.classesCheckedList.SelectedIndexChanged += new System.EventHandler(this.CheckedListBox1_SelectedIndexChanged);
+			this.classesCheckedList.SelectedIndexChanged += new System.EventHandler(this.CheckedListOfClassesSelecting);
 			// 
 			// nextButton
 			// 
@@ -118,11 +120,33 @@
 			this.sortByNumberButton.UseVisualStyleBackColor = true;
 			this.sortByNumberButton.Click += new System.EventHandler(this.SortingByNumberClick);
 			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(0, 460);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 10;
+			this.button1.Text = "Назад";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.PreviousFormClick);
+			// 
+			// button2
+			// 
+			this.button2.Location = new System.Drawing.Point(670, 343);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(75, 46);
+			this.button2.TabIndex = 11;
+			this.button2.Text = "Сохранить классы";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.SaveClick);
+			// 
 			// FormAddGrades
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(785, 486);
+			this.ClientSize = new System.Drawing.Size(796, 520);
+			this.Controls.Add(this.button2);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.sortByNumberButton);
 			this.Controls.Add(this.deleteDefaultClassesButton);
 			this.Controls.Add(this.deleteCheckedClassesButton);
@@ -133,6 +157,7 @@
 			this.Controls.Add(this.classesCheckedList);
 			this.Name = "FormAddGrades";
 			this.Text = "Добавить классы";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAddGrades_FormClosing);
 			this.Load += new System.EventHandler(this.FormAddGrades_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -149,5 +174,7 @@
 		private System.Windows.Forms.Button deleteCheckedClassesButton;
 		private System.Windows.Forms.Button deleteDefaultClassesButton;
 		private System.Windows.Forms.Button sortByNumberButton;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button button2;
 	}
 }
