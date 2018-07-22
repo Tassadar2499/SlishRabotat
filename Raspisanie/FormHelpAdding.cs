@@ -12,30 +12,44 @@ namespace Raspisanie
 {
 	public partial class FormHelpAdding : Form
 	{
+		public static CheckedListBox listBox;
 		public FormHelpAdding(string className, string[] subjects)
 		{
 			InitializeComponent();
 			listOfSubjects.Items.AddRange(subjects);
 			listOfSubjects.CheckOnClick = true;
 			labelClassName.Text += className;
+			listBox = listOfSubjects;
 		}
-
-
-		private void checkedListBoxOfSubjectsSelect(object sender, EventArgs e)
-		{
-
-		}
-
 		private void SaveClick(object sender, EventArgs e)
 		{
 			for (var i = listOfSubjects.Items.Count - 1; i >= 0; i--)
 				if (!listOfSubjects.GetItemChecked(i))
 					listOfSubjects.Items.RemoveAt(i);
+			listBox = listOfSubjects;
+		}
+		private void checkedListBoxOfSubjectsSelect(object sender, EventArgs e)
+		{
+			listOfSubjects.ItemCheck -= SubjectSelecting;
+			listOfSubjects.ItemCheck += SubjectSelecting;
 		}
 
+		private static void SubjectSelecting(object sender, ItemCheckEventArgs e)
+		{
+			string nameOfSubject = listBox.Items[e.Index].ToString();
+			FormCountAndDifficulty formCountAndDifficulty = new FormCountAndDifficulty(nameOfSubject);
+			formCountAndDifficulty.Show();
+		}
+		#region
 		private void LabelClassNameClick(object sender, EventArgs e)
 		{
 
 		}
+
+		private void label1_Click(object sender, EventArgs e)
+		{
+
+		}
+		#endregion
 	}
 }

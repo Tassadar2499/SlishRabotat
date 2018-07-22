@@ -31,6 +31,7 @@
 			this.listOfSubjects = new System.Windows.Forms.CheckedListBox();
 			this.button1 = new System.Windows.Forms.Button();
 			this.labelClassName = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// listOfSubjects
@@ -52,25 +53,35 @@
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.SaveClick);
 			// 
-			// label2
+			// labelClassName
 			// 
 			this.labelClassName.AutoSize = true;
 			this.labelClassName.BackColor = System.Drawing.Color.White;
 			this.labelClassName.ForeColor = System.Drawing.Color.Red;
 			this.labelClassName.Location = new System.Drawing.Point(12, 38);
-			this.labelClassName.Name = "label2";
+			this.labelClassName.Name = "labelClassName";
 			this.labelClassName.Size = new System.Drawing.Size(47, 13);
 			this.labelClassName.TabIndex = 4;
 			this.labelClassName.Text = "Класс - ";
 			this.labelClassName.Click += new System.EventHandler(this.LabelClassNameClick);
 			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(12, 75);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(52, 13);
+			this.label1.TabIndex = 5;
+			this.label1.Text = "Предмет";
+			this.label1.Click += new System.EventHandler(this.label1_Click);
+			// 
 			// FormHelpAdding
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(591, 529);
+			this.ClientSize = new System.Drawing.Size(447, 529);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.labelClassName);
-
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.listOfSubjects);
 			this.Name = "FormHelpAdding";
@@ -85,5 +96,6 @@
 		private System.Windows.Forms.CheckedListBox listOfSubjects;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label labelClassName;
+		private System.Windows.Forms.Label label1;
 	}
 }
