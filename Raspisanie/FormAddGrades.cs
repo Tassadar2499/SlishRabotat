@@ -18,8 +18,6 @@ namespace Raspisanie
 		public FormAddGrades()
 		{
 			InitializeComponent();
-			classesCheckedList.CheckOnClick = true;
-			classesCheckedList.MultiColumn = true;
 			if (schoolClasses != null)
 			classesCheckedList.Items.AddRange(schoolClasses);
 			flagOfSaveClicking = false;
@@ -127,6 +125,11 @@ namespace Raspisanie
 		}
 
 		private void TextAddClass(object sender, EventArgs e)
+		{
+
+		}
+
+		private void TextFieldClick(object sender, EventArgs e)
 		{
 
 		}

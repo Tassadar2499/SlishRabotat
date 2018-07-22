@@ -23,14 +23,6 @@ namespace Raspisanie
 			nameOfSubj = nameOfSubject;
 		}
 
-		private void SaveClick(object sender, EventArgs e)
-		{
-			subject = new Subject(nameOfSubj, dificulty, countAtWeek);
-			
-			if (!FormHelpAdding.subjOfCurrentClass.Contains(subject))
-			FormHelpAdding.subjOfCurrentClass.Add(subject);
-		}
-
 		private void numericDifficulty_ValueChanged(object sender, EventArgs e)
 		{
 			dificulty = (int) numericDifficulty.Value;
@@ -56,5 +48,13 @@ namespace Raspisanie
 
 		}
 		#endregion
+
+		private void FormCountAndDifficulty_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			subject = new Subject(nameOfSubj, dificulty, countAtWeek);
+
+			if (!FormHelpAdding.subjOfCurrentClass.Contains(subject))
+				FormHelpAdding.subjOfCurrentClass.Add(subject);
+		}
 	}
 }

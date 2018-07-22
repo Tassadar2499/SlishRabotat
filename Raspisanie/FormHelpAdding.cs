@@ -72,6 +72,11 @@ namespace Raspisanie
 		{
 
 		}
+
+		private void TextClick(object sender, EventArgs e)
+		{
+
+		}
 		#endregion
 	}
 }

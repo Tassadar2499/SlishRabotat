@@ -40,6 +40,7 @@
 			// 
 			// subjectsCheckedListBox
 			// 
+			this.subjectsCheckedListBox.CheckOnClick = true;
 			this.subjectsCheckedListBox.FormattingEnabled = true;
 			this.subjectsCheckedListBox.Location = new System.Drawing.Point(0, 0);
 			this.subjectsCheckedListBox.Name = "subjectsCheckedListBox";
@@ -120,6 +121,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.Aqua;
 			this.ClientSize = new System.Drawing.Size(491, 477);
 			this.Controls.Add(this.addSubjectButton);
 			this.Controls.Add(this.subjectTextBox);

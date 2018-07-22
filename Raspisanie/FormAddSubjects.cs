@@ -18,7 +18,6 @@ namespace Raspisanie
 		public FormAddSubjects()
 		{
 			InitializeComponent();
-			subjectsCheckedListBox.CheckOnClick = true;
 		}
 
 		public void CheckedListOfSubjects_AddItem(string item)
