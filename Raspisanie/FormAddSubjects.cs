@@ -52,7 +52,7 @@ namespace Raspisanie
 					subjectsCheckedListBox.Items.Remove(schoolSubject);
 		}
 
-		private void TextAddSubject(object sender, EventArgs e)
+		public void TextAddSubject(object sender, EventArgs e)
 		{
 			var text = File.ReadAllText("Subjects.txt").Split(new char[] { '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 			for (var i = 0; i < text.Length; i++)

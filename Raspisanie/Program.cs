@@ -38,9 +38,28 @@ namespace Raspisanie
 			Application.SetCompatibleTextRenderingDefault(false);
 			FormAddSubjects formAddSubjects = new FormAddSubjects();
 			Application.Run(formAddSubjects);
+
 			var testing = grades;
-			var testing2 = teachers;
-			var ew = 0;
+			File.Delete("Input.txt");
+			var strInput = "";
+			foreach (var grade in testing)
+			{
+				strInput += grade.Name;
+				strInput += "\r\nПредмет - ";
+				foreach (var dict in grade.Subjects)
+				{
+					strInput += dict.Key.Name;
+					strInput += "; Сложность - ";
+					strInput += dict.Key.Difficult.ToString();
+					strInput += "; Количество часов в неделю - ";
+					strInput += dict.Key.CountAtWeek.ToString();
+					strInput += "\r\nУчитель ";
+					strInput += dict.Value.Name;
+					strInput += "\r\n";
+				}
+			}
+			File.AppendAllText("Input.txt", strInput);
+			//var ew = 0;
 		}
 	}
 }

@@ -83,8 +83,8 @@
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(100, 164);
 			this.label2.TabIndex = 7;
-			this.label2.Text = "Двойной клик по каждому из классов, чтобы установить сложность и количество часов" +
-    " в неделю";
+			this.label2.Text = "Двойной клик по каждому из предметов, чтобы установить сложность и количество час" +
+    "ов в неделю";
 			this.label2.Click += new System.EventHandler(this.TextClick);
 			// 
 			// FormHelpAdding
