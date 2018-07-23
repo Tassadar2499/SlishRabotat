@@ -49,10 +49,11 @@
 			// 
 			this.labelClassName.AutoSize = true;
 			this.labelClassName.BackColor = System.Drawing.Color.White;
+			this.labelClassName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.labelClassName.ForeColor = System.Drawing.Color.Red;
 			this.labelClassName.Location = new System.Drawing.Point(12, 38);
 			this.labelClassName.Name = "labelClassName";
-			this.labelClassName.Size = new System.Drawing.Size(47, 13);
+			this.labelClassName.Size = new System.Drawing.Size(64, 16);
 			this.labelClassName.TabIndex = 4;
 			this.labelClassName.Text = "Класс - ";
 			this.labelClassName.Click += new System.EventHandler(this.LabelClassNameClick);
@@ -79,9 +80,10 @@
 			// 
 			// label2
 			// 
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.label2.Location = new System.Drawing.Point(270, 112);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(100, 164);
+			this.label2.Size = new System.Drawing.Size(100, 187);
 			this.label2.TabIndex = 7;
 			this.label2.Text = "Двойной клик по каждому из предметов, чтобы установить сложность и количество час" +
     "ов в неделю";

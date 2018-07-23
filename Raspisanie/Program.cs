@@ -45,9 +45,9 @@ namespace Raspisanie
 			foreach (var grade in testing)
 			{
 				strInput += grade.Name;
-				strInput += "\r\nПредмет - ";
 				foreach (var dict in grade.Subjects)
 				{
+					strInput += "\r\nПредмет - ";
 					strInput += dict.Key.Name;
 					strInput += "; Сложность - ";
 					strInput += dict.Key.Difficult.ToString();
