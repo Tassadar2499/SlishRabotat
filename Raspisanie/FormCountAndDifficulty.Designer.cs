@@ -98,6 +98,7 @@
 			this.Name = "FormCountAndDifficulty";
 			this.Text = "FormCountAndDifficulty";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCountAndDifficulty_FormClosing);
+			this.Load += new System.EventHandler(this.FormCountAndDifficulty_Load);
 			((System.ComponentModel.ISupportInitialize)(this.numericDifficulty)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericCountAtWeek)).EndInit();
 			this.ResumeLayout(false);

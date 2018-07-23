@@ -57,7 +57,7 @@ namespace Raspisanie
 			}
 			foreach (var subj in subjOfCurrentClass)
 			{
-				Program.grades[index].AddSubject(subj, new Teacher("Козя"));
+				Program.grades[index].AddSubject(subj, new Teacher(""));
 			}
 		}
 

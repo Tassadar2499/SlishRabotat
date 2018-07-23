@@ -38,10 +38,11 @@
 			this.listOfClasses.CheckOnClick = true;
 			this.listOfClasses.FormattingEnabled = true;
 			this.listOfClasses.Location = new System.Drawing.Point(12, 67);
+			this.listOfClasses.MultiColumn = true;
 			this.listOfClasses.Name = "listOfClasses";
 			this.listOfClasses.Size = new System.Drawing.Size(190, 229);
 			this.listOfClasses.TabIndex = 0;
-			this.listOfClasses.SelectedIndexChanged += new System.EventHandler(this.CheckedListOfSubjectsSelect);
+			this.listOfClasses.SelectedIndexChanged += new System.EventHandler(this.CheckedListOfClassesSelect);
 			// 
 			// labelTeacher
 			// 

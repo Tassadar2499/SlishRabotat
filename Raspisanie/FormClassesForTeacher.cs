@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,16 @@ namespace Raspisanie
 {
 	public partial class FormClassesForTeacher : Form
 	{
+		public static string teacherName;
 		public FormClassesForTeacher(string nameOfTeacher, string[] classes)
 		{
 			InitializeComponent();
 			listOfClasses.Items.AddRange(classes);
 			labelTeacher.Text += nameOfTeacher;
+			teacherName = nameOfTeacher;
 		}
 
-		private void CheckedListOfSubjectsSelect(object sender, EventArgs e)
+		private void CheckedListOfClassesSelect(object sender, EventArgs e)
 		{
 			listOfClasses.DoubleClick -= DoubleClicking;
 			listOfClasses.DoubleClick += DoubleClicking;
@@ -29,7 +32,24 @@ namespace Raspisanie
 		{
 			CheckedListBox kek = (CheckedListBox)sender;
 			var nameOfClass = kek.SelectedItem;
-			FormSubjectsForTeacher formSubjectsForTeacher = new FormSubjectsForTeacher(nameOfClass.ToString());
+			var grades = Program.grades;
+			var iterator = 0;
+			foreach (var grade in grades)
+			{
+				if (grade.Name == nameOfClass.ToString())
+					break;
+				iterator++;
+			}
+			var subjects = grades[iterator].Subjects.Keys;
+			string[] lol = new string[subjects.Count];
+			int pop = 0;
+			foreach (var elem in subjects)
+			{
+				lol[pop] = elem.Name;
+				pop++;
+			}
+			FormSubjectsForTeacher formSubjectsForTeacher = new FormSubjectsForTeacher(nameOfClass.ToString(), lol, teacherName);
+			formSubjectsForTeacher.Show();
 		}
 
 		private void LabelTeacherClick(object sender, EventArgs e)
