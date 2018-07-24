@@ -31,6 +31,7 @@
 			this.listOfClasses = new System.Windows.Forms.CheckedListBox();
 			this.labelTeacher = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// listOfClasses
@@ -66,11 +67,24 @@
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.DeleteClick);
 			// 
+			// label1
+			// 
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.label1.Location = new System.Drawing.Point(220, 105);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(100, 153);
+			this.label1.TabIndex = 3;
+			this.label1.Text = "Выбери нужные классы, оставь их. А затем двойной клик по нужному классу";
+			this.label1.Click += new System.EventHandler(this.label1_Click);
+			// 
 			// FormClassesForTeacher
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.ActiveCaption;
 			this.ClientSize = new System.Drawing.Size(354, 414);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.labelTeacher);
 			this.Controls.Add(this.listOfClasses);
@@ -86,5 +100,6 @@
 		private System.Windows.Forms.CheckedListBox listOfClasses;
 		private System.Windows.Forms.Label labelTeacher;
 		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Label label1;
 	}
 }
