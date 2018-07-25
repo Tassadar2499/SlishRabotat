@@ -13,13 +13,11 @@ namespace Raspisanie
 {
 	public partial class FormClassesForTeacher : Form
 	{
-		public static string teacherName;
 		public FormClassesForTeacher(string nameOfTeacher, string[] classes)
 		{
 			InitializeComponent();
 			listOfClasses.Items.AddRange(classes);
 			labelTeacher.Text += nameOfTeacher;
-			teacherName = nameOfTeacher;
 		}
 
 		private void CheckedListOfClassesSelect(object sender, EventArgs e)
