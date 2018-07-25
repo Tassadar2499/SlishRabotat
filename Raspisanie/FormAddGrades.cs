@@ -96,6 +96,10 @@ namespace Raspisanie
 				SchedlueMaker.Grades.Add(new Grade(grade));
 
 			var nameOfClass = (sender as CheckedListBox).SelectedItem;
+
+			if (nameOfClass == null)
+				return;
+
 			FormHelpAdding formHelpAdding = new FormHelpAdding(nameOfClass.ToString(), FormAddSubjects.checkedSubjects);
 			formHelpAdding.Show();
 		}
