@@ -10,9 +10,6 @@ namespace Raspisanie
 {
 	static class Program
 	{
-		public static SchoolClass[] grades; //не удаляй плез, мне чисто потестить
-		public static Teacher[] teachers;
-
 		public static void ShowOnMessageBox(string[] checkedObj)
 		{
 			if (checkedObj == null)
