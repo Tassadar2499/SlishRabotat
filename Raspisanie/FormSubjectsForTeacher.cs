@@ -48,7 +48,7 @@ namespace Raspisanie
 
 		private void FormSubjectsForTeacher_Load(object sender, EventArgs e)
 		{
-			SchoolClass grade = Program.grades.Where(a => a.Name == currentClass).Single();
+			var grade = SchedlueMaker.SchoolClasses.Where(a => a.Name == currentClass).Single();
 
 			var subjectsFromTeacher = Program.ListBoxToStrings(checkedListBoxOfSubjects).ToArray();
 			var dictionary = grade.Subjects;

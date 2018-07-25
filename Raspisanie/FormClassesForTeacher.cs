@@ -31,7 +31,7 @@ namespace Raspisanie
 		{
 			var nameOfClass = (sender as CheckedListBox).SelectedItem;
 
-			var grade = Program.grades.Where(a => a.Name == nameOfClass.ToString());
+			var grade = SchedlueMaker.SchoolClasses.Where(a => a.Name == nameOfClass.ToString());
 			var subjects = grade.Single().Subjects.Keys;
 			var teacherSubjects = subjects.Select(a => a.Name).ToArray();
 

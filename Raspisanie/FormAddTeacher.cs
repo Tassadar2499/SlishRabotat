@@ -64,9 +64,8 @@ namespace Raspisanie
 		private void SaveClick(object sender, EventArgs e)
 		{
 			flagOfSaveClicking = true;
-			teachersNames = Program.ListBoxToStrings(checkedListOfTeachers).ToArray();
 
-			foreach (var teacherName in teachersNames)
+			foreach (var teacherName in Program.ListBoxToStrings(checkedListOfTeachers))
 				SchedlueMaker.Teachers.Add(new Teacher(teacherName));
 		}
 
