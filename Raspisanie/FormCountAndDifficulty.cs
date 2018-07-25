@@ -16,6 +16,7 @@ namespace Raspisanie
 		int countAtWeek;
 		string nameOfSubj;
 		Subject subject;
+
 		public FormCountAndDifficulty(string nameOfSubject)
 		{
 			InitializeComponent();
@@ -23,12 +24,12 @@ namespace Raspisanie
 			nameOfSubj = nameOfSubject;
 		}
 
-		private void numericDifficulty_ValueChanged(object sender, EventArgs e)
+		private void NumericDifficulty_ValueChanged(object sender, EventArgs e)
 		{
 			dificulty = (int) numericDifficulty.Value;
 		}
 
-		private void numericCountAtWeek_ValueChanged(object sender, EventArgs e)
+		private void NumericCountAtWeek_ValueChanged(object sender, EventArgs e)
 		{
 			countAtWeek = (int) numericCountAtWeek.Value;
 		}

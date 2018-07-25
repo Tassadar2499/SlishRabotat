@@ -74,7 +74,7 @@
 			this.numericDifficulty.Name = "numericDifficulty";
 			this.numericDifficulty.Size = new System.Drawing.Size(120, 20);
 			this.numericDifficulty.TabIndex = 6;
-			this.numericDifficulty.ValueChanged += new System.EventHandler(this.numericDifficulty_ValueChanged);
+			this.numericDifficulty.ValueChanged += new System.EventHandler(this.NumericDifficulty_ValueChanged);
 			// 
 			// numericCountAtWeek
 			// 
@@ -82,7 +82,7 @@
 			this.numericCountAtWeek.Name = "numericCountAtWeek";
 			this.numericCountAtWeek.Size = new System.Drawing.Size(120, 20);
 			this.numericCountAtWeek.TabIndex = 7;
-			this.numericCountAtWeek.ValueChanged += new System.EventHandler(this.numericCountAtWeek_ValueChanged);
+			this.numericCountAtWeek.ValueChanged += new System.EventHandler(this.NumericCountAtWeek_ValueChanged);
 			// 
 			// FormCountAndDifficulty
 			// 
