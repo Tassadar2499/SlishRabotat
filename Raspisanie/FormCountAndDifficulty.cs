@@ -12,26 +12,13 @@ namespace Raspisanie
 {
 	public partial class FormCountAndDifficulty : Form
 	{
-		int dificulty;
-		int countAtWeek;
 		string nameOfSubj;
-		Subject subject;
 
 		public FormCountAndDifficulty(string nameOfSubject)
 		{
 			InitializeComponent();
 			label1.Text += nameOfSubject;
 			nameOfSubj = nameOfSubject;
-		}
-
-		private void NumericDifficulty_ValueChanged(object sender, EventArgs e)
-		{
-			dificulty = (int) numericDifficulty.Value;
-		}
-
-		private void NumericCountAtWeek_ValueChanged(object sender, EventArgs e)
-		{
-			countAtWeek = (int) numericCountAtWeek.Value;
 		}
 
 		#region
@@ -53,7 +40,9 @@ namespace Raspisanie
 
 		private void FormCountAndDifficulty_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			subject = new Subject(nameOfSubj, dificulty, countAtWeek);
+			var dificulty = (int)numericDifficulty.Value;
+			var countAtWeek = (int)numericCountAtWeek.Value;
+			var subject = new Subject(nameOfSubj, dificulty, countAtWeek);
 
 			if (!FormHelpAdding.subjOfCurrentClass.Contains(subject))
 				FormHelpAdding.subjOfCurrentClass.Add(subject);
