@@ -48,28 +48,15 @@ namespace Raspisanie
 
 		private void FormSubjectsForTeacher_Load(object sender, EventArgs e)
 		{
-			SchoolClass grade = new SchoolClass("");
-			var iterator = 0;
-			for (int i = 0; i < Program.grades.Length; i++)
-			{
-				if (Program.grades[i].Name == currentClass)
-				{
-					grade = Program.grades[i];
-					iterator = i;
-					break;
-				}
-			}
-			var subjArr = Program.ListBoxToStrings(checkedListBoxOfSubjects).ToArray();
+			SchoolClass grade = Program.grades.Where(a => a.Name == currentClass).Single();
+
+			var subjectsFromTeacher = Program.ListBoxToStrings(checkedListBoxOfSubjects).ToArray();
 			var dictionary = grade.Subjects;
-			foreach (var key in dictionary.Keys.ToList())
-			{
-				foreach (var subj in subjArr)
-				{
-					if (key.Name == subj)
-						dictionary[key] = new Teacher(teacherName);
-				}
-			}
-			Program.grades[iterator].Subjects = dictionary;
+
+			foreach (var subjectFromGrade in grade.Subjects.Keys)
+				foreach (var subjectFromList in subjectsFromTeacher)
+					if (subjectFromGrade.Name == subjectFromList)
+						dictionary[subjectFromGrade] = new Teacher(teacherName);
 		}
 	}
 }
