@@ -13,32 +13,33 @@ namespace Raspisanie
 {
 	public partial class FormClassesForTeacher : Form
 	{
+		public static string teacherName;
 		public FormClassesForTeacher(string nameOfTeacher, string[] classes)
 		{
 			InitializeComponent();
 			listOfClasses.Items.AddRange(classes);
 			labelTeacher.Text += nameOfTeacher;
+			teacherName = nameOfTeacher;
 		}
 
 		private void CheckedListOfClassesSelect(object sender, EventArgs e)
 		{
-			listOfClasses.DoubleClick -= DoubleClicking;
 			listOfClasses.DoubleClick += DoubleClicking;
 		}
 
 		private static void DoubleClicking(object sender, EventArgs e)
 		{
-			CheckedListBox kek = (CheckedListBox)sender;
-			var nameOfClass = kek.SelectedItem;
-			var grades = Program.grades;
+			var nameOfClass = (sender as CheckedListBox).SelectedItem;
+
 			var iterator = 0;
-			foreach (var grade in grades)
+			foreach (var grade in Program.grades)
 			{
 				if (grade.Name == nameOfClass.ToString())
 					break;
 				iterator++;
 			}
-			var subjects = grades[iterator].Subjects.Keys;
+			
+			var subjects = Program.grades[iterator].Subjects.Keys;
 			string[] lol = new string[subjects.Count];
 			int pop = 0;
 			foreach (var elem in subjects)
@@ -46,6 +47,7 @@ namespace Raspisanie
 				lol[pop] = elem.Name;
 				pop++;
 			}
+
 			FormSubjectsForTeacher formSubjectsForTeacher = new FormSubjectsForTeacher(nameOfClass.ToString(), lol, teacherName);
 			formSubjectsForTeacher.Show();
 		}
