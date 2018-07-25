@@ -39,7 +39,7 @@ namespace Raspisanie
 
 		}
 
-		private void difficultyLabelClick(object sender, EventArgs e)
+		private void DifficultyLabelClick(object sender, EventArgs e)
 		{
 
 		}
