@@ -7,7 +7,7 @@ namespace Raspisanie
 	public partial class FormAddTeacher : Form
 	{
 		public static bool flagOfSaveClicking;
-		public static string[] teachers;
+		public static string[] teachersNames;
 
 		public FormAddTeacher()
 		{
@@ -64,11 +64,10 @@ namespace Raspisanie
 		private void SaveClick(object sender, EventArgs e)
 		{
 			flagOfSaveClicking = true;
-			teachers = Program.ListBoxToStrings(checkedListOfTeachers).ToArray();
-			Program.teachers = new Teacher[checkedListOfTeachers.Items.Count];
+			teachersNames = Program.ListBoxToStrings(checkedListOfTeachers).ToArray();
 
-			for (int i = 0; i < Program.teachers.Length; i++)
-				Program.teachers[i] = new Teacher(checkedListOfTeachers.Items[i].ToString());
+			foreach (var teacherName in teachersNames)
+				SchedlueMaker.Teachers.Add(new Teacher(teacherName));
 		}
 
 		#region
