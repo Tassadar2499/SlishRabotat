@@ -46,21 +46,10 @@ namespace Raspisanie
 
 		private void FormHelpAdding_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			var index = 0;
-			for (int i = 0; i < Program.grades.Length; i++)
-			{
-				if (Program.grades[i].Name == nameOfClass)
-				{
-					index = i;
-					break;
-				}
-			}
+			var grade = Program.grades.Where(a => a.Name == nameOfClass).Single();
 
 			foreach (var subj in subjOfCurrentClass)
-			{
-				//что это блять за параша?
-				Program.grades[index].AddSubject(subj, new Teacher(""));
-			}
+				grade.AddSubject(subj, new Teacher("")); //что это блять за параша?
 		}
 
 		#region
