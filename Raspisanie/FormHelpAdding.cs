@@ -22,11 +22,13 @@ namespace Raspisanie
 			labelClassName.Text += className;
 			subjectsOfCurrentClass = new List<Subject>();
 			nameOfClass = className;
+
+			listOfSubjects.DoubleClick += SubjectSelecting;
 		}
 
 		private void CheckedListBoxOfSubjectsSelect(object sender, EventArgs e)
 		{
-			listOfSubjects.DoubleClick += SubjectSelecting;
+						
 		}
 
 		private static void SubjectSelecting(object sender, EventArgs e)
