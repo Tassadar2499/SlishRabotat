@@ -20,11 +20,13 @@ namespace Raspisanie
 			listOfClasses.Items.AddRange(classes);
 			labelTeacher.Text += nameOfTeacher;
 			teacherName = nameOfTeacher;
+
+			listOfClasses.DoubleClick += DoubleClicking;
 		}
 
 		private void CheckedListOfClassesSelect(object sender, EventArgs e)
 		{
-			listOfClasses.DoubleClick += DoubleClicking;
+			
 		}
 
 		private static void DoubleClicking(object sender, EventArgs e)

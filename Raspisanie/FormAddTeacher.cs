@@ -6,13 +6,10 @@ namespace Raspisanie
 {
 	public partial class FormAddTeacher : Form
 	{
-		public static bool flagOfSaveClicking;
-		public static string[] teachersNames;
-
 		public FormAddTeacher()
 		{
 			InitializeComponent();
-			flagOfSaveClicking = false;
+			checkedListOfTeachers.DoubleClick += DoubleClicking;
 		}
 
 		private void FormAddTeacher_FormClosing(object sender, FormClosingEventArgs e)
@@ -22,8 +19,7 @@ namespace Raspisanie
 
 		private void CheckedListOfTeachersClick(object sender, EventArgs e)
 		{
-			if (flagOfSaveClicking)
-				checkedListOfTeachers.DoubleClick += DoubleClicking;
+
 		}
 
 		private void AddTeacherClick(object sender, EventArgs e)
@@ -54,19 +50,18 @@ namespace Raspisanie
 			checkedListOfTeachers.Items.AddRange(teachers);
 		}
 
-		private static void DoubleClicking(object sender, EventArgs e)
+		private void DoubleClicking(object sender, EventArgs e)
 		{
-			var nameOfTeacher = (sender as CheckedListBox).SelectedItem;
-			FormClassesForTeacher formHelpAdding = new FormClassesForTeacher(nameOfTeacher.ToString(), FormAddGrades.schoolClasses);
-			formHelpAdding.Show();
-		}
-
-		private void SaveClick(object sender, EventArgs e)
-		{
-			flagOfSaveClicking = true;
-
 			foreach (var teacherName in Program.ListBoxToStrings(checkedListOfTeachers))
 				SchedlueMaker.Teachers.Add(new Teacher(teacherName));
+
+			var nameOfTeacher = (sender as CheckedListBox).SelectedItem;
+
+			if (nameOfTeacher == null)
+				return;
+
+			FormClassesForTeacher formHelpAdding = new FormClassesForTeacher(nameOfTeacher.ToString(), FormAddGrades.schoolClasses);
+			formHelpAdding.Show();
 		}
 
 		#region
