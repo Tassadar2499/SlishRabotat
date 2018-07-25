@@ -58,6 +58,7 @@ namespace Raspisanie
 
 			foreach (var subj in subjOfCurrentClass)
 			{
+				//что это блять за параша?
 				Program.grades[index].AddSubject(subj, new Teacher(""));
 			}
 		}
