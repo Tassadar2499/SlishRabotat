@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Raspisanie
 {
-	public class SchoolClass : Schedlue
+	public class Grade : Schedlue
 	{
 		public string Name
 		{
@@ -23,7 +23,7 @@ namespace Raspisanie
 		public void AddSubject(Subject subject, Teacher teacher)
 			=> Subjects.Add(subject, teacher);
 
-		public SchoolClass(string name)
+		public Grade(string name)
 		{
 			Name = name;
 		}
