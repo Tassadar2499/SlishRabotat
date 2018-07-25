@@ -14,14 +14,13 @@ namespace Raspisanie
 	public partial class FormAddGrades : Form
 	{
 		public static string[] schoolClasses;
-		public static bool flagOfSaveClicking;
 
 		public FormAddGrades()
 		{
 			InitializeComponent();
 			if (schoolClasses != null)
-			classesCheckedList.Items.AddRange(schoolClasses);
-			flagOfSaveClicking = false;
+				classesCheckedList.Items.AddRange(schoolClasses);
+			classesCheckedList.DoubleClick += DoubleClicking;
 		}
 
 		public void CheckedListOfClasses_AddItem(string item)
@@ -90,14 +89,12 @@ namespace Raspisanie
 				CheckedListOfClasses_AddItem(schoolClass);
 		}
 
-		private void CheckedListOfClassesSelecting(object sender, EventArgs e)
+		private void DoubleClicking(object sender, EventArgs e)
 		{
-			if (flagOfSaveClicking)
-				classesCheckedList.DoubleClick += DoubleClicking;
-		}
+			SchedlueMaker.Grades.Clear();
+			foreach (var grade in Program.ListBoxToStrings(classesCheckedList))
+				SchedlueMaker.Grades.Add(new Grade(grade));
 
-		private static void DoubleClicking(object sender, EventArgs e)
-		{
 			var nameOfClass = (sender as CheckedListBox).SelectedItem;
 			FormHelpAdding formHelpAdding = new FormHelpAdding(nameOfClass.ToString(), FormAddSubjects.checkedSubjects);
 			formHelpAdding.Show();
@@ -108,14 +105,6 @@ namespace Raspisanie
 			Application.Exit();
 		}
 
-		private void SaveClick(object sender, EventArgs e)
-		{
-			flagOfSaveClicking = true;
-
-			foreach (var grade in Program.ListBoxToStrings(classesCheckedList))
-				SchedlueMaker.Grades.Add(new Grade(grade));
-		}
-		
 		#region
 		private void FormAddGrades_Load(object sender, EventArgs e)
 		{

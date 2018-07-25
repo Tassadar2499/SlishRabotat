@@ -46,8 +46,6 @@ namespace Raspisanie
 
 			if (!FormHelpAdding.subjectsOfCurrentClass.Contains(subject))
 				FormHelpAdding.subjectsOfCurrentClass.Add(subject);
-
-			Close();
 		}
 
 		private void FormCountAndDifficulty_Load(object sender, EventArgs e)

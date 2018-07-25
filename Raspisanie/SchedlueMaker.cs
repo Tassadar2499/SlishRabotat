@@ -9,11 +9,11 @@ namespace Raspisanie
 {
 	public static class SchedlueMaker
 	{
-		public static List<Grade> Grades
+		public static List<SchoolClass> Grades
 		{
 			get;
 			set;
-		} = new List<Grade>();
+		} = new List<SchoolClass>();
 
 		public static List<Teacher> Teachers
 		{
@@ -34,12 +34,12 @@ namespace Raspisanie
 				yield return new Teacher(str);
 		}
 
-		public static IEnumerable<Grade> LoadClasses(string path)
+		public static IEnumerable<SchoolClass> LoadClasses(string path)
 		{
 			var text = File.ReadAllText(path).Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
 			foreach (var str in text)
-				yield return new Grade(str);
+				yield return new SchoolClass(str);
 		}
 
 		public static IEnumerable<Subject> LoadSubjects(string path)
@@ -75,12 +75,12 @@ namespace Raspisanie
 		public static void CalculateSchedlue()
 		{
 			//предмет, у какого клаасса этот предмет
-			var allSubjects = new List<Tuple<Subject, Grade>>();
+			var allSubjects = new List<Tuple<Subject, SchoolClass>>();
 
 			//берем все предметы всех классов
 			foreach (var schoolClass in Grades)
 				foreach (var subject in schoolClass.Subjects)
-					allSubjects.Add(new Tuple<Subject, Grade>(subject.Key, schoolClass));
+					allSubjects.Add(new Tuple<Subject, SchoolClass>(subject.Key, schoolClass));
 
 			//сортируем по убыванию
 			allSubjects.OrderBy(a => a.Item1.Difficult);
