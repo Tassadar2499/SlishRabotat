@@ -8,6 +8,7 @@ namespace Raspisanie
 	{
 		public static bool flagOfSaveClicking;
 		public static string[] teachers;
+
 		public FormAddTeacher()
 		{
 			InitializeComponent();
@@ -65,10 +66,9 @@ namespace Raspisanie
 			flagOfSaveClicking = true;
 			teachers = Program.ListBoxToStrings(checkedListOfTeachers).ToArray();
 			Program.teachers = new Teacher[checkedListOfTeachers.Items.Count];
+
 			for (int i = 0; i < Program.teachers.Length; i++)
-			{
 				Program.teachers[i] = new Teacher(checkedListOfTeachers.Items[i].ToString());
-			}
 		}
 
 		#region
