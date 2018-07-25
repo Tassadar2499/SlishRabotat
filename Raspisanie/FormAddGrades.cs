@@ -92,10 +92,7 @@ namespace Raspisanie
 		private void CheckedListOfClassesSelecting(object sender, EventArgs e)
 		{
 			if (flagOfSaveClicking)
-			{
-				classesCheckedList.DoubleClick -= DoubleClicking;
 				classesCheckedList.DoubleClick += DoubleClicking;
-			}
 		}
 
 		private static void DoubleClicking(object sender, EventArgs e)
