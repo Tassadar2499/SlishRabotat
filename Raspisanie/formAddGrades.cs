@@ -15,6 +15,7 @@ namespace Raspisanie
 	{
 		public static string[] schoolClasses;
 		public static bool flagOfSaveClicking;
+
 		public FormAddGrades()
 		{
 			InitializeComponent();
@@ -92,16 +93,12 @@ namespace Raspisanie
 		private void CheckedListOfClassesSelecting(object sender, EventArgs e)
 		{
 			if (flagOfSaveClicking)
-			{
-				classesCheckedList.DoubleClick -= DoubleClicking;
 				classesCheckedList.DoubleClick += DoubleClicking;
-			}
 		}
 
 		private static void DoubleClicking(object sender, EventArgs e)
 		{
-			CheckedListBox kek = (CheckedListBox)sender;
-			var nameOfClass = kek.SelectedItem;
+			var nameOfClass = (sender as CheckedListBox).SelectedItem;
 			FormHelpAdding formHelpAdding = new FormHelpAdding(nameOfClass.ToString(), FormAddSubjects.checkedSubjects);
 			formHelpAdding.Show();
 		}
@@ -116,10 +113,9 @@ namespace Raspisanie
 			flagOfSaveClicking = true;
 			schoolClasses = Program.ListBoxToStrings(classesCheckedList).ToArray();
 			Program.grades = new SchoolClass[schoolClasses.Length];
+
 			for (int i = 0; i < Program.grades.Length; i++)
-			{
 				Program.grades[i] = new SchoolClass(schoolClasses[i]);
-			}
 		}
 		#region
 		private void FormAddGrades_Load(object sender, EventArgs e)
