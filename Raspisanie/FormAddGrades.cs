@@ -113,7 +113,7 @@ namespace Raspisanie
 			flagOfSaveClicking = true;
 
 			foreach (var grade in Program.ListBoxToStrings(classesCheckedList))
-				SchedlueMaker.SchoolClasses.Add(new SchoolClass(grade));
+				SchedlueMaker.Grades.Add(new Grade(grade));
 		}
 		
 		#region

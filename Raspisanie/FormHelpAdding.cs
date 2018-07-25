@@ -47,7 +47,7 @@ namespace Raspisanie
 
 		private void FormHelpAdding_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			var grade = SchedlueMaker.SchoolClasses.Where(a => a.Name == nameOfClass).Single();
+			var grade = SchedlueMaker.Grades.Where(a => a.Name == nameOfClass).Single();
 
 			foreach (var subj in subjOfCurrentClass)
 				grade.AddSubject(subj, new Teacher("")); //что это блять за параша?

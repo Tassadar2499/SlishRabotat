@@ -111,11 +111,9 @@ namespace Raspisanie
 		private void SaveClick(object sender, EventArgs e)
 		{
 			flagOfSaveClicking = true;
-			schoolClasses = Program.ListBoxToStrings(classesCheckedList).ToArray();
-			Program.grades = new SchoolClass[schoolClasses.Length];
 
-			for (int i = 0; i < Program.grades.Length; i++)
-				Program.grades[i] = new SchoolClass(schoolClasses[i]);
+			foreach (var grade in Program.ListBoxToStrings(classesCheckedList))
+				SchedlueMaker.Grades.Add(new Grade(grade));
 		}
 		
 		#region
