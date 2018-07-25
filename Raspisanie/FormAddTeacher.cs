@@ -22,10 +22,7 @@ namespace Raspisanie
 		private void CheckedListOfTeachersClick(object sender, EventArgs e)
 		{
 			if (flagOfSaveClicking)
-			{
-				checkedListOfTeachers.DoubleClick -= DoubleClicking;
 				checkedListOfTeachers.DoubleClick += DoubleClicking;
-			}
 		}
 
 		private void AddTeacherClick(object sender, EventArgs e)
@@ -58,8 +55,7 @@ namespace Raspisanie
 
 		private static void DoubleClicking(object sender, EventArgs e)
 		{
-			CheckedListBox kek = (CheckedListBox)sender;
-			var nameOfTeacher = kek.SelectedItem;
+			var nameOfTeacher = (sender as CheckedListBox).SelectedItem;
 			FormClassesForTeacher formHelpAdding = new FormClassesForTeacher(nameOfTeacher.ToString(), FormAddGrades.schoolClasses);
 			formHelpAdding.Show();
 		}
@@ -87,7 +83,7 @@ namespace Raspisanie
 		}
 		#endregion
 
-		private void label1_Click(object sender, EventArgs e)
+		private void Label1_Click(object sender, EventArgs e)
 		{
 
 		}

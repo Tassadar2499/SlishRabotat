@@ -44,6 +44,7 @@ namespace Raspisanie
 			var testing = grades;
 			File.Delete("Input.txt");
 			var strInput = "";
+
 			if (testing != null)
 			{
 				foreach (var grade in testing)
@@ -64,7 +65,6 @@ namespace Raspisanie
 				}
 			}
 			File.AppendAllText("Input.txt", strInput);
-			//var ew = 0;
 		}
 	}
 }

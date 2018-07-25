@@ -105,7 +105,7 @@
 			this.label1.Size = new System.Drawing.Size(104, 126);
 			this.label1.TabIndex = 6;
 			this.label1.Text = "Жми на сохранить, а потом двойной клик по учителю";
-			this.label1.Click += new System.EventHandler(this.label1_Click);
+			this.label1.Click += new System.EventHandler(this.Label1_Click);
 			// 
 			// button5
 			// 
