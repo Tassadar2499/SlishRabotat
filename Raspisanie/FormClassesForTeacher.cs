@@ -31,24 +31,12 @@ namespace Raspisanie
 		{
 			var nameOfClass = (sender as CheckedListBox).SelectedItem;
 
-			var iterator = 0;
-			foreach (var grade in Program.grades)
-			{
-				if (grade.Name == nameOfClass.ToString())
-					break;
-				iterator++;
-			}
-			
-			var subjects = Program.grades[iterator].Subjects.Keys;
-			string[] lol = new string[subjects.Count];
-			int pop = 0;
-			foreach (var elem in subjects)
-			{
-				lol[pop] = elem.Name;
-				pop++;
-			}
+			var grade = Program.grades.Where(a => a.Name == nameOfClass.ToString());
+			var subjects = grade.Single().Subjects.Keys;
+			var teacherSubjects = subjects.Select(a => a.Name).ToArray();
 
-			FormSubjectsForTeacher formSubjectsForTeacher = new FormSubjectsForTeacher(nameOfClass.ToString(), lol, teacherName);
+			FormSubjectsForTeacher formSubjectsForTeacher
+				= new FormSubjectsForTeacher(nameOfClass.ToString(), teacherSubjects, teacherName);
 			formSubjectsForTeacher.Show();
 		}
 
