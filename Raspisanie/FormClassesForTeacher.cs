@@ -48,12 +48,8 @@ namespace Raspisanie
 		private void DeleteClick(object sender, EventArgs e)
 		{
 			for (var i = listOfClasses.Items.Count - 1; i >= 0; i--)
-			{
 				if (!listOfClasses.GetItemChecked(i))
-				{
 					listOfClasses.Items.RemoveAt(i);
-				}
-			}
 		}
 
 		private void label1_Click(object sender, EventArgs e)
