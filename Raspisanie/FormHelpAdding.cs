@@ -49,8 +49,10 @@ namespace Raspisanie
 		{
 			var grade = SchedlueMaker.Grades.Where(a => a.Name == nameOfClass).Single();
 
-			foreach (var subj in subjOfCurrentClass)
-				grade.AddSubject(subj, new Teacher("")); //что это блять за параша?
+			foreach (var subject in subjOfCurrentClass)
+				grade.AddSubject(subject, new Teacher("")); //что это блять за параша?
+
+			Close();
 		}
 
 		#region
