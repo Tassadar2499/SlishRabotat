@@ -100,8 +100,7 @@ namespace Raspisanie
 
 		private static void DoubleClicking(object sender, EventArgs e)
 		{
-			CheckedListBox kek = (CheckedListBox)sender;
-			var nameOfClass = kek.SelectedItem;
+			var nameOfClass = (sender as CheckedListBox).SelectedItem;
 			FormHelpAdding formHelpAdding = new FormHelpAdding(nameOfClass.ToString(), FormAddSubjects.checkedSubjects);
 			formHelpAdding.Show();
 		}
