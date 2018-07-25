@@ -26,7 +26,6 @@ namespace Raspisanie
 
 		private void CheckedListBoxOfSubjectsSelect(object sender, EventArgs e)
 		{
-			listOfSubjects.DoubleClick -= SubjectSelecting;
 			listOfSubjects.DoubleClick += SubjectSelecting;
 		}
 
