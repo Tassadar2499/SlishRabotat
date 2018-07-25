@@ -18,7 +18,6 @@ namespace Raspisanie
 		public FormAddSubjects()
 		{
 			InitializeComponent();
-			subjectsCheckedListBox.CheckOnClick = true;
 		}
 
 		public void CheckedListOfSubjects_AddItem(string item)
@@ -27,18 +26,13 @@ namespace Raspisanie
 				subjectsCheckedListBox.Items.Add(item);
 		}
 
-		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
-
 		private void NextClick(object sender, EventArgs e)
 		{
 			checkedSubjects = Program.ListBoxToStrings(subjectsCheckedListBox).ToArray();
 			Program.ShowOnMessageBox(checkedSubjects);
-			FormFillingTheClasses formFillingTheClasses = new FormFillingTheClasses();
-			formFillingTheClasses.Show();
-			Close();
+			FormAddGrades formAddGrades = new FormAddGrades();
+			formAddGrades.Show();
+			Hide();
 		}
 
 		private void AddDefaultSubjectsClick(object sender, EventArgs e)
@@ -58,7 +52,7 @@ namespace Raspisanie
 					subjectsCheckedListBox.Items.Remove(schoolSubject);
 		}
 
-		private void TextAddSubject(object sender, EventArgs e)
+		public void TextAddSubject(object sender, EventArgs e)
 		{
 			var text = File.ReadAllText("Subjects.txt").Split(new char[] { '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 			for (var i = 0; i < text.Length; i++)
@@ -99,11 +93,15 @@ namespace Raspisanie
 			subjectsCheckedListBox.Items.AddRange(schoolSubjects);
 		}
 
-		private void GoToPreviousFormClick(object sender, EventArgs e)
+		private void FormAddSubjects_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			FormAddGrades formAddGrades = new FormAddGrades();
-			Close();
-			formAddGrades.Show();
+			Application.Exit();
 		}
+		#region
+		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
+		}
+		#endregion
 	}
 }

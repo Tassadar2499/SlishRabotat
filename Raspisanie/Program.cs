@@ -5,10 +5,13 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Raspisanie
 {
 	static class Program
-	{//
+	{
+		public static SchoolClass[] grades; //не удаляй плез, мне чисто потестить
+		public static Teacher[] teachers;
 		public static void ShowOnMessageBox(string[] checkedObj)
 		{
 			if (checkedObj == null)
@@ -34,8 +37,34 @@ namespace Raspisanie
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			FormAddGrades formAddGrades = new FormAddGrades();
-			Application.Run(formAddGrades);
+			FormAddSubjects formAddSubjects = new FormAddSubjects();
+			Application.Run(formAddSubjects);
+
+			var testing = grades;
+			File.Delete("Input.txt");
+			var strInput = "";
+			if (testing != null)
+			{
+				foreach (var grade in testing)
+				{
+					strInput += grade.Name;
+					foreach (var dict in grade.Subjects)
+					{
+						strInput += "\r\nПредмет - ";
+						strInput += dict.Key.Name;
+						strInput += "; Сложность - ";
+						strInput += dict.Key.Difficult.ToString();
+						strInput += "; Количество часов в неделю - ";
+						strInput += dict.Key.CountAtWeek.ToString();
+						strInput += "\r\nУчитель ";
+						strInput += dict.Value.Name;
+						strInput += "\r\n";
+					}
+				}
+			}
+			File.AppendAllText("Input.txt", strInput);
+			CreatingLabel.CreateShortcut();
+			//var ew = 0;
 		}
 	}
 }

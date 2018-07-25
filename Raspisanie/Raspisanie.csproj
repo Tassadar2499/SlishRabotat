@@ -46,6 +46,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>eblet.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -60,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreatingLabel.cs" />
     <Compile Include="FormAddSubjects.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,11 +76,35 @@
     <Compile Include="FormAddGrades.Designer.cs">
       <DependentUpon>FormAddGrades.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormFillingTheClasses.cs">
+    <Compile Include="FormAddTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormFillingTheClasses.Designer.cs">
-      <DependentUpon>FormFillingTheClasses.cs</DependentUpon>
+    <Compile Include="FormAddTeacher.Designer.cs">
+      <DependentUpon>FormAddTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormClassesForTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormClassesForTeacher.Designer.cs">
+      <DependentUpon>FormClassesForTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCountAndDifficulty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCountAndDifficulty.Designer.cs">
+      <DependentUpon>FormCountAndDifficulty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHelpAdding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHelpAdding.Designer.cs">
+      <DependentUpon>FormHelpAdding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoading.Designer.cs">
+      <DependentUpon>FormLoading.cs</DependentUpon>
     </Compile>
     <Compile Include="Schedlue.cs" />
     <Compile Include="SchedlueMaker.cs" />
@@ -85,6 +113,12 @@
     <Compile Include="SchoolClass.cs" />
     <Compile Include="SortingStringByNumber.cs" />
     <Compile Include="Subject.cs" />
+    <Compile Include="FormSubjectsForTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSubjectsForTeacher.Designer.cs">
+      <DependentUpon>FormSubjectsForTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Teacher.cs" />
     <EmbeddedResource Include="FormAddSubjects.resx">
       <DependentUpon>FormAddSubjects.cs</DependentUpon>
@@ -92,8 +126,20 @@
     <EmbeddedResource Include="FormAddGrades.resx">
       <DependentUpon>FormAddGrades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormFillingTheClasses.resx">
-      <DependentUpon>FormFillingTheClasses.cs</DependentUpon>
+    <EmbeddedResource Include="FormAddTeacher.resx">
+      <DependentUpon>FormAddTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormClassesForTeacher.resx">
+      <DependentUpon>FormClassesForTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCountAndDifficulty.resx">
+      <DependentUpon>FormCountAndDifficulty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHelpAdding.resx">
+      <DependentUpon>FormHelpAdding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoading.resx">
+      <DependentUpon>FormLoading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -104,6 +150,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormSubjectsForTeacher.resx">
+      <DependentUpon>FormSubjectsForTeacher.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -128,6 +177,20 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="eblet.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,14 +14,13 @@ namespace Raspisanie
 	public partial class FormAddGrades : Form
 	{
 		public static string[] schoolClasses;
-
+		public static bool flagOfSaveClicking;
 		public FormAddGrades()
 		{
 			InitializeComponent();
-			classesCheckedList.CheckOnClick = true;
-			classesCheckedList.MultiColumn = true;
 			if (schoolClasses != null)
 			classesCheckedList.Items.AddRange(schoolClasses);
+			flagOfSaveClicking = false;
 		}
 
 		public void CheckedListOfClasses_AddItem(string item)
@@ -30,18 +29,13 @@ namespace Raspisanie
 				classesCheckedList.Items.Add(item);
 		}
 
-		private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
-
 		private void NextClick(object sender, EventArgs e)
 		{
 			schoolClasses = Program.ListBoxToStrings(classesCheckedList).ToArray();
 			Program.ShowOnMessageBox(schoolClasses);
-			FormAddSubjects formAddSubjects = new FormAddSubjects();
-			formAddSubjects.Show();
-			this.Hide();
+			FormAddTeacher formAddTeacher = new FormAddTeacher();
+			formAddTeacher.Show();
+			Hide();
 		}
 
 		private void AddDefaultGradesClick(object sender, EventArgs e)
@@ -54,16 +48,11 @@ namespace Raspisanie
 
 		private void DeleteDefaultGradesClick(object sender, EventArgs e)
 		{
-			var schoolClasses = SchedlueMaker.LoadClasses("Classes.txt").Select(a => a.Name);
+			var schoolGrades = SchedlueMaker.LoadClasses("Classes.txt").Select(a => a.Name);
 
-			foreach (var schoolClass in schoolClasses)
-				if (schoolClasses.Contains(schoolClass))
+			foreach (var schoolClass in schoolGrades)
+				if (schoolGrades.Contains(schoolClass))
 					classesCheckedList.Items.Remove(schoolClass);
-		}
-
-		private void TextAddClass(object sender, EventArgs e)
-		{
-
 		}
 
 		private void AddNewClassClick(object sender, EventArgs e)
@@ -81,6 +70,13 @@ namespace Raspisanie
 				classesCheckedList.Items.Remove(classesCheckedList.CheckedItems[i]);
 		}
 
+		private void PreviousFormClick(object sender, EventArgs e)
+		{
+			FormAddSubjects formAddSubjects = new FormAddSubjects();
+			Hide();
+			formAddSubjects.Show();
+		}
+
 		private void SortingByNumberClick(object sender, EventArgs e)
 		{
 			var schoolClasses = Program.ListBoxToStrings(classesCheckedList).ToArray();
@@ -93,10 +89,53 @@ namespace Raspisanie
 				CheckedListOfClasses_AddItem(schoolClass);
 		}
 
+		private void CheckedListOfClassesSelecting(object sender, EventArgs e)
+		{
+			if (flagOfSaveClicking)
+			{
+				classesCheckedList.DoubleClick -= DoubleClicking;
+				classesCheckedList.DoubleClick += DoubleClicking;
+			}
+		}
+
+		private static void DoubleClicking(object sender, EventArgs e)
+		{
+			CheckedListBox kek = (CheckedListBox)sender;
+			var nameOfClass = kek.SelectedItem;
+			FormHelpAdding formHelpAdding = new FormHelpAdding(nameOfClass.ToString(), FormAddSubjects.checkedSubjects);
+			formHelpAdding.Show();
+		}
+
+		private void FormAddGrades_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			Application.Exit();
+		}
+
+		private void SaveClick(object sender, EventArgs e)
+		{
+			flagOfSaveClicking = true;
+			schoolClasses = Program.ListBoxToStrings(classesCheckedList).ToArray();
+			Program.grades = new SchoolClass[schoolClasses.Length];
+			for (int i = 0; i < Program.grades.Length; i++)
+			{
+				Program.grades[i] = new SchoolClass(schoolClasses[i]);
+			}
+		}
+		#region
 		private void FormAddGrades_Load(object sender, EventArgs e)
 		{
 
 		}
 
+		private void TextAddClass(object sender, EventArgs e)
+		{
+
+		}
+
+		private void TextFieldClick(object sender, EventArgs e)
+		{
+
+		}
+		#endregion
 	}
 }
