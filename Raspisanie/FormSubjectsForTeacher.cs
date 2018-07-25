@@ -51,12 +51,12 @@ namespace Raspisanie
 			var grade = SchedlueMaker.Grades.Where(a => a.Name == currentClass).Single();
 
 			var subjectsFromTeacher = Program.ListBoxToStrings(checkedListBoxOfSubjects).ToArray();
-			var dictionary = grade.Subjects;
+			var gradeSubjects = grade.Subjects.Keys.ToArray();
 
-			foreach (var subjectFromGrade in grade.Subjects.Keys)
-				foreach (var subjectFromList in subjectsFromTeacher)
-					if (subjectFromGrade.Name == subjectFromList)
-						dictionary[subjectFromGrade] = new Teacher(teacherName);
+			foreach (var subjectFromGrade in gradeSubjects)
+				foreach (var subject in subjectsFromTeacher)
+					if (subjectFromGrade.Name == subject)
+						grade.Subjects[subjectFromGrade] = new Teacher(teacherName);
 		}
 	}
 }
