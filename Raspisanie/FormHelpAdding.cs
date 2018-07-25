@@ -55,6 +55,7 @@ namespace Raspisanie
 					break;
 				}
 			}
+
 			foreach (var subj in subjOfCurrentClass)
 			{
 				Program.grades[index].AddSubject(subj, new Teacher(""));
@@ -67,7 +68,7 @@ namespace Raspisanie
 
 		}
 
-		private void label1_Click(object sender, EventArgs e)
+		private void Label1_Click(object sender, EventArgs e)
 		{
 
 		}
