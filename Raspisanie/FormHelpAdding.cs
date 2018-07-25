@@ -12,7 +12,7 @@ namespace Raspisanie
 {
 	public partial class FormHelpAdding : Form
 	{
-		public static List<Subject> subjOfCurrentClass;
+		public static List<Subject> subjectsOfCurrentClass;
 		string nameOfClass;
 
 		public FormHelpAdding(string className, string[] subjects)
@@ -20,7 +20,7 @@ namespace Raspisanie
 			InitializeComponent();
 			listOfSubjects.Items.AddRange(subjects);
 			labelClassName.Text += className;
-			subjOfCurrentClass = new List<Subject>();
+			subjectsOfCurrentClass = new List<Subject>();
 			nameOfClass = className;
 		}
 
@@ -40,7 +40,6 @@ namespace Raspisanie
 
 		private void DeleteClick(object sender, EventArgs e)
 		{
-
 			for (var i = listOfSubjects.CheckedItems.Count - 1; i >= 0; i--)
 				listOfSubjects.Items.Remove(listOfSubjects.CheckedItems[i]);
 		}
@@ -49,8 +48,8 @@ namespace Raspisanie
 		{
 			var grade = SchedlueMaker.Grades.Where(a => a.Name == nameOfClass).Single();
 
-			foreach (var subj in subjOfCurrentClass)
-				grade.AddSubject(subj, new Teacher("")); //что это блять за параша?
+			foreach (var subject in subjectsOfCurrentClass)
+				grade.AddSubject(subject, new Teacher("")); //что это блять за параша?
 		}
 
 		#region

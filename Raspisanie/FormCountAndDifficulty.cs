@@ -44,8 +44,10 @@ namespace Raspisanie
 			var countAtWeek = (int)numericCountAtWeek.Value;
 			var subject = new Subject(nameOfSubj, dificulty, countAtWeek);
 
-			if (!FormHelpAdding.subjOfCurrentClass.Contains(subject))
-				FormHelpAdding.subjOfCurrentClass.Add(subject);
+			if (!FormHelpAdding.subjectsOfCurrentClass.Contains(subject))
+				FormHelpAdding.subjectsOfCurrentClass.Add(subject);
+
+			Close();
 		}
 
 		private void FormCountAndDifficulty_Load(object sender, EventArgs e)
