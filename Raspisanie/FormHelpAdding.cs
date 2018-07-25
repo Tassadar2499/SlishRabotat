@@ -31,8 +31,8 @@ namespace Raspisanie
 
 		private static void SubjectSelecting(object sender, EventArgs e)
 		{
-			CheckedListBox kek = (CheckedListBox) sender;
-			var nameOfSubject = kek.SelectedItem;
+			var nameOfSubject = (sender as CheckedListBox).SelectedItem;
+
 			FormCountAndDifficulty formCountAndDifficulty = new FormCountAndDifficulty(nameOfSubject.ToString());
 			formCountAndDifficulty.Show();
 		}
