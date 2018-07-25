@@ -14,6 +14,7 @@ namespace Raspisanie
 	{
 		public static List<Subject> subjOfCurrentClass;
 		string nameOfClass;
+
 		public FormHelpAdding(string className, string[] subjects)
 		{
 			InitializeComponent();
@@ -23,7 +24,7 @@ namespace Raspisanie
 			nameOfClass = className;
 		}
 
-		private void checkedListBoxOfSubjectsSelect(object sender, EventArgs e)
+		private void CheckedListBoxOfSubjectsSelect(object sender, EventArgs e)
 		{
 			listOfSubjects.DoubleClick -= SubjectSelecting;
 			listOfSubjects.DoubleClick += SubjectSelecting;

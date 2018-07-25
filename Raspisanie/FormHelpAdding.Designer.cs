@@ -43,7 +43,7 @@
 			this.listOfSubjects.Name = "listOfSubjects";
 			this.listOfSubjects.Size = new System.Drawing.Size(236, 334);
 			this.listOfSubjects.TabIndex = 1;
-			this.listOfSubjects.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxOfSubjectsSelect);
+			this.listOfSubjects.SelectedIndexChanged += new System.EventHandler(this.CheckedListBoxOfSubjectsSelect);
 			// 
 			// labelClassName
 			// 
