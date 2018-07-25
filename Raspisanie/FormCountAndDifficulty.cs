@@ -33,6 +33,7 @@ namespace Raspisanie
 		{
 			countAtWeek = (int) numericCountAtWeek.Value;
 		}
+
 		#region
 		private void NameOfSubjLabelClick(object sender, EventArgs e)
 		{

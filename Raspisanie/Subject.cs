@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Raspisanie
 {
-	public class Subject
+	public class Subject : IEquatable<Subject>
 	{
 		public string Name
 		{
@@ -28,6 +28,11 @@ namespace Raspisanie
 			Name = name;
 			Difficult = difficult;
 			CountAtWeek = countAtWeek;
+		}
+
+		public bool Equals(Subject other)
+		{
+			return Name == other.Name && Difficult == other.Difficult && CountAtWeek == other.CountAtWeek;
 		}
 	}
 }
