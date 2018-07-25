@@ -33,7 +33,8 @@ namespace Raspisanie
 		{
 			var nameOfSubject = (sender as CheckedListBox).SelectedItem;
 
-			FormCountAndDifficulty formCountAndDifficulty = new FormCountAndDifficulty(nameOfSubject.ToString());
+			FormCountAndDifficulty formCountAndDifficulty
+				= new FormCountAndDifficulty(nameOfSubject.ToString());
 			formCountAndDifficulty.Show();
 		}
 

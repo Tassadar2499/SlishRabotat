@@ -14,6 +14,7 @@ namespace Raspisanie
 	{
 		public static string teacherName;
 		public static string currentClass;
+
 		public FormSubjectsForTeacher(string nameOfClass, string[] subjects, string teacher)
 		{
 			InitializeComponent();
@@ -36,12 +37,8 @@ namespace Raspisanie
 		private void SaveClick(object sender, EventArgs e)
 		{
 			for (var i = checkedListBoxOfSubjects.Items.Count - 1; i >= 0; i--)
-			{
 				if (!checkedListBoxOfSubjects.GetItemChecked(i))
-				{
 					checkedListBoxOfSubjects.Items.RemoveAt(i);
-				}
-			}
 		}
 
 		private void FormSubjectsForTeacher_FormClosing(object sender, FormClosingEventArgs e)
