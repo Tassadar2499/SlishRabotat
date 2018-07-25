@@ -12,6 +12,7 @@ namespace Raspisanie
 	{
 		public static SchoolClass[] grades; //не удаляй плез, мне чисто потестить
 		public static Teacher[] teachers;
+
 		public static void ShowOnMessageBox(string[] checkedObj)
 		{
 			if (checkedObj == null)
@@ -63,7 +64,6 @@ namespace Raspisanie
 				}
 			}
 			File.AppendAllText("Input.txt", strInput);
-			CreatingLabel.CreateShortcut();
 			//var ew = 0;
 		}
 	}

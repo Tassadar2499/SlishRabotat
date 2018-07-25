@@ -117,6 +117,7 @@ namespace Raspisanie
 			for (int i = 0; i < Program.grades.Length; i++)
 				Program.grades[i] = new SchoolClass(schoolClasses[i]);
 		}
+		
 		#region
 		private void FormAddGrades_Load(object sender, EventArgs e)
 		{

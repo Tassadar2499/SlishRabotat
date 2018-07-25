@@ -63,7 +63,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreatingLabel.cs" />
     <Compile Include="FormAddSubjects.cs">
       <SubType>Form</SubType>
     </Compile>
