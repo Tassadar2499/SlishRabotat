@@ -52,7 +52,7 @@ namespace Raspisanie
 					listOfClasses.Items.RemoveAt(i);
 		}
 
-		private void label1_Click(object sender, EventArgs e)
+		private void Label1_Click(object sender, EventArgs e)
 		{
 
 		}

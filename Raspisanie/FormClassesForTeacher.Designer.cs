@@ -76,7 +76,7 @@
 			this.label1.Size = new System.Drawing.Size(100, 153);
 			this.label1.TabIndex = 3;
 			this.label1.Text = "Выбери нужные классы, оставь их. А затем двойной клик по нужному классу";
-			this.label1.Click += new System.EventHandler(this.label1_Click);
+			this.label1.Click += new System.EventHandler(this.Label1_Click);
 			// 
 			// FormClassesForTeacher
 			// 
