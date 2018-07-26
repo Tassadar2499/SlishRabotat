@@ -38,11 +38,11 @@
             this.addGradeTextBox = new System.Windows.Forms.TextBox();
             this.checkedListBoxOfGrades = new System.Windows.Forms.CheckedListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.textBoxAddTeacher = new System.Windows.Forms.TextBox();
             this.checkedListBoxOfTeachers = new System.Windows.Forms.CheckedListBox();
-            this.button8 = new System.Windows.Forms.Button();
             this.Классы.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -138,6 +138,7 @@
             // 
             // checkedListBoxOfGrades
             // 
+            this.checkedListBoxOfGrades.CheckOnClick = true;
             this.checkedListBoxOfGrades.FormattingEnabled = true;
             this.checkedListBoxOfGrades.Location = new System.Drawing.Point(8, 8);
             this.checkedListBoxOfGrades.Name = "checkedListBoxOfGrades";
@@ -160,6 +161,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Учителя";
             this.tabPage2.Click += new System.EventHandler(this.TabPageTeachers);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(388, 304);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(100, 70);
+            this.button8.TabIndex = 4;
+            this.button8.Text = "Отсортировать в алфавитном порядке";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.SortingByAlphabet_Click);
             // 
             // button7
             // 
@@ -192,22 +203,13 @@
             // 
             // checkedListBoxOfTeachers
             // 
+            this.checkedListBoxOfTeachers.CheckOnClick = true;
             this.checkedListBoxOfTeachers.FormattingEnabled = true;
             this.checkedListBoxOfTeachers.Location = new System.Drawing.Point(8, 8);
             this.checkedListBoxOfTeachers.Name = "checkedListBoxOfTeachers";
             this.checkedListBoxOfTeachers.Size = new System.Drawing.Size(344, 319);
             this.checkedListBoxOfTeachers.TabIndex = 0;
             this.checkedListBoxOfTeachers.SelectedIndexChanged += new System.EventHandler(this.CheckedListBoxOfTeachers_SelectingItem);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(388, 304);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 70);
-            this.button8.TabIndex = 4;
-            this.button8.Text = "Отсортировать в алфавитном порядке";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.SortingByAlphabet_Click);
             // 
             // FormGradesAndTeachers
             // 

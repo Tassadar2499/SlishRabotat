@@ -15,13 +15,29 @@ namespace Raspisanie
         public FormGradesAndTeachers()
         {
             InitializeComponent();
+            checkedListBoxOfGrades.DoubleClick += DoubleClicking;
+        }
+
+        private void DoubleClicking(object sender, EventArgs e)
+        {
+            SchedlueMaker.Grades.Clear();
+            foreach (var grade in Program.ListBoxToStrings(checkedListBoxOfGrades))
+                SchedlueMaker.Grades.Add(new Grade(grade));
+
+            var nameOfClass = (sender as CheckedListBox).SelectedItem;
+
+            if (nameOfClass == null)
+                return;
+
+            var formTable = new FormTable();
+            formTable.Show();
         }
 
         public void CheckedList_AddItem(string item, CheckedListBox checkedListBox)
         {
             if (item != "" && !checkedListBox.Items.Contains(item))
                 checkedListBox.Items.Add(item);
-        }
+        }//Метод для добавления элементов в CheckedListBox
         #region
         private void FormGradesAndTeachers_Load(object sender, EventArgs e)
         {
