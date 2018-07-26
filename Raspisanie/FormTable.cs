@@ -12,11 +12,13 @@ namespace Raspisanie
 {
     public partial class FormTable : Form
     {
-        public FormTable()
+        public FormTable(string nameOfGrade)
         {
             InitializeComponent();
+            GradeName.Text += nameOfGrade;
         }
 
+        #region
         private void FormTable_Load(object sender, EventArgs e)
         {
 
@@ -46,10 +48,16 @@ namespace Raspisanie
         {
 
         }
-
+        #endregion
         private void Add_Click(object sender, EventArgs e)
         {
             dataGridSubjects.Rows.Add(textBoxSubject.Text, numericDifficulty.Value, numericCountAtWeek.Value, textBoxTeacher.Text);
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            int delet = dataGridSubjects.SelectedCells[0].RowIndex;
+            dataGridSubjects.Rows.RemoveAt(delet);
         }
     }
 }

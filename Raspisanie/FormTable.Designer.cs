@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.dataGridSubjects = new System.Windows.Forms.DataGridView();
+            this.Subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Difficult = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountAtWeek = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Teacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxTeacher = new System.Windows.Forms.TextBox();
             this.numericDifficulty = new System.Windows.Forms.NumericUpDown();
             this.numericCountAtWeek = new System.Windows.Forms.NumericUpDown();
@@ -36,12 +40,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.Subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Difficult = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountAtWeek = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Teacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.GradeName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSubjects)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDifficulty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCountAtWeek)).BeginInit();
@@ -55,11 +57,35 @@
             this.Difficult,
             this.CountAtWeek,
             this.Teacher});
-            this.dataGridSubjects.Location = new System.Drawing.Point(12, 12);
+            this.dataGridSubjects.Location = new System.Drawing.Point(48, 71);
             this.dataGridSubjects.Name = "dataGridSubjects";
-            this.dataGridSubjects.Size = new System.Drawing.Size(619, 329);
+            this.dataGridSubjects.Size = new System.Drawing.Size(583, 289);
             this.dataGridSubjects.TabIndex = 0;
             this.dataGridSubjects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewSubjects_CellContentClick);
+            // 
+            // Subject
+            // 
+            this.Subject.HeaderText = "Предмет";
+            this.Subject.Name = "Subject";
+            this.Subject.ReadOnly = true;
+            // 
+            // Difficult
+            // 
+            this.Difficult.HeaderText = "Сложность";
+            this.Difficult.Name = "Difficult";
+            this.Difficult.ReadOnly = true;
+            // 
+            // CountAtWeek
+            // 
+            this.CountAtWeek.HeaderText = "Количество часов в неделю";
+            this.CountAtWeek.Name = "CountAtWeek";
+            this.CountAtWeek.ReadOnly = true;
+            // 
+            // Teacher
+            // 
+            this.Teacher.HeaderText = "Учитель";
+            this.Teacher.Name = "Teacher";
+            this.Teacher.ReadOnly = true;
             // 
             // textBoxTeacher
             // 
@@ -86,10 +112,10 @@
             this.numericCountAtWeek.TabIndex = 3;
             this.numericCountAtWeek.ValueChanged += new System.EventHandler(this.NumericCountAtWeek_Change);
             // 
-            // textBox2
+            // textBoxSubject
             // 
             this.textBoxSubject.Location = new System.Drawing.Point(473, 364);
-            this.textBoxSubject.Name = "textBox2";
+            this.textBoxSubject.Name = "textBoxSubject";
             this.textBoxSubject.Size = new System.Drawing.Size(105, 20);
             this.textBoxSubject.TabIndex = 4;
             this.textBoxSubject.TextChanged += new System.EventHandler(this.TextBoxTeacher_Change);
@@ -124,6 +150,26 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Количество часов в неделе";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(592, 361);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 51);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Добавить";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Add_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(652, 243);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(81, 54);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Удалить выделенную строку";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Delete_Click);
+            // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.SystemColors.ActiveBorder;
@@ -134,45 +180,23 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Учитель";
             // 
-            // button1
+            // GradeName
             // 
-            this.button1.Location = new System.Drawing.Point(635, 361);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 51);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Add_Click);
-            // 
-            // Subject
-            // 
-            this.Subject.HeaderText = "Предмет";
-            this.Subject.Name = "Subject";
-            this.Subject.ReadOnly = true;
-            // 
-            // Difficult
-            // 
-            this.Difficult.HeaderText = "Сложность";
-            this.Difficult.Name = "Difficult";
-            this.Difficult.ReadOnly = true;
-            // 
-            // CountAtWeek
-            // 
-            this.CountAtWeek.HeaderText = "Количество часов в неделю";
-            this.CountAtWeek.Name = "CountAtWeek";
-            this.CountAtWeek.ReadOnly = true;
-            // 
-            // Teacher
-            // 
-            this.Teacher.HeaderText = "Учитель";
-            this.Teacher.Name = "Teacher";
-            this.Teacher.ReadOnly = true;
+            this.GradeName.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.GradeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.GradeName.Location = new System.Drawing.Point(12, 18);
+            this.GradeName.Name = "GradeName";
+            this.GradeName.Size = new System.Drawing.Size(116, 23);
+            this.GradeName.TabIndex = 11;
+            this.GradeName.Text = "Класс - ";
             // 
             // FormTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.GradeName);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -204,11 +228,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subject;
         private System.Windows.Forms.DataGridViewTextBoxColumn Difficult;
         private System.Windows.Forms.DataGridViewTextBoxColumn CountAtWeek;
         private System.Windows.Forms.DataGridViewTextBoxColumn Teacher;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label GradeName;
     }
 }

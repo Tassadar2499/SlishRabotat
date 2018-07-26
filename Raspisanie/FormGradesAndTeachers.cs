@@ -29,7 +29,7 @@ namespace Raspisanie
             if (nameOfClass == null)
                 return;
 
-            var formTable = new FormTable();
+            var formTable = new FormTable(nameOfClass.ToString());
             formTable.Show();
         }
 
