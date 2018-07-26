@@ -60,8 +60,8 @@ namespace Raspisanie
 			if (nameOfTeacher == null)
 				return;
 
-			FormClassesForTeacher formHelpAdding = new FormClassesForTeacher(nameOfTeacher.ToString(), FormAddGrades.schoolClasses);
-			formHelpAdding.Show();
+			//FormClassesForTeacher formHelpAdding = new FormClassesForTeacher(nameOfTeacher.ToString(), FormAddGrades.schoolClasses);
+			//formHelpAdding.Show();
 		}
 
 		#region
@@ -83,9 +83,9 @@ namespace Raspisanie
 
 		private void NextClick(object sender, EventArgs e)
 		{
-			var formLoading = new FormLoading();
-			Hide();
-			formLoading.Show();
+			//var formLoading = new FormLoading();
+			//Hide();
+			//formLoading.Show();
 		}
 	}
 }
