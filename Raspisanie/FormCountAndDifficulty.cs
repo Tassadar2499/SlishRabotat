@@ -12,7 +12,7 @@ namespace Raspisanie
 {
 	public partial class FormCountAndDifficulty : Form
 	{
-		string nameOfSubj;
+		private string nameOfSubj;
 
 		public FormCountAndDifficulty(string nameOfSubject)
 		{
@@ -44,8 +44,10 @@ namespace Raspisanie
 			var countAtWeek = (int)numericCountAtWeek.Value;
 			var subject = new Subject(nameOfSubj, dificulty, countAtWeek);
 
-			if (!FormHelpAdding.subjectsOfCurrentClass.Contains(subject))
-				FormHelpAdding.subjectsOfCurrentClass.Add(subject);
+			if (FormHelpAdding.subjectsOfCurrentClass.Contains(subject))
+				FormHelpAdding.subjectsOfCurrentClass.Remove(subject);
+
+			FormHelpAdding.subjectsOfCurrentClass.Add(subject);
 		}
 
 		private void FormCountAndDifficulty_Load(object sender, EventArgs e)
