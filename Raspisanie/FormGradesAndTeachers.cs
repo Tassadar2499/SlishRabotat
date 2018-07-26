@@ -12,6 +12,7 @@ namespace Raspisanie
 {
     public partial class FormGradesAndTeachers : Form
     {
+        public static CheckedListBox teachers; //короче для автозаполнения если что, исправь этот костыль
         public FormGradesAndTeachers()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace Raspisanie
 
             if (nameOfClass == null)
                 return;
-
+            teachers = checkedListBoxOfTeachers;
             var formTable = new FormTable(nameOfClass.ToString());
             formTable.Show();
         }

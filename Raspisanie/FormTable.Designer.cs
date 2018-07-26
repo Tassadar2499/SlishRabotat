@@ -33,10 +33,10 @@
             this.Difficult = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountAtWeek = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Teacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBoxTeacher = new System.Windows.Forms.TextBox();
+            this.textBoxSubjects = new System.Windows.Forms.TextBox();
             this.numericDifficulty = new System.Windows.Forms.NumericUpDown();
             this.numericCountAtWeek = new System.Windows.Forms.NumericUpDown();
-            this.textBoxSubject = new System.Windows.Forms.TextBox();
+            this.textBoxTeacher = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,7 +59,7 @@
             this.Teacher});
             this.dataGridSubjects.Location = new System.Drawing.Point(48, 71);
             this.dataGridSubjects.Name = "dataGridSubjects";
-            this.dataGridSubjects.Size = new System.Drawing.Size(583, 289);
+            this.dataGridSubjects.Size = new System.Drawing.Size(450, 289);
             this.dataGridSubjects.TabIndex = 0;
             this.dataGridSubjects.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewSubjects_CellContentClick);
             // 
@@ -87,14 +87,14 @@
             this.Teacher.Name = "Teacher";
             this.Teacher.ReadOnly = true;
             // 
-            // textBoxTeacher
+            // textBoxSubjects
             // 
-            this.textBoxTeacher.Location = new System.Drawing.Point(45, 365);
-            this.textBoxTeacher.Multiline = true;
-            this.textBoxTeacher.Name = "textBoxTeacher";
-            this.textBoxTeacher.Size = new System.Drawing.Size(116, 21);
-            this.textBoxTeacher.TabIndex = 1;
-            this.textBoxTeacher.TextChanged += new System.EventHandler(this.TextBoxSubject_Change);
+            this.textBoxSubjects.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.textBoxSubjects.Location = new System.Drawing.Point(45, 365);
+            this.textBoxSubjects.Name = "textBoxSubjects";
+            this.textBoxSubjects.Size = new System.Drawing.Size(116, 20);
+            this.textBoxSubjects.TabIndex = 1;
+            this.textBoxSubjects.TextChanged += new System.EventHandler(this.TextBoxSubject_Change);
             // 
             // numericDifficulty
             // 
@@ -112,13 +112,14 @@
             this.numericCountAtWeek.TabIndex = 3;
             this.numericCountAtWeek.ValueChanged += new System.EventHandler(this.NumericCountAtWeek_Change);
             // 
-            // textBoxSubject
+            // textBoxTeacher
             // 
-            this.textBoxSubject.Location = new System.Drawing.Point(473, 364);
-            this.textBoxSubject.Name = "textBoxSubject";
-            this.textBoxSubject.Size = new System.Drawing.Size(105, 20);
-            this.textBoxSubject.TabIndex = 4;
-            this.textBoxSubject.TextChanged += new System.EventHandler(this.TextBoxTeacher_Change);
+            this.textBoxTeacher.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.textBoxTeacher.Location = new System.Drawing.Point(473, 364);
+            this.textBoxTeacher.Name = "textBoxTeacher";
+            this.textBoxTeacher.Size = new System.Drawing.Size(105, 20);
+            this.textBoxTeacher.TabIndex = 4;
+            this.textBoxTeacher.TextChanged += new System.EventHandler(this.TextBoxTeacher_Change);
             // 
             // label1
             // 
@@ -202,13 +203,14 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxSubject);
+            this.Controls.Add(this.textBoxTeacher);
             this.Controls.Add(this.numericCountAtWeek);
             this.Controls.Add(this.numericDifficulty);
-            this.Controls.Add(this.textBoxTeacher);
+            this.Controls.Add(this.textBoxSubjects);
             this.Controls.Add(this.dataGridSubjects);
             this.Name = "FormTable";
             this.Text = "FormTable";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormTable_FormClosing);
             this.Load += new System.EventHandler(this.FormTable_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSubjects)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDifficulty)).EndInit();
@@ -221,10 +223,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridSubjects;
-        private System.Windows.Forms.TextBox textBoxTeacher;
+        private System.Windows.Forms.TextBox textBoxSubjects;
         private System.Windows.Forms.NumericUpDown numericDifficulty;
         private System.Windows.Forms.NumericUpDown numericCountAtWeek;
-        private System.Windows.Forms.TextBox textBoxSubject;
+        private System.Windows.Forms.TextBox textBoxTeacher;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
