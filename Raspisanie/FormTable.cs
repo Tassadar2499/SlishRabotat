@@ -101,6 +101,7 @@ namespace Raspisanie
                     );
                 costil++;
             }
+            SchedlueMaker.Grades.Add(grade);
             Program.grades.Add(grade);
         }
     }

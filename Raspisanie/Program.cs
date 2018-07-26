@@ -39,7 +39,9 @@ namespace Raspisanie
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new FormGradesAndTeachers());
             var testing = grades;
-            var bb = 0;
+            //SchedlueMaker.CalculateSchedlue();
+            //File.Delete("out.txt");
+            //SchedlueMaker.SaveSchedlue("out.txt");
 		}
 	}
 }
