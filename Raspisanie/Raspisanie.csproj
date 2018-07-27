@@ -63,47 +63,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormAddSubjects.cs">
+    <Compile Include="FormGradesAndTeachers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddSubjects.Designer.cs">
-      <DependentUpon>FormAddSubjects.cs</DependentUpon>
+    <Compile Include="FormGradesAndTeachers.Designer.cs">
+      <DependentUpon>FormGradesAndTeachers.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAddGrades.cs">
+    <Compile Include="FormTable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddGrades.Designer.cs">
-      <DependentUpon>FormAddGrades.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormAddTeacher.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAddTeacher.Designer.cs">
-      <DependentUpon>FormAddTeacher.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormClassesForTeacher.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormClassesForTeacher.Designer.cs">
-      <DependentUpon>FormClassesForTeacher.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormCountAndDifficulty.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormCountAndDifficulty.Designer.cs">
-      <DependentUpon>FormCountAndDifficulty.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormHelpAdding.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormHelpAdding.Designer.cs">
-      <DependentUpon>FormHelpAdding.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormLoading.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLoading.Designer.cs">
-      <DependentUpon>FormLoading.cs</DependentUpon>
+    <Compile Include="FormTable.Designer.cs">
+      <DependentUpon>FormTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Schedlue.cs" />
     <Compile Include="SchedlueMaker.cs" />
@@ -112,33 +82,12 @@
     <Compile Include="Grade.cs" />
     <Compile Include="SortingStringByNumber.cs" />
     <Compile Include="Subject.cs" />
-    <Compile Include="FormSubjectsForTeacher.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSubjectsForTeacher.Designer.cs">
-      <DependentUpon>FormSubjectsForTeacher.cs</DependentUpon>
-    </Compile>
     <Compile Include="Teacher.cs" />
-    <EmbeddedResource Include="FormAddSubjects.resx">
-      <DependentUpon>FormAddSubjects.cs</DependentUpon>
+    <EmbeddedResource Include="FormGradesAndTeachers.resx">
+      <DependentUpon>FormGradesAndTeachers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAddGrades.resx">
-      <DependentUpon>FormAddGrades.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAddTeacher.resx">
-      <DependentUpon>FormAddTeacher.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormClassesForTeacher.resx">
-      <DependentUpon>FormClassesForTeacher.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormCountAndDifficulty.resx">
-      <DependentUpon>FormCountAndDifficulty.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormHelpAdding.resx">
-      <DependentUpon>FormHelpAdding.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLoading.resx">
-      <DependentUpon>FormLoading.cs</DependentUpon>
+    <EmbeddedResource Include="FormTable.resx">
+      <DependentUpon>FormTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -149,9 +98,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormSubjectsForTeacher.resx">
-      <DependentUpon>FormSubjectsForTeacher.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
