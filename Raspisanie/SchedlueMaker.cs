@@ -53,21 +53,25 @@ namespace Raspisanie
 				var subject = str.Substring(0, index);
 				var difficult = str.Substring(index + 1);
 
-				yield return new Subject(subject, Int32.Parse(difficult));
+				yield return new Subject(subject, int.Parse(difficult));
 			}
 		}
 
 		public static void SaveSchedlue(string path)
 		{
+			File.Delete(path);
+
 			foreach (var schoolClass in Grades)
 			{
 				File.AppendAllText(path, schoolClass.Name + ":\n");
 
 				for (int day = 0; day < schoolClass.schedlue.Count; day++)
 				{
+					File.AppendAllText(path,"Day " + (day + 1).ToString() + "\n");
 					for (int lesson = 0; lesson < schoolClass.schedlue[day].Length; lesson++)
-						File.AppendAllText(path, schoolClass.schedlue[day][lesson].Name);
-					File.AppendAllText(path, "\n");
+						if (schoolClass.schedlue[day][lesson] != null)
+							File.AppendAllText(path, "Lesson " + (lesson + 1).ToString() + ": " + schoolClass.schedlue[day][lesson].Name + "\n");
+					File.AppendAllText(path, "\n \n");
 				}
 			}
 		}

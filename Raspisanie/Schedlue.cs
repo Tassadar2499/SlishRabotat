@@ -13,9 +13,7 @@ namespace Raspisanie
 
 		public bool IsFreeAt(DayOfWeek day, int lessonNumber)
 		{
-			if (schedlue[(int)day][lessonNumber] == null)
-				return false;
-			return true;
+			return schedlue[(int)day][lessonNumber] == null;
 		}
 
 		public void PutLesson(DayOfWeek day, int lesson, Subject subject)
@@ -28,7 +26,11 @@ namespace Raspisanie
 			var maxDay = 6;
 			//var maxLesson = 7;
 
-			schedlue = new List<Subject[]>(maxDay);
+			schedlue = new List<Subject[]>();
+
+			for (int day = 0; day < maxDay; day++)
+				schedlue.Add(new Subject[7]);
+
 			schedlueWeights = new List<double[]>
 			{
 				new double[]{1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, },

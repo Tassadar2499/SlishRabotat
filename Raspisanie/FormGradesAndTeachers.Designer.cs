@@ -43,7 +43,7 @@
 			this.button6 = new System.Windows.Forms.Button();
 			this.textBoxAddTeacher = new System.Windows.Forms.TextBox();
 			this.checkedListBoxOfTeachers = new System.Windows.Forms.CheckedListBox();
-			this.button9 = new System.Windows.Forms.Button();
+			this.MakeSchedlueButton = new System.Windows.Forms.Button();
 			this.Классы.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
@@ -63,7 +63,7 @@
 			// tabPage1
 			// 
 			this.tabPage1.BackColor = System.Drawing.Color.DarkGray;
-			this.tabPage1.Controls.Add(this.button9);
+			this.tabPage1.Controls.Add(this.MakeSchedlueButton);
 			this.tabPage1.Controls.Add(this.button5);
 			this.tabPage1.Controls.Add(this.button4);
 			this.tabPage1.Controls.Add(this.button3);
@@ -213,15 +213,15 @@
 			this.checkedListBoxOfTeachers.TabIndex = 0;
 			this.checkedListBoxOfTeachers.SelectedIndexChanged += new System.EventHandler(this.CheckedListBoxOfTeachers_SelectingItem);
 			// 
-			// button9
+			// MakeSchedlueButton
 			// 
-			this.button9.Location = new System.Drawing.Point(560, 8);
-			this.button9.Name = "button9";
-			this.button9.Size = new System.Drawing.Size(89, 73);
-			this.button9.TabIndex = 5;
-			this.button9.Text = "button9";
-			this.button9.UseVisualStyleBackColor = true;
-			this.button9.Click += new System.EventHandler(this.button9_Click);
+			this.MakeSchedlueButton.Location = new System.Drawing.Point(549, 6);
+			this.MakeSchedlueButton.Name = "MakeSchedlueButton";
+			this.MakeSchedlueButton.Size = new System.Drawing.Size(100, 60);
+			this.MakeSchedlueButton.TabIndex = 5;
+			this.MakeSchedlueButton.Text = "Сформировать расписание";
+			this.MakeSchedlueButton.UseVisualStyleBackColor = true;
+			this.MakeSchedlueButton.Click += new System.EventHandler(this.MakeSchedlueButton_Click);
 			// 
 			// FormGradesAndTeachers
 			// 
@@ -258,6 +258,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-		private System.Windows.Forms.Button button9;
+		private System.Windows.Forms.Button MakeSchedlueButton;
 	}
 }

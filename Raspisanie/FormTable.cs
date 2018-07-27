@@ -13,12 +13,18 @@ namespace Raspisanie
 {
 	public partial class FormTable : Form
 	{
+		private string gradeName;
+
 		public FormTable(string nameOfGrade, CheckedListBox checkedListBoxOfTeachers)
 		{
 			InitializeComponent();
-			GradeName.Text += nameOfGrade;
+
+			GradeName.Text = "Класс - " + nameOfGrade;
+			gradeName = nameOfGrade;
+
 			AutoComplitingForSubjects();
 			AutoComplitingForTeachers(checkedListBoxOfTeachers);
+
 			GetGradesToDataGrid(nameOfGrade);
 		}
 
@@ -75,7 +81,7 @@ namespace Raspisanie
 		private void FormTable_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			var columnArray = new string[dataGridSubjects.Rows.Count];
-			var grade = new Grade(GradeName.Text);
+			var grade = new Grade(gradeName);
 
 			foreach (DataGridViewRow row in dataGridSubjects.Rows)
 			{

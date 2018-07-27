@@ -29,6 +29,12 @@ namespace Raspisanie
 				checkedListBox.Items.Add(item);
 		}
 
+		private void MakeSchedlueButton_Click(object sender, EventArgs e)
+		{
+			SchedlueMaker.CalculateSchedlue();
+			SchedlueMaker.SaveSchedlue("out.txt");
+		}
+
 		#region Grade methods
 
 		private void DoubleClicking(object sender, EventArgs e)
@@ -152,9 +158,5 @@ namespace Raspisanie
 
 		#endregion
 
-		private void button9_Click(object sender, EventArgs e)
-		{
-
-		}
 	}
 }
