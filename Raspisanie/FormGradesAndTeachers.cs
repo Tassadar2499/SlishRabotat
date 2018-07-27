@@ -35,11 +35,11 @@ namespace Raspisanie
 		{
 			var nameOfClass = (sender as CheckedListBox).SelectedItem;
 
-			if (nameOfClass == null)
-				return;
-
-			var formTable = new FormTable(nameOfClass.ToString(), checkedListBoxOfTeachers);
-			formTable.Show();
+			if (nameOfClass != null)
+			{
+				var formTable = new FormTable(nameOfClass.ToString(), checkedListBoxOfTeachers);
+				formTable.Show();
+			}
 		}
 
 		private void AddNewGrade_Click(object sender, EventArgs e)
@@ -151,5 +151,10 @@ namespace Raspisanie
 		#endregion
 
 		#endregion
+
+		private void button9_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
