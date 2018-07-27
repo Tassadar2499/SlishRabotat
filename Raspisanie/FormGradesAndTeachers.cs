@@ -10,139 +10,147 @@ using System.Windows.Forms;
 
 namespace Raspisanie
 {
-    public partial class FormGradesAndTeachers : Form
-    {
-        public static CheckedListBox teachers; //короче для автозаполнения если что, исправь этот костыль
-        public FormGradesAndTeachers()
-        {
-            InitializeComponent();
-            checkedListBoxOfGrades.DoubleClick += DoubleClicking;
-        }
+	public partial class FormGradesAndTeachers : Form
+	{
+		public static CheckedListBox teachers; //короче для автозаполнения если что, исправь этот костыль
 
-        private void DoubleClicking(object sender, EventArgs e)
-        {
-            SchedlueMaker.Grades.Clear();
-            foreach (var grade in Program.ListBoxToStrings(checkedListBoxOfGrades))
-                SchedlueMaker.Grades.Add(new Grade(grade));
+		public FormGradesAndTeachers()
+		{
+			InitializeComponent();
+			checkedListBoxOfGrades.DoubleClick += DoubleClicking;
+		}
 
-            var nameOfClass = (sender as CheckedListBox).SelectedItem;
+		#region Grade methods
 
-            if (nameOfClass == null)
-                return;
-            teachers = checkedListBoxOfTeachers;
-            var formTable = new FormTable(nameOfClass.ToString());
-            formTable.Show();
-        }
+		private void DoubleClicking(object sender, EventArgs e)
+		{
+			SchedlueMaker.Grades.Clear();
+			foreach (var grade in Program.ListBoxToStrings(checkedListBoxOfGrades))
+				SchedlueMaker.Grades.Add(new Grade(grade));
 
-        public void CheckedList_AddItem(string item, CheckedListBox checkedListBox)
-        {
-            if (item != "" && !checkedListBox.Items.Contains(item))
-                checkedListBox.Items.Add(item);
-        }//Метод для добавления элементов в CheckedListBox
-        #region
-        private void FormGradesAndTeachers_Load(object sender, EventArgs e)
-        {
+			var nameOfClass = (sender as CheckedListBox).SelectedItem;
 
-        }
+			if (nameOfClass == null)
+				return;
+			teachers = checkedListBoxOfTeachers;
+			var formTable = new FormTable(nameOfClass.ToString());
+			formTable.Show();
+		}
 
-        private void TabPageGrades(object sender, EventArgs e)
-        {
+		public void CheckedList_AddItem(string item, CheckedListBox checkedListBox)
+		{
+			if (item != "" && !checkedListBox.Items.Contains(item))
+				checkedListBox.Items.Add(item);
+		}//Метод для добавления элементов в CheckedListBox
 
-        }
+		private void AddNewGrade_Click(object sender, EventArgs e)
+		{
+			CheckedList_AddItem(addGradeTextBox.Text, checkedListBoxOfGrades);
+			addGradeTextBox.Clear();
+		}
 
-        private void TabPageTeachers(object sender, EventArgs e)
-        {
+		private void DeleteSelectingGrades_Click(object sender, EventArgs e)
+		{
+			var checkedItems = checkedListBoxOfGrades.CheckedItems;
 
-        }
+			for (var i = checkedListBoxOfGrades.CheckedItems.Count - 1; i >= 0; i--)
+				checkedListBoxOfGrades.Items.Remove(checkedListBoxOfGrades.CheckedItems[i]);
+		}
 
-        private void CheckedListBoxOfGrades_SelectingItem(object sender, EventArgs e)
-        {
+		private void SortingByNumber_Click(object sender, EventArgs e)
+		{
+			var grades = Program.ListBoxToStrings(checkedListBoxOfGrades).ToArray();
 
-        }
+			Array.Sort(grades, new SortingStringByNumber());
 
-        private void TextAddGrade(object sender, EventArgs e)
-        {
-            
-        }
-        #endregion
+			checkedListBoxOfGrades.Items.Clear();
 
-        private void AddNewGrade_Click(object sender, EventArgs e)
-        {
-            CheckedList_AddItem(addGradeTextBox.Text, checkedListBoxOfGrades);
-            addGradeTextBox.Clear();
-        }//For Grades
+			foreach (var schoolClass in grades)
+				CheckedList_AddItem(schoolClass, checkedListBoxOfGrades);
+		}
 
-        private void DeleteSelectingGrades_Click(object sender, EventArgs e)
-        {
-            var checkedItems = checkedListBoxOfGrades.CheckedItems;
+		private void AddDefaultGrades_Click(object sender, EventArgs e)
+		{
+			var grades = SchedlueMaker.LoadClasses("Classes.txt").Select(a => a.Name);
 
-            for (var i = checkedListBoxOfGrades.CheckedItems.Count - 1; i >= 0; i--)
-                checkedListBoxOfGrades.Items.Remove(checkedListBoxOfGrades.CheckedItems[i]);
-        }//For Grades
+			foreach (var schoolClass in grades)
+				CheckedList_AddItem(schoolClass, checkedListBoxOfGrades);
+		}
 
-        private void SortingByNumber_Click(object sender, EventArgs e)
-        {
-            var grades = Program.ListBoxToStrings(checkedListBoxOfGrades).ToArray();
+		private void CancelAddingDefaultClasses_Click(object sender, EventArgs e)
+		{
+			var grades = SchedlueMaker.LoadClasses("Classes.txt").Select(a => a.Name);
 
-            Array.Sort(grades, new SortingStringByNumber());
+			foreach (var schoolClass in grades)
+				if (grades.Contains(schoolClass))
+					checkedListBoxOfGrades.Items.Remove(schoolClass);
+		}
 
-            checkedListBoxOfGrades.Items.Clear();
+		#region
+		private void FormGradesAndTeachers_Load(object sender, EventArgs e)
+		{
 
-            foreach (var schoolClass in grades)
-                CheckedList_AddItem(schoolClass,checkedListBoxOfGrades);
-        }//For Grades
+		}
 
-        private void AddDefaultGrades_Click(object sender, EventArgs e)
-        {
-            var grades = SchedlueMaker.LoadClasses("Classes.txt").Select(a => a.Name);
+		private void TabPageGrades(object sender, EventArgs e)
+		{
 
-            foreach (var schoolClass in grades)
-                CheckedList_AddItem(schoolClass,checkedListBoxOfGrades);
-        }//For Grades
+		}
 
-        private void CancelAddingDefaultClasses_Click(object sender, EventArgs e)
-        {
-            var grades = SchedlueMaker.LoadClasses("Classes.txt").Select(a => a.Name);
+		private void TabPageTeachers(object sender, EventArgs e)
+		{
 
-            foreach (var schoolClass in grades)
-                if (grades.Contains(schoolClass))
-                    checkedListBoxOfGrades.Items.Remove(schoolClass);
-        }//For Grades
+		}
 
-        //end grades methods
-        //starts teachers methods
-        #region
-        private void CheckedListBoxOfTeachers_SelectingItem(object sender, EventArgs e)
-        {
-            
-        }
+		private void CheckedListBoxOfGrades_SelectingItem(object sender, EventArgs e)
+		{
 
-        private void TextBoxAddTeacher(object sender, EventArgs e)
-        {
-            
-        }
-        #endregion
+		}
 
-        private void AddTeacher_Click(object sender, EventArgs e)
-        {
-            CheckedList_AddItem(textBoxAddTeacher.Text, checkedListBoxOfTeachers);
-            textBoxAddTeacher.Clear();
-        }//For Teachers
+		private void TextAddGrade(object sender, EventArgs e)
+		{
 
-        private void DeleteSelectingTeachers_Click(object sender, EventArgs e)
-        {
-            for (var i = checkedListBoxOfTeachers.CheckedItems.Count - 1; i >= 0; i--)
-                checkedListBoxOfTeachers.Items.Remove(checkedListBoxOfTeachers.CheckedItems[i]);
-        }//For Teachers
+		}
+		#endregion
 
-        private void SortingByAlphabet_Click(object sender, EventArgs e)
-        {
-            var teachers = Program.ListBoxToStrings(checkedListBoxOfTeachers).ToArray();
+		#endregion
 
-            Array.Sort(teachers);
+		#region Teachers methods
 
-            checkedListBoxOfTeachers.Items.Clear();
-            checkedListBoxOfTeachers.Items.AddRange(teachers);
-        }//For Teachers
-    }
+		private void AddTeacher_Click(object sender, EventArgs e)
+		{
+			CheckedList_AddItem(textBoxAddTeacher.Text, checkedListBoxOfTeachers);
+			textBoxAddTeacher.Clear();
+		}
+
+		private void DeleteSelectingTeachers_Click(object sender, EventArgs e)
+		{
+			for (var i = checkedListBoxOfTeachers.CheckedItems.Count - 1; i >= 0; i--)
+				checkedListBoxOfTeachers.Items.Remove(checkedListBoxOfTeachers.CheckedItems[i]);
+		}
+
+		private void SortingByAlphabet_Click(object sender, EventArgs e)
+		{
+			var teachers = Program.ListBoxToStrings(checkedListBoxOfTeachers).ToArray();
+
+			Array.Sort(teachers);
+
+			checkedListBoxOfTeachers.Items.Clear();
+			checkedListBoxOfTeachers.Items.AddRange(teachers);
+		}
+
+		#region
+		private void CheckedListBoxOfTeachers_SelectingItem(object sender, EventArgs e)
+		{
+
+		}
+
+		private void TextBoxAddTeacher(object sender, EventArgs e)
+		{
+
+		}
+		#endregion
+
+		#endregion
+	}
 }
