@@ -126,6 +126,8 @@ namespace Raspisanie
 							break;
 						}
 					}
+
+					throw new Exception("Нет места для предмета");
 				}
 			}
 		}
