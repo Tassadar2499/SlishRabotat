@@ -44,6 +44,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.GradeName = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSubjects)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDifficulty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericCountAtWeek)).BeginInit();
@@ -98,6 +100,7 @@
             // 
             // numericDifficulty
             // 
+            this.numericDifficulty.AllowDrop = true;
             this.numericDifficulty.Location = new System.Drawing.Point(182, 366);
             this.numericDifficulty.Name = "numericDifficulty";
             this.numericDifficulty.Size = new System.Drawing.Size(109, 20);
@@ -106,6 +109,7 @@
             // 
             // numericCountAtWeek
             // 
+            this.numericCountAtWeek.AllowDrop = true;
             this.numericCountAtWeek.Location = new System.Drawing.Point(313, 365);
             this.numericCountAtWeek.Name = "numericCountAtWeek";
             this.numericCountAtWeek.Size = new System.Drawing.Size(120, 20);
@@ -191,11 +195,33 @@
             this.GradeName.TabIndex = 11;
             this.GradeName.Text = "Класс - ";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(525, 58);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 65);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Копировать значения";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.CopyTheTable_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(652, 58);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 57);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "Вставить значения";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.InsertTheTableClick);
+            // 
             // FormTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.GradeName);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -238,5 +264,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label GradeName;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

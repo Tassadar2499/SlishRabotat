@@ -63,15 +63,15 @@ namespace Raspisanie
 
 			foreach (var schoolClass in Grades)
 			{
-				File.AppendAllText(path, schoolClass.Name + ":\n");
+				File.AppendAllText(path, schoolClass.Name + ":\r\n");
 
 				for (int day = 0; day < schoolClass.schedlue.Count; day++)
 				{
-					File.AppendAllText(path, "Day " + (day + 1).ToString() + "\n");
+					File.AppendAllText(path, "Day " + (day + 1).ToString() + "\r\n");
 					for (int lesson = 0; lesson < schoolClass.schedlue[day].Length; lesson++)
 						if (schoolClass.schedlue[day][lesson] != null)
-							File.AppendAllText(path, "Lesson " + (lesson + 1).ToString() + ": " + schoolClass.schedlue[day][lesson].Name + "\n");
-					File.AppendAllText(path, "\n \n");
+							File.AppendAllText(path, "Lesson " + (lesson + 1).ToString() + ": " + schoolClass.schedlue[day][lesson].Name + "\r\n");
+					File.AppendAllText(path, "\r\n \r\n");
 				}
 			}
 		}
