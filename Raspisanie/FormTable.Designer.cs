@@ -98,6 +98,7 @@
             // 
             // numericDifficulty
             // 
+            this.numericDifficulty.AllowDrop = true;
             this.numericDifficulty.Location = new System.Drawing.Point(182, 366);
             this.numericDifficulty.Name = "numericDifficulty";
             this.numericDifficulty.Size = new System.Drawing.Size(109, 20);
@@ -106,6 +107,7 @@
             // 
             // numericCountAtWeek
             // 
+            this.numericCountAtWeek.AllowDrop = true;
             this.numericCountAtWeek.Location = new System.Drawing.Point(313, 365);
             this.numericCountAtWeek.Name = "numericCountAtWeek";
             this.numericCountAtWeek.Size = new System.Drawing.Size(120, 20);
