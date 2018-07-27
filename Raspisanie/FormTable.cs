@@ -13,12 +13,27 @@ namespace Raspisanie
 {
 	public partial class FormTable : Form
 	{
-		public FormTable(string nameOfGrade)
+		public FormTable(string nameOfGrade, CheckedListBox checkedListBoxOfTeachers)
 		{
 			InitializeComponent();
 			GradeName.Text += nameOfGrade;
 			AutoComplitingForSubjects();
-			AutoComplitingForTeachers();
+			AutoComplitingForTeachers(checkedListBoxOfTeachers);
+			GetGradesToDataGrid(nameOfGrade);
+		}
+
+		private void GetGradesToDataGrid(string nameOfGrade)
+		{
+			var grade = SchedlueMaker.GetGradeByName(nameOfGrade);
+
+			if (grade != null)
+			foreach (var item in grade.Subjects)
+				dataGridSubjects.Rows.Add(
+						item.Key.Name,
+						item.Key.Difficult,
+						item.Key.CountAtWeek,
+						item.Value.Name
+					);
 		}
 
 		private void AutoComplitingForSubjects()
@@ -31,9 +46,9 @@ namespace Raspisanie
 			textBoxSubjects.AutoCompleteSource = AutoCompleteSource.CustomSource;
 		}
 
-		private void AutoComplitingForTeachers()
+		private void AutoComplitingForTeachers(CheckedListBox checkedListBoxOfTeachers)
 		{
-			var text = Program.ListBoxToStrings(FormGradesAndTeachers.teachers).ToArray();
+			var text = Program.ListBoxToStrings(checkedListBoxOfTeachers).ToArray();
 
 			var source = new AutoCompleteStringCollection();
 			source.AddRange(text);
@@ -76,7 +91,7 @@ namespace Raspisanie
 					);
 			}
 
-			var currentGrade = SchedlueMaker.Grades.Where(a => a.Name == GradeName.Text).FirstOrDefault();
+			var currentGrade = SchedlueMaker.GetGradeByName(GradeName.Text);
 
 			if (currentGrade == null)
 				SchedlueMaker.Grades.Add(grade);

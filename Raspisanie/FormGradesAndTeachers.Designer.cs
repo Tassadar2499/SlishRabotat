@@ -241,7 +241,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.CheckedListBox checkedListBoxOfTeachers;
+        public System.Windows.Forms.CheckedListBox checkedListBoxOfTeachers;
         private System.Windows.Forms.TextBox textBoxAddTeacher;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;

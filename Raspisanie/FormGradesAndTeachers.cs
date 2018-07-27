@@ -12,40 +12,39 @@ namespace Raspisanie
 {
 	public partial class FormGradesAndTeachers : Form
 	{
-		public static CheckedListBox teachers; //короче для автозаполнения если что, исправь этот костыль
-
 		public FormGradesAndTeachers()
 		{
 			InitializeComponent();
 			checkedListBoxOfGrades.DoubleClick += DoubleClicking;
 		}
 
+		/// <summary>
+		/// Метод для добавления элементов в CheckedListBox
+		/// </summary>
+		/// <param name="checkedListBox"></param>
+		/// <param name="item"></param>
+		public void CheckedList_AddItem(CheckedListBox checkedListBox, string item)
+		{
+			if (item != "" && !checkedListBox.Items.Contains(item))
+				checkedListBox.Items.Add(item);
+		}
+
 		#region Grade methods
 
 		private void DoubleClicking(object sender, EventArgs e)
 		{
-			SchedlueMaker.Grades.Clear();
-			foreach (var grade in Program.ListBoxToStrings(checkedListBoxOfGrades))
-				SchedlueMaker.Grades.Add(new Grade(grade));
-
 			var nameOfClass = (sender as CheckedListBox).SelectedItem;
 
 			if (nameOfClass == null)
 				return;
-			teachers = checkedListBoxOfTeachers;
-			var formTable = new FormTable(nameOfClass.ToString());
+
+			var formTable = new FormTable(nameOfClass.ToString(), checkedListBoxOfTeachers);
 			formTable.Show();
 		}
 
-		public void CheckedList_AddItem(string item, CheckedListBox checkedListBox)
-		{
-			if (item != "" && !checkedListBox.Items.Contains(item))
-				checkedListBox.Items.Add(item);
-		}//Метод для добавления элементов в CheckedListBox
-
 		private void AddNewGrade_Click(object sender, EventArgs e)
 		{
-			CheckedList_AddItem(addGradeTextBox.Text, checkedListBoxOfGrades);
+			CheckedList_AddItem(checkedListBoxOfGrades, addGradeTextBox.Text);
 			addGradeTextBox.Clear();
 		}
 
@@ -66,7 +65,7 @@ namespace Raspisanie
 			checkedListBoxOfGrades.Items.Clear();
 
 			foreach (var schoolClass in grades)
-				CheckedList_AddItem(schoolClass, checkedListBoxOfGrades);
+				CheckedList_AddItem(checkedListBoxOfGrades, schoolClass);
 		}
 
 		private void AddDefaultGrades_Click(object sender, EventArgs e)
@@ -74,7 +73,7 @@ namespace Raspisanie
 			var grades = SchedlueMaker.LoadClasses("Classes.txt").Select(a => a.Name);
 
 			foreach (var schoolClass in grades)
-				CheckedList_AddItem(schoolClass, checkedListBoxOfGrades);
+				CheckedList_AddItem(checkedListBoxOfGrades, schoolClass);
 		}
 
 		private void CancelAddingDefaultClasses_Click(object sender, EventArgs e)
@@ -119,7 +118,7 @@ namespace Raspisanie
 
 		private void AddTeacher_Click(object sender, EventArgs e)
 		{
-			CheckedList_AddItem(textBoxAddTeacher.Text, checkedListBoxOfTeachers);
+			CheckedList_AddItem(checkedListBoxOfTeachers, textBoxAddTeacher.Text);
 			textBoxAddTeacher.Clear();
 		}
 

@@ -72,6 +72,11 @@ namespace Raspisanie
 			}
 		}
 
+		public static Grade GetGradeByName(string name)
+		{
+			return Grades.Where(a => a.Name == name).FirstOrDefault();
+		}
+
 		public static void CalculateSchedlue()
 		{
 			//предмет, у какого клаасса этот предмет
