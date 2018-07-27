@@ -10,7 +10,6 @@ namespace Raspisanie
 {
 	static class Program
 	{
-        public static List<Grade> grades;
 		public static void ShowOnMessageBox(string[] checkedObj)
 		{
 			if (checkedObj == null)
@@ -34,14 +33,9 @@ namespace Raspisanie
 		[STAThread]
 		static void Main()
 		{
-            grades = new List<Grade>();
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new FormGradesAndTeachers());
-            var testing = grades;
-            //SchedlueMaker.CalculateSchedlue();
-            //File.Delete("out.txt");
-            //SchedlueMaker.SaveSchedlue("out.txt");
 		}
 	}
 }

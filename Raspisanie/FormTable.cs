@@ -11,98 +11,113 @@ using System.Windows.Forms;
 
 namespace Raspisanie
 {
-    public partial class FormTable : Form
-    {
-        public FormTable(string nameOfGrade)
-        {
-            InitializeComponent();
-            GradeName.Text += nameOfGrade;
-            AutoComplitingForSubjects();
-            AutoComplitingForTeachers();
-        }
+	public partial class FormTable : Form
+	{
+		public FormTable(string nameOfGrade)
+		{
+			InitializeComponent();
+			GradeName.Text += nameOfGrade;
+			AutoComplitingForSubjects();
+			AutoComplitingForTeachers();
+		}
 
-        private void AutoComplitingForSubjects()
-        {
-            var text = File.ReadAllText("Subjects.txt").Split(new char[] { '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+		private void AutoComplitingForSubjects()
+		{
+			var text = File.ReadAllText("Subjects.txt").Split(new char[] { '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
-            AutoCompleteStringCollection source = new AutoCompleteStringCollection();
-            source.AddRange(text);
-            textBoxSubjects.AutoCompleteCustomSource = source;
-            textBoxSubjects.AutoCompleteSource = AutoCompleteSource.CustomSource;
-        }
+			var source = new AutoCompleteStringCollection();
+			source.AddRange(text);
+			textBoxSubjects.AutoCompleteCustomSource = source;
+			textBoxSubjects.AutoCompleteSource = AutoCompleteSource.CustomSource;
+		}
 
-        private void AutoComplitingForTeachers()
-        {
-            var teachers = FormGradesAndTeachers.teachers;;
-            var text = Program.ListBoxToStrings(teachers).ToArray();
-            AutoCompleteStringCollection source = new AutoCompleteStringCollection();
-            source.AddRange(text);
-            textBoxTeacher.AutoCompleteCustomSource = source;
-            textBoxTeacher.AutoCompleteSource = AutoCompleteSource.CustomSource;
-        }
+		private void AutoComplitingForTeachers()
+		{
+			var text = Program.ListBoxToStrings(FormGradesAndTeachers.teachers).ToArray();
 
-        #region
-        private void FormTable_Load(object sender, EventArgs e)
-        {
+			var source = new AutoCompleteStringCollection();
+			source.AddRange(text);
+			textBoxTeacher.AutoCompleteCustomSource = source;
+			textBoxTeacher.AutoCompleteSource = AutoCompleteSource.CustomSource;
+		}
 
-        }
+		private void Add_Click(object sender, EventArgs e)
+		{
+			if (textBoxSubjects.Text != null && numericCountAtWeek.Value != 0 && textBoxTeacher.Text != null)
+				dataGridSubjects.Rows.Add(
+					textBoxSubjects.Text, 
+					numericDifficulty.Value, 
+					numericCountAtWeek.Value, 
+					textBoxTeacher.Text
+				);
+		}
 
-        private void DataGridViewSubjects_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+		private void Delete_Click(object sender, EventArgs e)
+		{
+			dataGridSubjects.Rows.RemoveAt(dataGridSubjects.SelectedCells[0].RowIndex);
+		}
 
-        }
+		private void FormTable_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			var columnArray = new string[dataGridSubjects.Rows.Count];
+			var grade = new Grade(GradeName.Text);
 
-        private void TextBoxSubject_Change(object sender, EventArgs e)
-        {
-            
-        }
+			foreach (DataGridViewRow row in dataGridSubjects.Rows)
+			{
+				var subject = GetValueFromRow(row, 0);
+				var difficulty = GetValueFromRow(row, 1);
+				var countAtWeek = GetValueFromRow(row, 2);
+				var teacher = GetValueFromRow(row, 3);
 
-        private void NumericDifficulty_Change(object sender, EventArgs e)
-        {
-            
-        }
+				if (subject != "" && difficulty != "" && countAtWeek != "" && teacher != "")
+					grade.AddSubject(
+						new Subject(subject, int.Parse(difficulty), int.Parse(countAtWeek)),
+						new Teacher(teacher)
+					);
+			}
 
-        private void NumericCountAtWeek_Change(object sender, EventArgs e)
-        {
-            
-        }
+			var currentGrade = SchedlueMaker.Grades.Where(a => a.Name == GradeName.Text).FirstOrDefault();
 
-        private void TextBoxTeacher_Change(object sender, EventArgs e)
-        {
+			if (currentGrade == null)
+				SchedlueMaker.Grades.Add(grade);
+			else currentGrade = grade;
+		}
 
-        }
-        #endregion
-        private void Add_Click(object sender, EventArgs e)
-        {
-            dataGridSubjects.Rows.Add(textBoxTeacher.Text, numericDifficulty.Value, numericCountAtWeek.Value, textBoxSubjects.Text);
-        }
+		private static string GetValueFromRow(DataGridViewRow row, int index)
+		{
+			return row.Cells[index].Value != null ? row.Cells[index].Value.ToString() : string.Empty;
+		}
 
-        private void Delete_Click(object sender, EventArgs e)
-        {
-            int delet = dataGridSubjects.SelectedCells[0].RowIndex;
-            dataGridSubjects.Rows.RemoveAt(delet);
-        }
+		#region
+		private void FormTable_Load(object sender, EventArgs e)
+		{
 
-        private void FormTable_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            string[] columnArray = new string[dataGridSubjects.Rows.Count];
-            var grade = new Grade(GradeName.Text);
-            int costil = 0;
-            foreach (DataGridViewRow row in dataGridSubjects.Rows)
-            {
-                var subject = row.Cells[0].Value != null ? row.Cells[0].Value.ToString() : string.Empty;
-                var difficulty = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : string.Empty;
-                var countAtWeek = row.Cells[2].Value != null ? row.Cells[2].Value.ToString() : string.Empty;
-                var teacher = row.Cells[3].Value != null ? row.Cells[3].Value.ToString() : string.Empty;
-                if (costil + 1 < dataGridSubjects.Rows.Count)
-                grade.AddSubject(
-                    new Subject(subject,Int32.Parse(difficulty), Int32.Parse(countAtWeek)),
-                    new Teacher(teacher)
-                    );
-                costil++;
-            }
-            SchedlueMaker.Grades.Add(grade);
-            Program.grades.Add(grade);
-        }
-    }
+		}
+
+		private void DataGridViewSubjects_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+
+		}
+
+		private void TextBoxSubject_Change(object sender, EventArgs e)
+		{
+
+		}
+
+		private void NumericDifficulty_Change(object sender, EventArgs e)
+		{
+
+		}
+
+		private void NumericCountAtWeek_Change(object sender, EventArgs e)
+		{
+
+		}
+
+		private void TextBoxTeacher_Change(object sender, EventArgs e)
+		{
+
+		}
+		#endregion
+	}
 }
