@@ -47,7 +47,8 @@ namespace Raspisanie
 				var formTable = new FormTable(nameOfClass.ToString(), checkedListBoxOfTeachers);
 				formTable.Show();
 			}
-		}
+            checkedListBoxOfGrades.SetItemChecked(checkedListBoxOfGrades.Items.IndexOf(nameOfClass), true);
+        }
 
 		private void AddNewGrade_Click(object sender, EventArgs e)
 		{
