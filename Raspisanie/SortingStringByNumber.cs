@@ -20,7 +20,6 @@ namespace Raspisanie
 			return int.Parse(num);
 		}
 
-
 		public int Compare(string x, string y)
 		{
 			var number1 = GetNumber(x);

@@ -67,7 +67,7 @@ namespace Raspisanie
 
 				for (int day = 0; day < schoolClass.schedlue.Count; day++)
 				{
-					File.AppendAllText(path,"Day " + (day + 1).ToString() + "\n");
+					File.AppendAllText(path, "Day " + (day + 1).ToString() + "\n");
 					for (int lesson = 0; lesson < schoolClass.schedlue[day].Length; lesson++)
 						if (schoolClass.schedlue[day][lesson] != null)
 							File.AppendAllText(path, "Lesson " + (lesson + 1).ToString() + ": " + schoolClass.schedlue[day][lesson].Name + "\n");

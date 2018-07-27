@@ -19,7 +19,7 @@ namespace Raspisanie
 				MessageBox.Show("Выбери хотя бы 1 предмет");
 
 			else
-				MessageBox.Show(string.Join(" ", checkedObj));				
+				MessageBox.Show(string.Join(" ", checkedObj));
 		}
 
 		public static IEnumerable<string> ListBoxToStrings(CheckedListBox checkedList)

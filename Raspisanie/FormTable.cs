@@ -33,13 +33,13 @@ namespace Raspisanie
 			var grade = SchedlueMaker.GetGradeByName(nameOfGrade);
 
 			if (grade != null)
-			foreach (var item in grade.Subjects)
-				dataGridSubjects.Rows.Add(
-						item.Key.Name,
-						item.Key.Difficult,
-						item.Key.CountAtWeek,
-						item.Value.Name
-					);
+				foreach (var item in grade.Subjects)
+					dataGridSubjects.Rows.Add(
+							item.Key.Name,
+							item.Key.Difficult,
+							item.Key.CountAtWeek,
+							item.Value.Name
+						);
 		}
 
 		private void AutoComplitingForSubjects()
@@ -66,9 +66,9 @@ namespace Raspisanie
 		{
 			if (textBoxSubjects.Text != null && numericCountAtWeek.Value != 0 && textBoxTeacher.Text != null)
 				dataGridSubjects.Rows.Add(
-					textBoxSubjects.Text, 
-					numericDifficulty.Value, 
-					numericCountAtWeek.Value, 
+					textBoxSubjects.Text,
+					numericDifficulty.Value,
+					numericCountAtWeek.Value,
 					textBoxTeacher.Text
 				);
 		}
