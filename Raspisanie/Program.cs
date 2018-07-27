@@ -10,7 +10,7 @@ namespace Raspisanie
 {
 	static class Program
 	{
-		public static void ShowOnMessageBox(string[] checkedObj)
+        public static void ShowOnMessageBox(string[] checkedObj)
 		{
 			if (checkedObj == null)
 				MessageBox.Show("Нажми на кнопку сохранить");

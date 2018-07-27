@@ -12,6 +12,7 @@ namespace Raspisanie
 {
 	public partial class FormGradesAndTeachers : Form
 	{
+        public static string data;
 		public FormGradesAndTeachers()
 		{
 			InitializeComponent();

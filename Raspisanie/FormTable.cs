@@ -139,6 +139,17 @@ namespace Raspisanie
 		{
 
 		}
-		#endregion
-	}
+        #endregion
+
+        private void CopyTheTable_Click(object sender, EventArgs e)
+        {
+            FormGradesAndTeachers.data = gradeName;
+        }
+
+        private void InsertTheTableClick(object sender, EventArgs e)
+        {
+            var nameOfGrade = FormGradesAndTeachers.data;
+            GetGradesToDataGrid(nameOfGrade);
+        }
+    }
 }
