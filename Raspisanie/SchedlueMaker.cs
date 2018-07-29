@@ -127,8 +127,8 @@ namespace Raspisanie
 						}
 					}
 
-					throw new Exception("Нет места для предмета");
-				}
+                    throw new Exception("Нет места для предмета");
+                }
 			}
 		}
 	}
