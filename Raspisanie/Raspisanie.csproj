@@ -75,6 +75,12 @@
     <Compile Include="FormOutput.Designer.cs">
       <DependentUpon>FormOutput.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSchedlueGrades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSchedlueGrades.Designer.cs">
+      <DependentUpon>FormSchedlueGrades.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormOutput.resx">
       <DependentUpon>FormOutput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSchedlueGrades.resx">
+      <DependentUpon>FormSchedlueGrades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTable.resx">
       <DependentUpon>FormTable.cs</DependentUpon>
