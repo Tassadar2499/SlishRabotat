@@ -34,6 +34,8 @@ namespace Raspisanie
 		{
 			SchedlueMaker.CalculateSchedlue();
 			SchedlueMaker.SaveSchedlue("out.txt");
+            var formOutput = new FormOutput();
+            formOutput.Show();
 		}
 
 		#region Grade methods
