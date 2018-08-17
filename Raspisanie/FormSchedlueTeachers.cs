@@ -39,10 +39,8 @@ namespace Raspisanie
                         {
                             var teacher = new Teacher("");
                             schoolClass.Subjects.TryGetValue(schoolClass.schedlue[day][lesson], out teacher);
-                            if (teacher == schoolTeacher)
-                            {
-                                week[day, lesson] = schoolClass.schedlue[day][lesson].Name + "(" + schoolClass.Name + ")";
-                            }
+                            if (teacher.Name == nameOfTeacher)
+                                week[day, lesson] = schoolClass.schedlue[day][lesson].Name + "(" + schoolClass.Name + ")"; ;
                         }
             }
             for (int lesson = 0; lesson < 8; lesson++)
