@@ -171,15 +171,39 @@ namespace Raspisanie
             var strOutput = "";
             foreach (var grade in grades)
             {
-                strOutput += grade.Name + "\r\n";
+                strOutput += grade.Name + "\r\n?";
                 foreach (var subject in grade.Subjects)
-                    strOutput += subject.Key.Name + " " + subject.Key.Difficult.ToString() + " " + subject.Key.CountAtWeek.ToString() + " " + subject.Value.Name + "\r\n";
+                    strOutput += subject.Key.Name + " " + subject.Key.Difficult.ToString() + " " + subject.Key.CountAtWeek.ToString() + " " + subject.Value.Name + "\r\n%";
+                strOutput = strOutput.Remove(strOutput.Length-1);
+                strOutput += "#";
             }
+            strOutput = strOutput.Remove(strOutput.Length-3);
             File.AppendAllText("Save.txt", strOutput);
         }
 
         private void LoadFromFile_Click(object sender, EventArgs e)
         {
+            var grades = new List<Grade>();
+            var strInput = File.ReadAllText("Save.txt");
+            var arrOfGrades = strInput.Split('#');
+            foreach (var gradeStr in arrOfGrades)
+            {
+                var grade = new Grade (gradeStr.Substring(0, gradeStr.IndexOf('?')-2));
+                var keknul = gradeStr.Substring(gradeStr.IndexOf('?')+1);
+                var strArr = keknul.Split('%');
+
+                foreach (var str in strArr)
+                {
+                    var arr = str.Split(' ');
+                    var textSubject = arr[0];
+                    var textDifficult = arr[1];
+                    var textCountAtWeek = arr[2];
+                    var textTeacher = arr[3].Substring(0, arr[3].Length - 2);
+                    grade.Subjects.Add(new Subject(textSubject, int.Parse(textDifficult), int.Parse(textCountAtWeek)) , new Teacher(textTeacher));
+                }
+                grades.Add(grade);
+            }
+            SchedlueMaker.Grades = grades;
 
         }
         #endregion
