@@ -31,7 +31,11 @@ namespace Raspisanie
             for (int day = 0; day < schoolClass.schedlue.Count; day++)
                 for (int lesson = 0; lesson < schoolClass.schedlue[day].Length; lesson++)
                     if (schoolClass.schedlue[day][lesson] != null)
-                        week[day, lesson] = schoolClass.schedlue[day][lesson].Name;
+                    {
+                        Teacher teacher = new Teacher("");
+                        schoolClass.Subjects.TryGetValue(schoolClass.schedlue[day][lesson], out teacher);
+                        week[day, lesson] = schoolClass.schedlue[day][lesson].Name + "(" + teacher.Name + ")";
+                    }
             for (int lesson = 0; lesson < 8; lesson++)
                 dataTable.Rows.Add(lesson+1, week[0,lesson], week[1, lesson], week[2, lesson], week[3, lesson], week[4, lesson], week[5, lesson]);
         }
