@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Raspisanie
 {
@@ -158,9 +159,36 @@ namespace Raspisanie
 		{
 
 		}
-		#endregion
+        #endregion
 
-		#endregion
+        #endregion
 
-	}
+        #region Serialise Methods
+        private void SaveInFile_Click(object sender, EventArgs e)
+        {
+            File.Delete("Save.txt");
+            var grades = SchedlueMaker.Grades;
+            var strOutput = "";
+            foreach (var grade in grades)
+            {
+                var textGrade = grade.Name + "\r\n";
+                foreach (var subject in grade.Subjects)
+                {
+                    var textSubject = subject.Key.Name;
+                    var textDifficult = subject.Key.Difficult.ToString();
+                    var textCountAtWeek = subject.Key.CountAtWeek.ToString();
+                    var textTeacher = subject.Value.Name;
+                    textGrade += textSubject + " " + textDifficult + " " + textCountAtWeek + " " + textTeacher + "\r\n";
+                }
+                strOutput += textGrade + "\r\n";
+            }
+            File.AppendAllText("Save.txt", strOutput);
+        }
+
+        private void LoadFromFile_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+    }
 }
