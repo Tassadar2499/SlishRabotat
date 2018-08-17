@@ -33,6 +33,20 @@ namespace Raspisanie
 
 		private void MakeSchedlueButton_Click(object sender, EventArgs e)
 		{
+            var keknul = new List<int>();
+            foreach (var grade in SchedlueMaker.Grades)
+                foreach (var item in checkedListBoxOfGrades.Items)
+                    if (item.ToString() == grade.Name)
+                    keknul.Add(SchedlueMaker.Grades.IndexOf(grade));
+            
+            var cc = SchedlueMaker.Grades.Count - keknul.Count;
+            while (cc != 0)
+                if (keknul.Contains(cc) == false)
+                {
+                    SchedlueMaker.Grades.RemoveAt(cc);
+                    cc--;
+                }
+            var gg = SchedlueMaker.Grades;
 			SchedlueMaker.CalculateSchedlue();
 			SchedlueMaker.SaveSchedlue("out.txt");
             var formOutput = new FormOutput();
