@@ -81,6 +81,12 @@
     <Compile Include="FormSchedlueGrades.Designer.cs">
       <DependentUpon>FormSchedlueGrades.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSchedlueTeachers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSchedlueTeachers.Designer.cs">
+      <DependentUpon>FormSchedlueTeachers.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTable.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSchedlueGrades.resx">
       <DependentUpon>FormSchedlueGrades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSchedlueTeachers.resx">
+      <DependentUpon>FormSchedlueTeachers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTable.resx">
       <DependentUpon>FormTable.cs</DependentUpon>

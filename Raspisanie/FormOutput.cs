@@ -31,6 +31,7 @@ namespace Raspisanie
             foreach (var teacher in list)
                 listBoxOfTeachers.Items.Add(teacher.Name);
             listOfGrades.DoubleClick += DoubleClickingGrade;
+            listBoxOfTeachers.DoubleClick += DoubleClickingTeacher;
         }
 
         private void DoubleClickingGrade(object sender, EventArgs e)
@@ -44,12 +45,28 @@ namespace Raspisanie
             }
         }
 
+        private void DoubleClickingTeacher(object sender, EventArgs e)
+        {
+            var nameOfTeacher = (sender as ListBox).SelectedItem;
+
+            if (nameOfTeacher != null)
+            {
+                var formSchedlue = new FormSchedlueTeachers(nameOfTeacher.ToString());
+                formSchedlue.Show();
+            }
+        }
+
         private void tabPageGrades_Click(object sender, EventArgs e)
         {
 
         }
 
         private void listOfGrades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPageTeachers_Click(object sender, EventArgs e)
         {
 
         }
