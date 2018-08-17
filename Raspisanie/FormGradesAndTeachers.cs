@@ -194,17 +194,18 @@ namespace Raspisanie
 
                 foreach (var str in strArr)
                 {
-                    var arr = str.Split(' ');
-                    var textSubject = arr[0];
-                    var textDifficult = arr[1];
-                    var textCountAtWeek = arr[2];
-                    var textTeacher = arr[3].Substring(0, arr[3].Length - 2);
+                    var helpArr = str.Split(' ');
+                    var textSubject = helpArr[0];
+                    var textDifficult = helpArr[1];
+                    var textCountAtWeek = helpArr[2];
+                    var textTeacher = helpArr[3].Substring(0, helpArr[3].Length - 2);
                     grade.Subjects.Add(new Subject(textSubject, int.Parse(textDifficult), int.Parse(textCountAtWeek)) , new Teacher(textTeacher));
                 }
                 grades.Add(grade);
             }
             SchedlueMaker.Grades = grades;
-
+            foreach (var schoolClass in grades) //визуализация
+                CheckedList_AddItem(checkedListBoxOfGrades, schoolClass.Name);
         }
         #endregion
     }
