@@ -174,10 +174,10 @@ namespace Raspisanie
                 strOutput += grade.Name + "\r\n?";
                 foreach (var subject in grade.Subjects)
                     strOutput += subject.Key.Name + "&" + subject.Key.Difficult.ToString() + "&" + subject.Key.CountAtWeek.ToString() + "&" + subject.Value.Name + "\r\n%";
-                strOutput = strOutput.Remove(strOutput.Length-1);
+                strOutput = strOutput.Remove(strOutput.Length - 1);
                 strOutput += "#";
             }
-            strOutput = strOutput.Remove(strOutput.Length-3);
+            strOutput = strOutput.Remove(strOutput.Length - 1);
             File.AppendAllText("Save.txt", strOutput);
         }
 
