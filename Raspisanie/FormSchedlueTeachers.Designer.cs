@@ -55,6 +55,7 @@
             this.dataTable.Name = "dataTable";
             this.dataTable.Size = new System.Drawing.Size(745, 400);
             this.dataTable.TabIndex = 3;
+            this.dataTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTable_CellContentClick);
             // 
             // NumberOfLesson
             // 

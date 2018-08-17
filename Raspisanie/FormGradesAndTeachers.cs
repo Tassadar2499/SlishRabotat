@@ -173,7 +173,7 @@ namespace Raspisanie
             {
                 strOutput += grade.Name + "\r\n?";
                 foreach (var subject in grade.Subjects)
-                    strOutput += subject.Key.Name + " " + subject.Key.Difficult.ToString() + " " + subject.Key.CountAtWeek.ToString() + " " + subject.Value.Name + "\r\n%";
+                    strOutput += subject.Key.Name + "&" + subject.Key.Difficult.ToString() + "&" + subject.Key.CountAtWeek.ToString() + "&" + subject.Value.Name + "\r\n%";
                 strOutput = strOutput.Remove(strOutput.Length-1);
                 strOutput += "#";
             }
@@ -194,7 +194,7 @@ namespace Raspisanie
 
                 foreach (var str in strArr)
                 {
-                    var helpArr = str.Split(' ');
+                    var helpArr = str.Split('&');
                     grade.Subjects.Add(new Subject(helpArr[0], int.Parse(helpArr[1]), int.Parse(helpArr[2])) , new Teacher(helpArr[3].Substring(0, helpArr[3].Length - 2)));
                 }
                 grades.Add(grade);

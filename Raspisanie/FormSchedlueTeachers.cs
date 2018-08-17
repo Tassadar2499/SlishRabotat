@@ -20,9 +20,42 @@ namespace Raspisanie
             for (int i = 0; i < 6; i++)
                 for (int j = 0; j < 8; j++)
                     week[i, j] = "-";
+            var schoolTeacher = new Teacher(nameOfTeacher);
+            foreach (var grade in SchedlueMaker.Grades)
+            {
+                var teachersList = grade.Subjects.Values;
+                foreach (var teacher in teachersList)
+                {
+                    if (teacher.Name == nameOfTeacher)
+                        schoolTeacher = teacher;
+                    break;
+                }
+            }
+            foreach (var schoolClass in SchedlueMaker.Grades)
+            {
+                for (int day = 0; day < schoolClass.schedlue.Count; day++)
+                    for (int lesson = 0; lesson < schoolClass.schedlue[day].Length; lesson++)
+                        if (schoolClass.schedlue[day][lesson] != null)
+                        {
+                            var teacher = new Teacher("");
+                            schoolClass.Subjects.TryGetValue(schoolClass.schedlue[day][lesson], out teacher);
+                            if (teacher == schoolTeacher)
+                            {
+                                week[day, lesson] = schoolClass.schedlue[day][lesson].Name + "(" + schoolClass.Name + ")";
+                            }
+                        }
+            }
+            for (int lesson = 0; lesson < 8; lesson++)
+                dataTable.Rows.Add(lesson + 1, week[0, lesson], week[1, lesson], week[2, lesson], week[3, lesson], week[4, lesson], week[5, lesson]);
+            //Надо чтобы в 
         }
 
         private void labelTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

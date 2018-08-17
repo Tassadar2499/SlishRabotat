@@ -21,7 +21,7 @@ namespace Raspisanie
             for (int i = 0; i < 6; i++)
                 for (int j = 0; j < 8; j++)
                     week[i,j] = "-";
-            Grade schoolClass = new Grade(nameOfGrade);
+            var schoolClass = new Grade(nameOfGrade);
             foreach (var grade in SchedlueMaker.Grades)
                 if (grade.Name == nameOfGrade)
                 {
@@ -32,7 +32,7 @@ namespace Raspisanie
                 for (int lesson = 0; lesson < schoolClass.schedlue[day].Length; lesson++)
                     if (schoolClass.schedlue[day][lesson] != null)
                     {
-                        Teacher teacher = new Teacher("");
+                        var teacher = new Teacher("");
                         schoolClass.Subjects.TryGetValue(schoolClass.schedlue[day][lesson], out teacher);
                         week[day, lesson] = schoolClass.schedlue[day][lesson].Name + "(" + teacher.Name + ")";
                     }
