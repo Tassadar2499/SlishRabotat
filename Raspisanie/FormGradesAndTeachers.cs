@@ -195,11 +195,7 @@ namespace Raspisanie
                 foreach (var str in strArr)
                 {
                     var helpArr = str.Split(' ');
-                    var textSubject = helpArr[0];
-                    var textDifficult = helpArr[1];
-                    var textCountAtWeek = helpArr[2];
-                    var textTeacher = helpArr[3].Substring(0, helpArr[3].Length - 2);
-                    grade.Subjects.Add(new Subject(textSubject, int.Parse(textDifficult), int.Parse(textCountAtWeek)) , new Teacher(textTeacher));
+                    grade.Subjects.Add(new Subject(helpArr[0], int.Parse(helpArr[1]), int.Parse(helpArr[2])) , new Teacher(helpArr[3].Substring(0, helpArr[3].Length - 2)));
                 }
                 grades.Add(grade);
             }
