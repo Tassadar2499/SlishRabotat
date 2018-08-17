@@ -39,14 +39,13 @@ namespace Raspisanie
                     if (item.ToString() == grade.Name)
                     keknul.Add(SchedlueMaker.Grades.IndexOf(grade));
             
-            var cc = SchedlueMaker.Grades.Count - keknul.Count;
+            var cc = SchedlueMaker.Grades.Count;
             while (cc != 0)
-                if (keknul.Contains(cc) == false)
-                {
-                    SchedlueMaker.Grades.RemoveAt(cc);
-                    cc--;
-                }
-            var gg = SchedlueMaker.Grades;
+            {
+                if (keknul.Contains(cc-1) == false)
+                    SchedlueMaker.Grades.RemoveAt(cc-1);
+                cc--;
+            }
 			SchedlueMaker.CalculateSchedlue();
 			SchedlueMaker.SaveSchedlue("out.txt");
             var formOutput = new FormOutput();
