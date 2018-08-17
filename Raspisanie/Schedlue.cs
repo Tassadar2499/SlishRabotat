@@ -10,13 +10,13 @@ namespace Raspisanie
 	{
 		public List<Subject[]> schedlue;
 		public List<double[]> schedlueWeights;
-
-		public bool IsFreeAt(DayOfWeek day, int lessonNumber)
+        public enum Days { Monday, Tuesday, Wenesday, Thursday, Friday, Saturday };
+        public bool IsFreeAt(Days day, int lessonNumber)
 		{
 			return schedlue[(int)day][lessonNumber] == null;
 		}
 
-		public void PutLesson(DayOfWeek day, int lesson, Subject subject)
+		public void PutLesson(Days day, int lesson, Subject subject)
 		{
 			schedlue[(int)day][lesson] = subject;
 		}
