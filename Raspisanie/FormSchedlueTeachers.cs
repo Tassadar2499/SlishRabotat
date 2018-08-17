@@ -20,17 +20,6 @@ namespace Raspisanie
             for (int i = 0; i < 6; i++)
                 for (int j = 0; j < 8; j++)
                     week[i, j] = "-";
-            var schoolTeacher = new Teacher(nameOfTeacher);
-            foreach (var grade in SchedlueMaker.Grades)
-            {
-                var teachersList = grade.Subjects.Values;
-                foreach (var teacher in teachersList)
-                {
-                    if (teacher.Name == nameOfTeacher)
-                        schoolTeacher = teacher;
-                    break;
-                }
-            }
             foreach (var schoolClass in SchedlueMaker.Grades)
             {
                 for (int day = 0; day < schoolClass.schedlue.Count; day++)
