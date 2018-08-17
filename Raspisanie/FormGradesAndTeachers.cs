@@ -171,16 +171,9 @@ namespace Raspisanie
             var strOutput = "";
             foreach (var grade in grades)
             {
-                var textGrade = grade.Name + "\r\n";
+                strOutput += grade.Name + "\r\n";
                 foreach (var subject in grade.Subjects)
-                {
-                    var textSubject = subject.Key.Name;
-                    var textDifficult = subject.Key.Difficult.ToString();
-                    var textCountAtWeek = subject.Key.CountAtWeek.ToString();
-                    var textTeacher = subject.Value.Name;
-                    textGrade += textSubject + " " + textDifficult + " " + textCountAtWeek + " " + textTeacher + "\r\n";
-                }
-                strOutput += textGrade + "\r\n";
+                    strOutput += subject.Key.Name + " " + subject.Key.Difficult.ToString() + " " + subject.Key.CountAtWeek.ToString() + " " + subject.Value.Name + "\r\n";
             }
             File.AppendAllText("Save.txt", strOutput);
         }
