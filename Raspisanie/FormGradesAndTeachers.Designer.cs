@@ -30,6 +30,9 @@
         {
 			this.Классы = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.SaveButton = new System.Windows.Forms.Button();
+			this.LoadButton = new System.Windows.Forms.Button();
+			this.MakeSchedlueButton = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
@@ -43,7 +46,8 @@
 			this.button6 = new System.Windows.Forms.Button();
 			this.textBoxAddTeacher = new System.Windows.Forms.TextBox();
 			this.checkedListBoxOfTeachers = new System.Windows.Forms.CheckedListBox();
-			this.MakeSchedlueButton = new System.Windows.Forms.Button();
+			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
 			this.Классы.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
@@ -63,6 +67,8 @@
 			// tabPage1
 			// 
 			this.tabPage1.BackColor = System.Drawing.Color.DarkGray;
+			this.tabPage1.Controls.Add(this.SaveButton);
+			this.tabPage1.Controls.Add(this.LoadButton);
 			this.tabPage1.Controls.Add(this.MakeSchedlueButton);
 			this.tabPage1.Controls.Add(this.button5);
 			this.tabPage1.Controls.Add(this.button4);
@@ -78,6 +84,36 @@
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "Классы";
 			this.tabPage1.Click += new System.EventHandler(this.TabPageGrades);
+			// 
+			// SaveButton
+			// 
+			this.SaveButton.Location = new System.Drawing.Point(564, 116);
+			this.SaveButton.Name = "SaveButton";
+			this.SaveButton.Size = new System.Drawing.Size(75, 23);
+			this.SaveButton.TabIndex = 7;
+			this.SaveButton.Text = "Сохранить";
+			this.SaveButton.UseVisualStyleBackColor = true;
+			this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+			// 
+			// LoadButton
+			// 
+			this.LoadButton.Location = new System.Drawing.Point(564, 86);
+			this.LoadButton.Name = "LoadButton";
+			this.LoadButton.Size = new System.Drawing.Size(75, 23);
+			this.LoadButton.TabIndex = 6;
+			this.LoadButton.Text = "Загрузить";
+			this.LoadButton.UseVisualStyleBackColor = true;
+			this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
+			// 
+			// MakeSchedlueButton
+			// 
+			this.MakeSchedlueButton.Location = new System.Drawing.Point(549, 6);
+			this.MakeSchedlueButton.Name = "MakeSchedlueButton";
+			this.MakeSchedlueButton.Size = new System.Drawing.Size(100, 60);
+			this.MakeSchedlueButton.TabIndex = 5;
+			this.MakeSchedlueButton.Text = "Сформировать расписание";
+			this.MakeSchedlueButton.UseVisualStyleBackColor = true;
+			this.MakeSchedlueButton.Click += new System.EventHandler(this.MakeSchedlueButton_Click);
 			// 
 			// button5
 			// 
@@ -213,15 +249,14 @@
 			this.checkedListBoxOfTeachers.TabIndex = 0;
 			this.checkedListBoxOfTeachers.SelectedIndexChanged += new System.EventHandler(this.CheckedListBoxOfTeachers_SelectingItem);
 			// 
-			// MakeSchedlueButton
+			// openFileDialog1
 			// 
-			this.MakeSchedlueButton.Location = new System.Drawing.Point(549, 6);
-			this.MakeSchedlueButton.Name = "MakeSchedlueButton";
-			this.MakeSchedlueButton.Size = new System.Drawing.Size(100, 60);
-			this.MakeSchedlueButton.TabIndex = 5;
-			this.MakeSchedlueButton.Text = "Сформировать расписание";
-			this.MakeSchedlueButton.UseVisualStyleBackColor = true;
-			this.MakeSchedlueButton.Click += new System.EventHandler(this.MakeSchedlueButton_Click);
+			this.openFileDialog1.FileName = "openFileDialog1";
+			this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialog1_FileOk);
+			// 
+			// saveFileDialog1
+			// 
+			this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.SaveFileDialog1_FileOk);
 			// 
 			// FormGradesAndTeachers
 			// 
@@ -247,17 +282,21 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.CheckedListBox checkedListBoxOfGrades;
+        private System.Windows.Forms.CheckedListBox checkedListBoxOfTeachers;
         private System.Windows.Forms.TextBox addGradeTextBox;
+        private System.Windows.Forms.TextBox textBoxAddTeacher;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        public System.Windows.Forms.CheckedListBox checkedListBoxOfTeachers;
-        private System.Windows.Forms.TextBox textBoxAddTeacher;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
 		private System.Windows.Forms.Button MakeSchedlueButton;
+		private System.Windows.Forms.Button SaveButton;
+		private System.Windows.Forms.Button LoadButton;
+		private System.Windows.Forms.OpenFileDialog openFileDialog1;
+		private System.Windows.Forms.SaveFileDialog saveFileDialog1;
 	}
 }
