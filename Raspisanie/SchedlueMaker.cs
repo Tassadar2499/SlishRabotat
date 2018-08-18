@@ -81,11 +81,6 @@ namespace Raspisanie
 			return Grades.Where(a => a.Name == name).FirstOrDefault();
 		}
 
-		public static Teacher GetTeacherByName(string name)
-		{
-			return Teachers.Where(a => a.Name == name).FirstOrDefault();
-		}
-
 		public static void CalculateSchedlue()
 		{
 			//предмет, у какого клаасса этот предмет

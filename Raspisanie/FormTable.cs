@@ -92,7 +92,7 @@ namespace Raspisanie
 				if (subject != "" && difficulty != "" && countAtWeek != "" && teacher != "")
 					grade.AddSubject(
 						new Subject(subject, int.Parse(difficulty), int.Parse(countAtWeek)),
-						SchedlueMaker.GetTeacherByName(teacher)
+						new Teacher(teacher)
 					);
 			}
 
