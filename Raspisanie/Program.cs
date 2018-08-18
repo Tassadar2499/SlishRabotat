@@ -10,18 +10,6 @@ namespace Raspisanie
 {
 	static class Program
 	{
-        public static void ShowOnMessageBox(string[] checkedObj)
-		{
-			if (checkedObj == null)
-				MessageBox.Show("Нажми на кнопку сохранить");
-
-			else if (checkedObj.Length == 0)
-				MessageBox.Show("Выбери хотя бы 1 предмет");
-
-			else
-				MessageBox.Show(string.Join(" ", checkedObj));
-		}
-
 		public static IEnumerable<string> ListBoxToStrings(CheckedListBox checkedList)
 		{
 			var arrOfChecked = checkedList.Items;

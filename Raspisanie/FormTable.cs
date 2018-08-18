@@ -82,7 +82,6 @@ namespace Raspisanie
 		{
 			var columnArray = new string[dataGridSubjects.Rows.Count];
 			var grade = new Grade(gradeName);
-
 			foreach (DataGridViewRow row in dataGridSubjects.Rows)
 			{
 				var subject = GetValueFromRow(row, 0);
@@ -97,11 +96,15 @@ namespace Raspisanie
 					);
 			}
 
-			var currentGrade = SchedlueMaker.GetGradeByName(GradeName.Text);
+            var currentGrade = SchedlueMaker.GetGradeByName(gradeName);
 
-			if (currentGrade == null)
-				SchedlueMaker.Grades.Add(grade);
-			else currentGrade = grade;
+            if (currentGrade == null)
+                SchedlueMaker.Grades.Add(grade);
+            else
+            {
+                SchedlueMaker.Grades.Remove(currentGrade);
+                SchedlueMaker.Grades.Add(grade);
+            }
 		}
 
 		private static string GetValueFromRow(DataGridViewRow row, int index)
