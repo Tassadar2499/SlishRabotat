@@ -207,13 +207,11 @@ namespace Raspisanie
 		private void OpenFileDialog1_FileOk(object sender, CancelEventArgs e)
 		{
 			var grades = new List<Grade>();
-			var strInput = File.ReadAllText((sender as OpenFileDialog).FileName);
-			var arrOfGrades = strInput.Split('#');
+			var arrOfGrades = File.ReadAllText((sender as OpenFileDialog).FileName).Split('#');
 			foreach (var gradeStr in arrOfGrades)
 			{
 				var grade = new Grade(gradeStr.Substring(0, gradeStr.IndexOf('?') - 2));
-				var keknul = gradeStr.Substring(gradeStr.IndexOf('?') + 1);
-				var strArr = keknul.Split('%');
+				var strArr = gradeStr.Substring(gradeStr.IndexOf('?') + 1).Split('%');
 
 				foreach (var str in strArr)
 				{
