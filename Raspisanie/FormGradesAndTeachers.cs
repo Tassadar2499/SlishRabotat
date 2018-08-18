@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,17 +19,18 @@ namespace Raspisanie
 		{
 			InitializeComponent();
 			checkedListBoxOfGrades.DoubleClick += DoubleClicking;
+			saveFileDialog1.DefaultExt = "txt";
 		}
 
-		/// <summary>
-		/// Метод для добавления элементов в CheckedListBox
-		/// </summary>
-		/// <param name="checkedListBox"></param>
-		/// <param name="item"></param>
-		public void CheckedList_AddItem(CheckedListBox checkedListBox, string item)
+		public bool CheckedList_AddItem(CheckedListBox checkedListBox, string item)
 		{
 			if (item != "" && !checkedListBox.Items.Contains(item))
+			{
 				checkedListBox.Items.Add(item);
+				return true;
+			}
+
+			return false;
 		}
 
 		private void MakeSchedlueButton_Click(object sender, EventArgs e)
@@ -50,6 +52,39 @@ namespace Raspisanie
 			SchedlueMaker.SaveSchedlue("out.txt");
             var formOutput = new FormOutput();
             formOutput.Show();
+		}
+
+		private void LoadButton_Click(object sender, EventArgs e)
+		{
+			openFileDialog1.ShowDialog();
+		}
+
+		private void SaveButton_Click(object sender, EventArgs e)
+		{
+			saveFileDialog1.ShowDialog();
+		}
+
+		private void OpenFileDialog1_FileOk(object sender, CancelEventArgs e)
+		{
+			
+		}
+
+		private void SaveFileDialog1_FileOk(object sender, CancelEventArgs e)
+		{
+			foreach (var grade in SchedlueMaker.Grades)
+			{
+				File.AppendAllText(saveFileDialog1.FileName, "[" + grade.Name + "] " + grade.Subjects.Count + "\n");
+				foreach (var subject in grade.Subjects)
+				{
+					File.AppendAllText(saveFileDialog1.FileName, 
+						"[" + subject.Key.Name + "] " + subject.Key.Difficult + " " + subject.Key.CountAtWeek
+						+ " [" + subject.Value.Name + "]\n"
+					);
+				}
+			}
+
+			foreach (var teacher in SchedlueMaker.Teachers)
+				File.AppendAllText(saveFileDialog1.FileName, teacher.Name + "\n");
 		}
 
 		#region Grade methods
@@ -142,7 +177,8 @@ namespace Raspisanie
 
 		private void AddTeacher_Click(object sender, EventArgs e)
 		{
-			CheckedList_AddItem(checkedListBoxOfTeachers, textBoxAddTeacher.Text);
+			if (CheckedList_AddItem(checkedListBoxOfTeachers, textBoxAddTeacher.Text))
+				SchedlueMaker.Teachers.Add(new Teacher(textBoxAddTeacher.Text));
 			textBoxAddTeacher.Clear();
 		}
 
@@ -150,6 +186,8 @@ namespace Raspisanie
 		{
 			for (var i = checkedListBoxOfTeachers.CheckedItems.Count - 1; i >= 0; i--)
 				checkedListBoxOfTeachers.Items.Remove(checkedListBoxOfTeachers.CheckedItems[i]);
+
+			SchedlueMaker.Teachers.RemoveAll(a => checkedListBoxOfTeachers.CheckedItems.Contains(a.Name));
 		}
 
 		private void SortingByAlphabet_Click(object sender, EventArgs e)
