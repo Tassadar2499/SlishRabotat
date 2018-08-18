@@ -92,7 +92,7 @@ namespace Raspisanie
 					allSubjects.Add(new Tuple<Subject, Grade>(subject.Key, schoolClass));
 
 			//сортируем по убыванию
-			allSubjects.OrderBy(a => a.Item1.Difficult);
+			allSubjects = allSubjects.OrderByDescending(a => a.Item1.Difficult).ToList();
 
 			//пытаемся поставить предметы в расписание
 			foreach (var subject in allSubjects)
@@ -108,7 +108,7 @@ namespace Raspisanie
 							(day, lesson, subject.Item2.schedlueWeights[day][lesson]));
 
 				//сортируем по весам
-				allPlace.OrderBy(a => a.Item3);
+				allPlace = allPlace.OrderByDescending(a => a.Item3).ToList();
 
 				//ставим
 				for (int i = 0; i < subject.Item1.CountAtWeek; i++)
