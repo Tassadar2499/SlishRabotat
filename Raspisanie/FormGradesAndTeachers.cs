@@ -13,7 +13,7 @@ namespace Raspisanie
 {
 	public partial class FormGradesAndTeachers : Form
 	{
-        public static string data;
+		public static string data;
 		public FormGradesAndTeachers()
 		{
 			InitializeComponent();
@@ -33,23 +33,10 @@ namespace Raspisanie
 
 		private void MakeSchedlueButton_Click(object sender, EventArgs e)
 		{
-            var keknul = new List<int>();
-            foreach (var grade in SchedlueMaker.Grades)
-                foreach (var item in checkedListBoxOfGrades.Items)
-                    if (item.ToString() == grade.Name)
-                    keknul.Add(SchedlueMaker.Grades.IndexOf(grade));
-            
-            var cc = SchedlueMaker.Grades.Count;
-            while (cc != 0)
-            {
-                if (keknul.Contains(cc-1) == false)
-                    SchedlueMaker.Grades.RemoveAt(cc-1);
-                cc--;
-            }
 			SchedlueMaker.CalculateSchedlue();
 			SchedlueMaker.SaveSchedlue("out.txt");
-            var formOutput = new FormOutput();
-            formOutput.Show();
+			var formOutput = new FormOutput();
+			formOutput.Show();
 		}
 
 		#region Grade methods
@@ -63,8 +50,8 @@ namespace Raspisanie
 				var formTable = new FormTable(nameOfClass.ToString(), checkedListBoxOfTeachers);
 				formTable.Show();
 			}
-            checkedListBoxOfGrades.SetItemChecked(checkedListBoxOfGrades.Items.IndexOf(nameOfClass), true);
-        }
+			checkedListBoxOfGrades.SetItemChecked(checkedListBoxOfGrades.Items.IndexOf(nameOfClass), true);
+		}
 
 		private void AddNewGrade_Click(object sender, EventArgs e)
 		{
@@ -172,21 +159,21 @@ namespace Raspisanie
 		{
 
 		}
-        #endregion
+		#endregion
 
-        #endregion
+		#endregion
 
-        #region Serialise Methods
-        private void SaveInFile_Click(object sender, EventArgs e)
-        {
+		#region Serialise Methods
+		private void SaveInFile_Click(object sender, EventArgs e)
+		{
 			saveFileDialog1.ShowDialog();
-        }
+		}
 
-        private void LoadFromFile_Click(object sender, EventArgs e)
-        {
+		private void LoadFromFile_Click(object sender, EventArgs e)
+		{
 			openFileDialog1.ShowDialog();
-        }
-		
+		}
+
 		private void SaveFileDialog1_FileOk(object sender, CancelEventArgs e)
 		{
 			File.Delete((sender as SaveFileDialog).FileName);
