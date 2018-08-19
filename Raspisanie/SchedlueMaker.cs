@@ -81,6 +81,14 @@ namespace Raspisanie
 			return Grades.Where(a => a.Name == name).FirstOrDefault();
 		}
 
+		public static Teacher GetOrCreateTeacherByName(string name)
+		{
+			if (Teachers.Select(a => a.Name).Contains(name))
+				Teachers.Add(new Teacher(name));
+
+			return Teachers.Where(a => a.Name == name).FirstOrDefault();
+		}
+
 		public static void ResetData()
 		{
 			foreach (var grade in Grades)
