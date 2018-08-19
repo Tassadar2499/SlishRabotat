@@ -33,6 +33,10 @@ namespace Raspisanie
 
 		private void MakeSchedlueButton_Click(object sender, EventArgs e)
 		{
+			var toDelete = SchedlueMaker.Grades.Select(a => a.Name)
+				.Except(Program.ListBoxToStrings(checkedListBoxOfGrades));
+			SchedlueMaker.Grades.RemoveAll(a => toDelete.Contains(a.Name));
+
 			SchedlueMaker.CalculateSchedlue();
 
 			var formOutput = new FormOutput();
