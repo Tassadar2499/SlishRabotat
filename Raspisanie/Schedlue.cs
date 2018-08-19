@@ -8,10 +8,12 @@ namespace Raspisanie
 {
 	public class Schedlue
 	{
+		public const int MAX_DAY = 6;
 		public List<Subject[]> schedlue;
 		public List<double[]> schedlueWeights;
         public enum Days { Monday, Tuesday, Wenesday, Thursday, Friday, Saturday };
-        public bool IsFreeAt(Days day, int lessonNumber)
+
+		public bool IsFreeAt(Days day, int lessonNumber)
 		{
 			return schedlue[(int)day][lessonNumber] == null;
 		}
@@ -21,14 +23,19 @@ namespace Raspisanie
 			schedlue[(int)day][lesson] = subject;
 		}
 
-		public Schedlue()
+		public void Reset()
 		{
-			var maxDay = 6;
-			//var maxLesson = 7;
-
 			schedlue = new List<Subject[]>();
 
-			for (int day = 0; day < maxDay; day++)
+			for (int day = 0; day < MAX_DAY; day++)
+				schedlue.Add(new Subject[8]);
+		}
+
+		public Schedlue()
+		{
+			schedlue = new List<Subject[]>();
+
+			for (int day = 0; day < MAX_DAY; day++)
 				schedlue.Add(new Subject[8]);
 
 			schedlueWeights = new List<double[]>

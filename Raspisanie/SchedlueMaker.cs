@@ -81,9 +81,24 @@ namespace Raspisanie
 			return Grades.Where(a => a.Name == name).FirstOrDefault();
 		}
 
+		public static void ResetData()
+		{
+			foreach (var grade in Grades)
+				grade.Reset();
+
+			foreach (var teacher in Teachers)
+				teacher.Reset();
+		}
+
+
+		//TODO:
+		//Перепсать, чтобы не хранить учителей//классы, а получать готовые данные
 		public static void CalculateSchedlue()
 		{
-			//предмет, у какого клаасса этот предмет
+			//Сбрасываем расписания
+			ResetData();
+
+			//предмет, у какого класса этот предмет
 			var allSubjects = new List<Tuple<Subject, Grade>>();
 
 			//берем все предметы всех классов
