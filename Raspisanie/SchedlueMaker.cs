@@ -57,7 +57,7 @@ namespace Raspisanie
 			}
 		}
 
-		public static void SaveSchedlue(string path)
+		public static void SaveSchedlueToFile(string path)
 		{
 			File.Delete(path);
 
