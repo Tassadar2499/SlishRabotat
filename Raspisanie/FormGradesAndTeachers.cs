@@ -210,6 +210,7 @@ namespace Raspisanie
 				grades.Add(grade);
 			}
 			SchedlueMaker.Grades = grades;
+			checkedListBoxOfGrades.Items.Clear();
 			foreach (var schoolClass in grades) //визуализация
 				CheckedList_AddItem(checkedListBoxOfGrades, schoolClass.Name);
 		}

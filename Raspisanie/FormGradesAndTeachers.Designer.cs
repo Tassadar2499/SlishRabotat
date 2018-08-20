@@ -251,11 +251,14 @@
 			// 
 			// saveFileDialog1
 			// 
+			this.saveFileDialog1.DefaultExt = "txt";
 			this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.SaveFileDialog1_FileOk);
 			// 
 			// openFileDialog1
 			// 
+			this.openFileDialog1.DefaultExt = "txt";
 			this.openFileDialog1.FileName = "openFileDialog1";
+			this.openFileDialog1.Filter = "Текстовые файлы (*.txt)|*.txt";
 			this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialog1_FileOk);
 			// 
 			// FormGradesAndTeachers
