@@ -10,44 +10,37 @@ using System.Windows.Forms;
 
 namespace Raspisanie
 {
-    public partial class FormSchedlueGrades : Form
-    {
-        public FormSchedlueGrades(string nameOfGrade)
-        {
-            InitializeComponent();
-            labelTitle.Text += nameOfGrade;
+	public partial class FormSchedlueGrades : Form
+	{
+		public FormSchedlueGrades(string nameOfGrade)
+		{
+			InitializeComponent();
+			labelTitle.Text += nameOfGrade;
 
-            var week = new string[6,8];
-            for (int i = 0; i < 6; i++)
-                for (int j = 0; j < 8; j++)
-                    week[i,j] = "-";
-            var schoolClass = new Grade(nameOfGrade);
-            foreach (var grade in SchedlueMaker.Grades)
-                if (grade.Name == nameOfGrade)
-                {
-                    schoolClass = grade;
-                    break;
-                }
-            for (int day = 0; day < schoolClass.schedlue.Count; day++)
-                for (int lesson = 0; lesson < schoolClass.schedlue[day].Length; lesson++)
-                    if (schoolClass.schedlue[day][lesson] != null)
-                    {
-                        var teacher = new Teacher("");
-                        schoolClass.Subjects.TryGetValue(schoolClass.schedlue[day][lesson], out teacher);
-                        week[day, lesson] = schoolClass.schedlue[day][lesson].Name + "(" + teacher.Name + ")";
-                    }
-            for (int lesson = 0; lesson < 8; lesson++)
-                dataTable.Rows.Add(lesson+1, week[0,lesson], week[1, lesson], week[2, lesson], week[3, lesson], week[4, lesson], week[5, lesson]);
-        }
+			var grade = SchedlueMaker.GetGradeByName(nameOfGrade);
 
-        private void FormSchedlueGrades_Load(object sender, EventArgs e)
-        {
+			for (int lesson = 0; lesson < grade.maxLesson; lesson++)
+			{
+				var row = new string[7];
+				row[0] = (lesson + 1).ToString();
 
-        }
+				for (var day = 0; day < grade.maxDay; day++)
+					row[day + 1] = grade.schedlue[day][lesson] != null
+						? grade.schedlue[day][lesson].Name
+						: "-";
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-    }
+				dataTable.Rows.Add(row);
+			}
+		}
+
+		private void FormSchedlueGrades_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+
+		}
+	}
 }

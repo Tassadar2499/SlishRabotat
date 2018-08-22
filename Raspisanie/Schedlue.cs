@@ -13,7 +13,8 @@ namespace Raspisanie
 
 		public List<Subject[]> schedlue;
 		public List<double[]> schedlueWeights;
-        public enum Days { Monday, Tuesday, Wenesday, Thursday, Friday, Saturday };
+
+		public enum Days { Monday, Tuesday, Wenesday, Thursday, Friday, Saturday };
 
 		public bool IsFreeAt(Days day, int lessonNumber)
 		{
