@@ -25,10 +25,9 @@ namespace Raspisanie
 				row[0] = (lesson + 1).ToString();
 
 				for (var day = 0; day < teacher.maxDay; day++)
-					if (teacher.schedlue[day][lesson] != null)
-						row[day + 1] = teacher.schedlue[day][lesson].Name;
-					else
-						row[day + 1] = "-";
+					row[day + 1] = teacher.schedlue[day][lesson] != null
+						? teacher.schedlue[day][lesson].Name
+						: "-";
 
 				dataTable.Rows.Add(row);
 			}
