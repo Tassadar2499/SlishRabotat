@@ -44,8 +44,8 @@
 			this.checkedListBoxOfTeachers = new System.Windows.Forms.CheckedListBox();
 			this.SaveInFile = new System.Windows.Forms.Button();
 			this.LoadFromFile = new System.Windows.Forms.Button();
-			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.Классы.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
@@ -77,7 +77,6 @@
 			this.tabPage1.Size = new System.Drawing.Size(655, 482);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "Классы";
-			this.tabPage1.Click += new System.EventHandler(this.TabPageGrades);
 			// 
 			// MakeSchedlueButton
 			// 
@@ -126,7 +125,6 @@
 			this.addGradeTextBox.Name = "addGradeTextBox";
 			this.addGradeTextBox.Size = new System.Drawing.Size(114, 43);
 			this.addGradeTextBox.TabIndex = 1;
-			this.addGradeTextBox.TextChanged += new System.EventHandler(this.TextAddGrade);
 			// 
 			// checkedListBoxOfGrades
 			// 
@@ -136,7 +134,6 @@
 			this.checkedListBoxOfGrades.Name = "checkedListBoxOfGrades";
 			this.checkedListBoxOfGrades.Size = new System.Drawing.Size(485, 349);
 			this.checkedListBoxOfGrades.TabIndex = 0;
-			this.checkedListBoxOfGrades.SelectedIndexChanged += new System.EventHandler(this.CheckedListBoxOfGrades_SelectingItem);
 			// 
 			// tabPage2
 			// 
@@ -152,7 +149,6 @@
 			this.tabPage2.Size = new System.Drawing.Size(655, 482);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Учителя";
-			this.tabPage2.Click += new System.EventHandler(this.TabPageTeachers);
 			// 
 			// button8
 			// 
@@ -191,7 +187,6 @@
 			this.textBoxAddTeacher.Name = "textBoxAddTeacher";
 			this.textBoxAddTeacher.Size = new System.Drawing.Size(100, 54);
 			this.textBoxAddTeacher.TabIndex = 1;
-			this.textBoxAddTeacher.TextChanged += new System.EventHandler(this.TextBoxAddTeacher);
 			// 
 			// checkedListBoxOfTeachers
 			// 
@@ -201,7 +196,6 @@
 			this.checkedListBoxOfTeachers.Name = "checkedListBoxOfTeachers";
 			this.checkedListBoxOfTeachers.Size = new System.Drawing.Size(344, 319);
 			this.checkedListBoxOfTeachers.TabIndex = 0;
-			this.checkedListBoxOfTeachers.SelectedIndexChanged += new System.EventHandler(this.CheckedListBoxOfTeachers_SelectingItem);
 			// 
 			// SaveInFile
 			// 
@@ -227,15 +221,15 @@
 			// 
 			// saveFileDialog1
 			// 
-			this.saveFileDialog1.DefaultExt = "txt";
-			this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.SaveFileDialog1_FileOk);
+			this.saveFileDialog.DefaultExt = "txt";
+			this.saveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.SaveFileDialog_FileOk);
 			// 
 			// openFileDialog1
 			// 
-			this.openFileDialog1.DefaultExt = "txt";
-			this.openFileDialog1.FileName = "openFileDialog1";
-			this.openFileDialog1.Filter = "Текстовые файлы (*.txt)|*.txt";
-			this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialog1_FileOk);
+			this.openFileDialog.DefaultExt = "txt";
+			this.openFileDialog.FileName = "openFileDialog1";
+			this.openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt";
+			this.openFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.OpenFileDialog_FileOk);
 			// 
 			// FormGradesAndTeachers
 			// 
@@ -247,7 +241,6 @@
 			this.Controls.Add(this.Классы);
 			this.Name = "FormGradesAndTeachers";
 			this.Text = "FormGradesAndTeachers";
-			this.Load += new System.EventHandler(this.FormGradesAndTeachers_Load);
 			this.Классы.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
 			this.tabPage1.PerformLayout();
@@ -275,7 +268,7 @@
 		private System.Windows.Forms.Button MakeSchedlueButton;
         private System.Windows.Forms.Button SaveInFile;
         private System.Windows.Forms.Button LoadFromFile;
-		private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-		private System.Windows.Forms.OpenFileDialog openFileDialog1;
+		private System.Windows.Forms.SaveFileDialog saveFileDialog;
+		private System.Windows.Forms.OpenFileDialog openFileDialog;
 	}
 }

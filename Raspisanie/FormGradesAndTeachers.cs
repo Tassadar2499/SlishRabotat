@@ -79,33 +79,6 @@ namespace Raspisanie
 				CheckedList_AddItem(checkedListBoxOfGrades, schoolClass);
 		}
 
-		#region
-		private void FormGradesAndTeachers_Load(object sender, EventArgs e)
-		{
-
-		}
-
-		private void TabPageGrades(object sender, EventArgs e)
-		{
-
-		}
-
-		private void TabPageTeachers(object sender, EventArgs e)
-		{
-
-		}
-
-		private void CheckedListBoxOfGrades_SelectingItem(object sender, EventArgs e)
-		{
-
-		}
-
-		private void TextAddGrade(object sender, EventArgs e)
-		{
-
-		}
-		#endregion
-
 		#endregion
 
 		#region Teachers methods
@@ -132,52 +105,45 @@ namespace Raspisanie
 			checkedListBoxOfTeachers.Items.AddRange(teachers);
 		}
 
-		#region
-		private void CheckedListBoxOfTeachers_SelectingItem(object sender, EventArgs e)
-		{
-
-		}
-
-		private void TextBoxAddTeacher(object sender, EventArgs e)
-		{
-
-		}
-		#endregion
-
 		#endregion
 
 		#region Serialise Methods
 		private void SaveInFile_Click(object sender, EventArgs e)
 		{
-			saveFileDialog1.ShowDialog();
+			saveFileDialog.ShowDialog();
 		}
 
 		private void LoadFromFile_Click(object sender, EventArgs e)
 		{
-			openFileDialog1.ShowDialog();
+			openFileDialog.ShowDialog();
 		}
 
-		private void SaveFileDialog1_FileOk(object sender, CancelEventArgs e)
+		private void SaveFileDialog_FileOk(object sender, CancelEventArgs e)
 		{
 			File.Delete((sender as SaveFileDialog).FileName);
-			var grades = SchedlueMaker.Grades;
+
 			var strOutput = "";
-			foreach (var grade in grades)
+
+			foreach (var grade in SchedlueMaker.Grades)
 			{
 				strOutput += grade.Name + "\r\n?";
+
 				foreach (var subject in grade.Subjects)
 					strOutput += subject.Key.Name + "&" + subject.Key.Difficult.ToString() + "&" + subject.Key.CountAtWeek.ToString() + "&" + subject.Value.Name + "\r\n%";
-				strOutput = strOutput.Remove(strOutput.Length - 1);
-				strOutput += "#";
+
+				strOutput = strOutput.Remove(strOutput.Length - 1) + "#";
 			}
+
 			strOutput = strOutput.Remove(strOutput.Length - 1);
+
 			File.AppendAllText((sender as SaveFileDialog).FileName, strOutput);
 		}
 
-		private void OpenFileDialog1_FileOk(object sender, CancelEventArgs e)
+		private void OpenFileDialog_FileOk(object sender, CancelEventArgs e)
 		{
 			var grades = new List<Grade>();
 			var arrOfGrades = File.ReadAllText((sender as OpenFileDialog).FileName).Split('#');
+
 			foreach (var gradeStr in arrOfGrades)
 			{
 				var grade = new Grade(gradeStr.Substring(0, gradeStr.IndexOf('?') - 2));
@@ -187,14 +153,17 @@ namespace Raspisanie
 				{
 					var helpArr = str.Split('&');
 					grade.Subjects.Add(
-						new Subject(helpArr[0], int.Parse(helpArr[1]), int.Parse(helpArr[2])), 
+						new Subject(helpArr[0], int.Parse(helpArr[1]), int.Parse(helpArr[2])),
 						SchedlueMaker.GetOrCreateTeacherByName(helpArr[3].Substring(0, helpArr[3].Length - 2)));
 				}
+
 				grades.Add(grade);
 			}
+
 			SchedlueMaker.Grades = grades;
 			checkedListBoxOfGrades.Items.Clear();
-			foreach (var schoolClass in grades) //визуализация
+
+			foreach (var schoolClass in grades)
 				CheckedList_AddItem(checkedListBoxOfGrades, schoolClass.Name);
 		}
 		#endregion

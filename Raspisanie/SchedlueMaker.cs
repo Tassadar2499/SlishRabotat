@@ -20,41 +20,7 @@ namespace Raspisanie
 			get;
 			set;
 		} = new List<Teacher>();
-
-		public static IEnumerable<Subject> LoadSubjects(string path)
-		{
-			var text = File.ReadAllText(path).Split(new char[] { '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-
-			for (var i = 0; i < text.Length; i++)
-			{
-				var str = text[i];
-				var index = str.LastIndexOf('-');
-				var subject = str.Substring(0, index);
-				var difficult = str.Substring(index + 1);
-
-				yield return new Subject(subject, int.Parse(difficult));
-			}
-		}
-
-		public static void SaveSchedlueToFile(string path)
-		{
-			File.Delete(path);
-
-			foreach (var schoolClass in Grades)
-			{
-				File.AppendAllText(path, schoolClass.Name + ":\r\n");
-
-				for (int day = 0; day < schoolClass.schedlue.Count; day++)
-				{
-					File.AppendAllText(path, "Day " + (day + 1).ToString() + "\r\n");
-					for (int lesson = 0; lesson < schoolClass.schedlue[day].Length; lesson++)
-						if (schoolClass.schedlue[day][lesson] != null)
-							File.AppendAllText(path, "Lesson " + (lesson + 1).ToString() + ": " + schoolClass.schedlue[day][lesson].Name + "\r\n");
-					File.AppendAllText(path, "\r\n \r\n");
-				}
-			}
-		}
-
+		
 		public static Grade GetGradeByName(string name)
 		{
 			return Grades.Where(a => a.Name == name).FirstOrDefault();
