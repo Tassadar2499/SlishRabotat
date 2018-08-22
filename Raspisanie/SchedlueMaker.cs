@@ -92,10 +92,10 @@ namespace Raspisanie
 		public static void ResetData()
 		{
 			foreach (var grade in Grades)
-				grade.Reset();
+				grade.ClearSchedlue();
 
 			foreach (var teacher in Teachers)
-				teacher.Reset();
+				teacher.ClearSchedlue();
 		}
 
 

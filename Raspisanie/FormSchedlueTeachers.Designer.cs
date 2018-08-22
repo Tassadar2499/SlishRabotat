@@ -55,7 +55,7 @@
             this.dataTable.Name = "dataTable";
             this.dataTable.Size = new System.Drawing.Size(745, 400);
             this.dataTable.TabIndex = 3;
-            this.dataTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTable_CellContentClick);
+            this.dataTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataTable_CellContentClick);
             // 
             // NumberOfLesson
             // 
@@ -109,7 +109,7 @@
             this.labelTitle.Size = new System.Drawing.Size(83, 16);
             this.labelTitle.TabIndex = 2;
             this.labelTitle.Text = "Учитель - ";
-            this.labelTitle.Click += new System.EventHandler(this.labelTitle_Click);
+            this.labelTitle.Click += new System.EventHandler(this.LabelTitle_Click);
             // 
             // FormSchedlueTeachers
             // 
