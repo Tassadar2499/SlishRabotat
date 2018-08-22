@@ -33,11 +33,6 @@ namespace Raspisanie
 			}
         }
 
-        private void LabelTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void DataTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

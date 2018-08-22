@@ -109,7 +109,6 @@
             this.labelTitle.Size = new System.Drawing.Size(83, 16);
             this.labelTitle.TabIndex = 2;
             this.labelTitle.Text = "Учитель - ";
-            this.labelTitle.Click += new System.EventHandler(this.LabelTitle_Click);
             // 
             // FormSchedlueTeachers
             // 
