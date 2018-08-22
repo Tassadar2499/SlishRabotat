@@ -10,46 +10,35 @@ using System.Windows.Forms;
 
 namespace Raspisanie
 {
-    public partial class FormOutput : Form
-    {
-        public FormOutput()
-        {
-            InitializeComponent();
-            foreach (var grade in SchedlueMaker.Grades) //добавляем классы для которых расписание сформированно в список
-                listOfGrades.Items.Add(grade.Name);
-            var list = new List<Teacher>();
-            foreach (var grade in SchedlueMaker.Grades) //короче тут костыль ебучий для добавления списка учителей
-                foreach (var teacher in grade.Subjects.Values)
-                {
-                    var flag = true;
+	public partial class FormOutput : Form
+	{
+		public FormOutput()
+		{
+			InitializeComponent();
 
-                    foreach (var elem in list)
-                        if (elem.Name == teacher.Name) flag = false;
+			gradesListBox.Items.AddRange(SchedlueMaker.Grades.Select(a => a.Name).ToArray());
+			teachersListBox.Items.AddRange(SchedlueMaker.Teachers.Select(a => a.Name).ToArray());
 
-                    if (flag) list.Add(teacher);
-                }
-            foreach (var teacher in list)
-                listBoxOfTeachers.Items.Add(teacher.Name);
-            listOfGrades.DoubleClick += DoubleClickingGrade;
-            listBoxOfTeachers.DoubleClick += DoubleClickingTeacher;
-        }
+			gradesListBox.DoubleClick += DoubleClickingGrade;
+			teachersListBox.DoubleClick += DoubleClickingTeacher;
+		}
 
-        private void DoubleClickingGrade(object sender, EventArgs e)
-        {
-            var gradeName = (sender as ListBox).SelectedItem.ToString();
+		private void DoubleClickingGrade(object sender, EventArgs e)
+		{
+			var gradeName = (sender as ListBox).SelectedItem.ToString();
 
-            if (gradeName != null)
-            {
-                var formSchedlue = 
+			if (gradeName != null)
+			{
+				var formSchedlue =
 					new FormSchedlue("Класс - " + gradeName, SchedlueMaker.GetGradeByName(gradeName));
 
-                formSchedlue.Show();
-            }
-        }
+				formSchedlue.Show();
+			}
+		}
 
-        private void DoubleClickingTeacher(object sender, EventArgs e)
-        {
-            var teacherName = (sender as ListBox).SelectedItem.ToString();
+		private void DoubleClickingTeacher(object sender, EventArgs e)
+		{
+			var teacherName = (sender as ListBox).SelectedItem.ToString();
 
 			if (teacherName != null)
 			{
@@ -59,5 +48,5 @@ namespace Raspisanie
 				formSchedlue.Show();
 			}
 		}
-    }
+	}
 }

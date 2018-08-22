@@ -30,9 +30,9 @@
         {
             this.TabSchedlue = new System.Windows.Forms.TabControl();
             this.tabPageGrades = new System.Windows.Forms.TabPage();
-            this.listOfGrades = new System.Windows.Forms.ListBox();
+            this.gradesListBox = new System.Windows.Forms.ListBox();
             this.tabPageTeachers = new System.Windows.Forms.TabPage();
-            this.listBoxOfTeachers = new System.Windows.Forms.ListBox();
+            this.teachersListBox = new System.Windows.Forms.ListBox();
             this.TabSchedlue.SuspendLayout();
             this.tabPageGrades.SuspendLayout();
             this.tabPageTeachers.SuspendLayout();
@@ -50,7 +50,7 @@
             // 
             // tabPageGrades
             // 
-            this.tabPageGrades.Controls.Add(this.listOfGrades);
+            this.tabPageGrades.Controls.Add(this.gradesListBox);
             this.tabPageGrades.Location = new System.Drawing.Point(4, 22);
             this.tabPageGrades.Name = "tabPageGrades";
             this.tabPageGrades.Padding = new System.Windows.Forms.Padding(3);
@@ -61,16 +61,16 @@
             // 
             // listOfGrades
             // 
-            this.listOfGrades.FormattingEnabled = true;
-            this.listOfGrades.Location = new System.Drawing.Point(6, 6);
-            this.listOfGrades.MultiColumn = true;
-            this.listOfGrades.Name = "listOfGrades";
-            this.listOfGrades.Size = new System.Drawing.Size(280, 407);
-            this.listOfGrades.TabIndex = 0;
+            this.gradesListBox.FormattingEnabled = true;
+            this.gradesListBox.Location = new System.Drawing.Point(6, 6);
+            this.gradesListBox.MultiColumn = true;
+            this.gradesListBox.Name = "listOfGrades";
+            this.gradesListBox.Size = new System.Drawing.Size(280, 407);
+            this.gradesListBox.TabIndex = 0;
             // 
             // tabPageTeachers
             // 
-            this.tabPageTeachers.Controls.Add(this.listBoxOfTeachers);
+            this.tabPageTeachers.Controls.Add(this.teachersListBox);
             this.tabPageTeachers.Location = new System.Drawing.Point(4, 22);
             this.tabPageTeachers.Name = "tabPageTeachers";
             this.tabPageTeachers.Padding = new System.Windows.Forms.Padding(3);
@@ -81,11 +81,11 @@
             // 
             // listBoxOfTeachers
             // 
-            this.listBoxOfTeachers.FormattingEnabled = true;
-            this.listBoxOfTeachers.Location = new System.Drawing.Point(8, 8);
-            this.listBoxOfTeachers.Name = "listBoxOfTeachers";
-            this.listBoxOfTeachers.Size = new System.Drawing.Size(257, 394);
-            this.listBoxOfTeachers.TabIndex = 0;
+            this.teachersListBox.FormattingEnabled = true;
+            this.teachersListBox.Location = new System.Drawing.Point(8, 8);
+            this.teachersListBox.Name = "listBoxOfTeachers";
+            this.teachersListBox.Size = new System.Drawing.Size(257, 394);
+            this.teachersListBox.TabIndex = 0;
             // 
             // FormOutput
             // 
@@ -107,7 +107,7 @@
         private System.Windows.Forms.TabControl TabSchedlue;
         private System.Windows.Forms.TabPage tabPageGrades;
         private System.Windows.Forms.TabPage tabPageTeachers;
-        private System.Windows.Forms.ListBox listOfGrades;
-        private System.Windows.Forms.ListBox listBoxOfTeachers;
+        private System.Windows.Forms.ListBox gradesListBox;
+        private System.Windows.Forms.ListBox teachersListBox;
     }
 }
