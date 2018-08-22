@@ -21,11 +21,6 @@ namespace Raspisanie
 			set;
 		} = new List<Teacher>();
 
-		static SchedlueMaker()
-		{
-
-		}
-
 		private static IEnumerable<Teacher> LoadTeachers(string path)
 		{
 			var text = File.ReadAllText(path).Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
