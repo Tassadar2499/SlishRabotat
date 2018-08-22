@@ -25,12 +25,13 @@ namespace Raspisanie
 
 		private void DoubleClickingGrade(object sender, EventArgs e)
 		{
-			var gradeName = (sender as ListBox).SelectedItem.ToString();
+			var objectName = (sender as ListBox).SelectedItem;
 
-			if (gradeName != null)
+			if (objectName != null)
 			{
+				var gradeeName = objectName.ToString();
 				var formSchedlue =
-					new FormSchedlue("Класс - " + gradeName, SchedlueMaker.GetGradeByName(gradeName));
+					new FormSchedlue("Класс - " + gradeeName, SchedlueMaker.GetGradeByName(gradeeName));
 
 				formSchedlue.Show();
 			}
@@ -38,10 +39,11 @@ namespace Raspisanie
 
 		private void DoubleClickingTeacher(object sender, EventArgs e)
 		{
-			var teacherName = (sender as ListBox).SelectedItem.ToString();
+			var objectName = (sender as ListBox).SelectedItem;
 
-			if (teacherName != null)
+			if (objectName != null)
 			{
+				var teacherName = objectName.ToString();
 				var formSchedlue =
 					new FormSchedlue("Учитель - " + teacherName, SchedlueMaker.GetTeacherByName(teacherName));
 

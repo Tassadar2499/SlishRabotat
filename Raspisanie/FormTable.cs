@@ -15,24 +15,42 @@ namespace Raspisanie
 	{
 		private string gradeName;
 
-		public FormTable(string nameOfGrade, CheckedListBox checkedListBoxOfTeachers)
+		public FormTable(string gradeName, CheckedListBox checkedListBoxOfTeachers)
 		{
 			InitializeComponent();
 
-			GradeName.Text = "Класс - " + nameOfGrade;
-			gradeName = nameOfGrade;
+			gradeNameLabel.Text = "Класс - " + gradeName;
+			this.gradeName = gradeName;
 
-			AutoComplitingForSubjects();
-			AutoComplitingForTeachers(checkedListBoxOfTeachers);
+			gradesToCopyComboBox.Items.AddRange(
+				SchedlueMaker.Grades.Select(a => a.Name).Where(a => a != gradeName).ToArray());
+			gradesToCopyComboBox.SelectedIndex = 0;
 
-			GetGradesToDataGrid(nameOfGrade);
+			MakeAutoCompliting(textBoxSubjects,
+				File.ReadAllText("Subjects.txt").Split(new char[] { '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries));
+
+			MakeAutoCompliting(textBoxTeacher,
+				Program.ListBoxToStrings(checkedListBoxOfTeachers).ToArray());
+
+			GetGradesToDataGrid(gradeName);
 		}
 
-		private void GetGradesToDataGrid(string nameOfGrade)
+		private void MakeAutoCompliting(TextBox target, string[] text)
 		{
-			var grade = SchedlueMaker.GetGradeByName(nameOfGrade);
+			var source = new AutoCompleteStringCollection();
+			source.AddRange(text);
+			target.AutoCompleteCustomSource = source;
+			target.AutoCompleteSource = AutoCompleteSource.CustomSource;
+		}
+
+		private void GetGradesToDataGrid(string gradeName)
+		{
+			var grade = SchedlueMaker.GetGradeByName(gradeName);
 
 			if (grade != null)
+			{
+				dataGridSubjects.Rows.Clear();
+
 				foreach (var item in grade.Subjects)
 					dataGridSubjects.Rows.Add(
 							item.Key.Name,
@@ -40,26 +58,7 @@ namespace Raspisanie
 							item.Key.CountAtWeek,
 							item.Value.Name
 						);
-		}
-
-		private void AutoComplitingForSubjects()
-		{
-			var text = File.ReadAllText("Subjects.txt").Split(new char[] { '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-
-			var source = new AutoCompleteStringCollection();
-			source.AddRange(text);
-			textBoxSubjects.AutoCompleteCustomSource = source;
-			textBoxSubjects.AutoCompleteSource = AutoCompleteSource.CustomSource;
-		}
-
-		private void AutoComplitingForTeachers(CheckedListBox checkedListBoxOfTeachers)
-		{
-			var text = Program.ListBoxToStrings(checkedListBoxOfTeachers).ToArray();
-
-			var source = new AutoCompleteStringCollection();
-			source.AddRange(text);
-			textBoxTeacher.AutoCompleteCustomSource = source;
-			textBoxTeacher.AutoCompleteSource = AutoCompleteSource.CustomSource;
+			}
 		}
 
 		private void Add_Click(object sender, EventArgs e)
@@ -67,8 +66,8 @@ namespace Raspisanie
 			if (textBoxSubjects.Text != null && numericCountAtWeek.Value != 0 && textBoxTeacher.Text != null)
 				dataGridSubjects.Rows.Add(
 					textBoxSubjects.Text,
-					numericDifficulty.Value,
-					numericCountAtWeek.Value,
+					(int)numericDifficulty.Value,
+					(int)numericCountAtWeek.Value,
 					textBoxTeacher.Text
 				);
 		}
@@ -76,6 +75,11 @@ namespace Raspisanie
 		private void Delete_Click(object sender, EventArgs e)
 		{
 			dataGridSubjects.Rows.RemoveAt(dataGridSubjects.SelectedCells[0].RowIndex);
+		}
+
+		private static string GetValueFromRow(DataGridViewRow row, int index)
+		{
+			return row.Cells[index].Value != null ? row.Cells[index].Value.ToString() : string.Empty;
 		}
 
 		private void FormTable_FormClosing(object sender, FormClosingEventArgs e)
@@ -96,63 +100,21 @@ namespace Raspisanie
 					);
 			}
 
-            var currentGrade = SchedlueMaker.GetGradeByName(gradeName);
+			var currentGrade = SchedlueMaker.GetGradeByName(gradeName);
 
-            if (currentGrade == null)
-                SchedlueMaker.Grades.Add(grade);
-            else
-            {
-                SchedlueMaker.Grades.Remove(currentGrade);
-                SchedlueMaker.Grades.Add(grade);
-            }
+			if (currentGrade == null)
+				SchedlueMaker.Grades.Add(grade);
+			else
+			{
+				SchedlueMaker.Grades.Remove(currentGrade);
+				SchedlueMaker.Grades.Add(grade);
+			}
 		}
 
-		private static string GetValueFromRow(DataGridViewRow row, int index)
+		private void CopyTheTable_Click(object sender, EventArgs e)
 		{
-			return row.Cells[index].Value != null ? row.Cells[index].Value.ToString() : string.Empty;
+			if (gradesToCopyComboBox.SelectedText != null)
+				GetGradesToDataGrid(gradesToCopyComboBox.SelectedItem.ToString());
 		}
-
-		#region
-		private void FormTable_Load(object sender, EventArgs e)
-		{
-
-		}
-
-		private void DataGridViewSubjects_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
-
-		}
-
-		private void TextBoxSubject_Change(object sender, EventArgs e)
-		{
-
-		}
-
-		private void NumericDifficulty_Change(object sender, EventArgs e)
-		{
-
-		}
-
-		private void NumericCountAtWeek_Change(object sender, EventArgs e)
-		{
-
-		}
-
-		private void TextBoxTeacher_Change(object sender, EventArgs e)
-		{
-
-		}
-        #endregion
-
-        private void CopyTheTable_Click(object sender, EventArgs e)
-        {
-            FormGradesAndTeachers.data = gradeName;
-        }
-
-        private void InsertTheTableClick(object sender, EventArgs e)
-        {
-            var nameOfGrade = FormGradesAndTeachers.data;
-            GetGradesToDataGrid(nameOfGrade);
-        }
-    }
+	}
 }
