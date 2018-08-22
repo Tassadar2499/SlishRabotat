@@ -12,10 +12,8 @@ namespace Raspisanie
 	{
 		public static IEnumerable<string> ListBoxToStrings(CheckedListBox checkedList)
 		{
-			var arrOfChecked = checkedList.Items;
-
-			for (var i = 0; i < arrOfChecked.Count; i++)
-				yield return arrOfChecked[i].ToString();
+			for (var i = 0; i < checkedList.Items.Count; i++)
+				yield return checkedList.Items[i].ToString();
 		}
 
 		[STAThread]
