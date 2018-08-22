@@ -40,7 +40,7 @@ namespace Raspisanie
 
             if (nameOfClass != null)
             {
-                var formSchedlue = new FormSchedlueGrades(nameOfClass.ToString());
+                var formSchedlue = new FormSchedlue(nameOfClass.ToString());
                 formSchedlue.Show();
             }
         }

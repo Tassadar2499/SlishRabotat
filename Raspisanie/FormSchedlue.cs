@@ -10,23 +10,21 @@ using System.Windows.Forms;
 
 namespace Raspisanie
 {
-	public partial class FormSchedlueGrades : Form
+	public partial class FormSchedlue : Form
 	{
-		public FormSchedlueGrades(string nameOfGrade)
+		public FormSchedlue(string labelText, Schedlue schedlue)
 		{
 			InitializeComponent();
-			labelTitle.Text += nameOfGrade;
+			labelTitle.Text = labelText;
 
-			var grade = SchedlueMaker.GetGradeByName(nameOfGrade);
-
-			for (int lesson = 0; lesson < grade.maxLesson; lesson++)
+			for (int lesson = 0; lesson < schedlue.maxLesson; lesson++)
 			{
 				var row = new string[7];
 				row[0] = (lesson + 1).ToString();
 
-				for (var day = 0; day < grade.maxDay; day++)
-					row[day + 1] = grade.schedlue[day][lesson] != null
-						? grade.schedlue[day][lesson].Name
+				for (var day = 0; day < schedlue.maxDay; day++)
+					row[day + 1] = schedlue.schedlue[day][lesson] != null
+						? schedlue.schedlue[day][lesson].Name
 						: "-";
 
 				dataTable.Rows.Add(row);

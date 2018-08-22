@@ -1,6 +1,6 @@
 ﻿namespace Raspisanie
 {
-    partial class FormSchedlueTeachers
+    partial class FormSchedlue
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.labelTitle = new System.Windows.Forms.Label();
             this.dataTable = new System.Windows.Forms.DataGridView();
             this.NumberOfLesson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Monday = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,9 +37,19 @@
             this.Thursday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Friday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Saturday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labelTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable)).BeginInit();
             this.SuspendLayout();
+            // 
+            // labelTitle
+            // 
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTitle.ForeColor = System.Drawing.Color.Red;
+            this.labelTitle.Location = new System.Drawing.Point(0, 0);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(64, 16);
+            this.labelTitle.TabIndex = 0;
+            this.labelTitle.Text = "Класс - ";
             // 
             // dataTable
             // 
@@ -51,10 +62,10 @@
             this.Thursday,
             this.Friday,
             this.Saturday});
-            this.dataTable.Location = new System.Drawing.Point(29, 35);
+            this.dataTable.Location = new System.Drawing.Point(3, 19);
             this.dataTable.Name = "dataTable";
             this.dataTable.Size = new System.Drawing.Size(745, 400);
-            this.dataTable.TabIndex = 3;
+            this.dataTable.TabIndex = 1;
             // 
             // NumberOfLesson
             // 
@@ -98,26 +109,15 @@
             this.Saturday.Name = "Saturday";
             this.Saturday.ReadOnly = true;
             // 
-            // labelTitle
-            // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTitle.ForeColor = System.Drawing.Color.Red;
-            this.labelTitle.Location = new System.Drawing.Point(26, 16);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(83, 16);
-            this.labelTitle.TabIndex = 2;
-            this.labelTitle.Text = "Учитель - ";
-            // 
-            // FormSchedlueTeachers
+            // FormSchedlueGrades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataTable);
             this.Controls.Add(this.labelTitle);
-            this.Name = "FormSchedlueTeachers";
-            this.Text = "FormSchedlueTeachers";
+            this.Name = "FormSchedlueGrades";
+            this.Text = "FormSchedlueGrades";
             ((System.ComponentModel.ISupportInitialize)(this.dataTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -126,6 +126,7 @@
 
         #endregion
 
+        private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.DataGridView dataTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumberOfLesson;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monday;
@@ -134,6 +135,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Thursday;
         private System.Windows.Forms.DataGridViewTextBoxColumn Friday;
         private System.Windows.Forms.DataGridViewTextBoxColumn Saturday;
-        private System.Windows.Forms.Label labelTitle;
     }
 }
