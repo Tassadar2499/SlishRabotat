@@ -144,13 +144,13 @@ namespace Raspisanie
 					foreach (var place in allPlace)
 					{
 						//если класс и препод свободен в этот момент
-						var classIsFree = subject.Item2.IsFreeAt((Schedlue.Days)place.Item1, place.Item2);
-						var teacherIsFree = subject.Item2.Subjects[subject.Item1].IsFreeAt((Schedlue.Days)place.Item1, place.Item2);
+						var classIsFree = subject.Item2.IsFreeAt((Schedlue.Day)place.Item1, place.Item2);
+						var teacherIsFree = subject.Item2.Subjects[subject.Item1].IsFreeAt((Schedlue.Day)place.Item1, place.Item2);
 
 						if (classIsFree && teacherIsFree)
 						{
-							subject.Item2.PutLesson((Schedlue.Days)place.Item1, place.Item2, subject.Item1);
-							subject.Item2.Subjects[subject.Item1].PutLesson((Schedlue.Days)place.Item1, place.Item2, subject.Item1);
+							subject.Item2.PutLesson((Schedlue.Day)place.Item1, place.Item2, subject.Item1);
+							subject.Item2.Subjects[subject.Item1].PutLesson((Schedlue.Day)place.Item1, place.Item2, subject.Item1);
 							break;
 						}
 					}
