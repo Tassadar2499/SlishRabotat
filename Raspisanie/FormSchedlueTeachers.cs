@@ -17,25 +17,21 @@ namespace Raspisanie
             InitializeComponent();
             labelTitle.Text += nameOfTeacher;
 
-			foreach (var teacher in SchedlueMaker.Teachers)
-				for (int lesson = 0; lesson < teacher; lesson++)
-					dataTable.Rows.Add(lesson + 1, week[0, lesson], week[1, lesson], week[2, lesson], week[3, lesson], week[4, lesson], week[5, lesson]);
+			var teacher = SchedlueMaker.GetTeacherByName(nameOfTeacher);
 
-			foreach (var schoolClass in SchedlueMaker.Grades)
-            {
-                for (int day = 0; day < schoolClass.schedlue.Count; day++)
-                    for (int lesson = 0; lesson < schoolClass.schedlue[day].Length; lesson++)
-                        if (schoolClass.schedlue[day][lesson] != null)
-                        {
-                            var teacher = new Teacher("");
-                            schoolClass.Subjects.TryGetValue(schoolClass.schedlue[day][lesson], out teacher);
-                            if (teacher.Name == nameOfTeacher)
-                                week[day, lesson] = schoolClass.schedlue[day][lesson].Name + "(" + schoolClass.Name + ")"; ;
-                        }
-            }
+			for (int lesson = 0; lesson < teacher.maxLesson; lesson++)
+			{
+				var row = new string[7];
+				row[0] = (lesson + 1).ToString();
 
+				for (var day = 0; day < teacher.maxDay; day++)
+					if (teacher.schedlue[day][lesson] != null)
+						row[day + 1] = teacher.schedlue[day][lesson].Name;
+					else
+						row[day + 1] = "-";
 
-            //Надо чтобы в 
+				dataTable.Rows.Add(row);
+			}
         }
 
         private void LabelTitle_Click(object sender, EventArgs e)
