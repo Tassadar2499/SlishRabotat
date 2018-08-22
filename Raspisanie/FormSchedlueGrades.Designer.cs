@@ -66,7 +66,6 @@
             this.dataTable.Name = "dataTable";
             this.dataTable.Size = new System.Drawing.Size(745, 400);
             this.dataTable.TabIndex = 1;
-            this.dataTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // NumberOfLesson
             // 
@@ -119,7 +118,6 @@
             this.Controls.Add(this.labelTitle);
             this.Name = "FormSchedlueGrades";
             this.Text = "FormSchedlueGrades";
-            this.Load += new System.EventHandler(this.FormSchedlueGrades_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

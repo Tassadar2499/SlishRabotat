@@ -32,10 +32,5 @@ namespace Raspisanie
 				dataTable.Rows.Add(row);
 			}
         }
-
-        private void DataTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
