@@ -79,23 +79,6 @@ namespace Raspisanie
 				CheckedList_AddItem(checkedListBoxOfGrades, schoolClass);
 		}
 
-		private void AddDefaultGrades_Click(object sender, EventArgs e)
-		{
-			var grades = SchedlueMaker.LoadClasses("Classes.txt").Select(a => a.Name);
-
-			foreach (var schoolClass in grades)
-				CheckedList_AddItem(checkedListBoxOfGrades, schoolClass);
-		}
-
-		private void CancelAddingDefaultClasses_Click(object sender, EventArgs e)
-		{
-			var grades = SchedlueMaker.LoadClasses("Classes.txt").Select(a => a.Name);
-
-			foreach (var schoolClass in grades)
-				if (grades.Contains(schoolClass))
-					checkedListBoxOfGrades.Items.Remove(schoolClass);
-		}
-
 		#region
 		private void FormGradesAndTeachers_Load(object sender, EventArgs e)
 		{

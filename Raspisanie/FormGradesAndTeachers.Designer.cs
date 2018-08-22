@@ -31,8 +31,6 @@
 			this.Классы = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.MakeSchedlueButton = new System.Windows.Forms.Button();
-			this.button5 = new System.Windows.Forms.Button();
-			this.button4 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
@@ -68,8 +66,6 @@
 			// 
 			this.tabPage1.BackColor = System.Drawing.Color.DarkGray;
 			this.tabPage1.Controls.Add(this.MakeSchedlueButton);
-			this.tabPage1.Controls.Add(this.button5);
-			this.tabPage1.Controls.Add(this.button4);
 			this.tabPage1.Controls.Add(this.button3);
 			this.tabPage1.Controls.Add(this.button2);
 			this.tabPage1.Controls.Add(this.button1);
@@ -92,26 +88,6 @@
 			this.MakeSchedlueButton.Text = "Сформировать расписание";
 			this.MakeSchedlueButton.UseVisualStyleBackColor = true;
 			this.MakeSchedlueButton.Click += new System.EventHandler(this.MakeSchedlueButton_Click);
-			// 
-			// button5
-			// 
-			this.button5.Location = new System.Drawing.Point(533, 373);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(75, 54);
-			this.button5.TabIndex = 4;
-			this.button5.Text = "Отменить добавление";
-			this.button5.UseVisualStyleBackColor = true;
-			this.button5.Click += new System.EventHandler(this.CancelAddingDefaultClasses_Click);
-			// 
-			// button4
-			// 
-			this.button4.Location = new System.Drawing.Point(418, 373);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(75, 54);
-			this.button4.TabIndex = 1;
-			this.button4.Text = "Добавить классы по умолчанию";
-			this.button4.UseVisualStyleBackColor = true;
-			this.button4.Click += new System.EventHandler(this.AddDefaultGrades_Click);
 			// 
 			// button3
 			// 
@@ -291,8 +267,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
         public System.Windows.Forms.CheckedListBox checkedListBoxOfTeachers;
         private System.Windows.Forms.TextBox textBoxAddTeacher;
         private System.Windows.Forms.Button button6;

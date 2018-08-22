@@ -21,22 +21,6 @@ namespace Raspisanie
 			set;
 		} = new List<Teacher>();
 
-		private static IEnumerable<Teacher> LoadTeachers(string path)
-		{
-			var text = File.ReadAllText(path).Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-
-			foreach (var str in text)
-				yield return new Teacher(str);
-		}
-
-		public static IEnumerable<Grade> LoadClasses(string path)
-		{
-			var text = File.ReadAllText(path).Split(new char[] { ' ', '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-
-			foreach (var str in text)
-				yield return new Grade(str);
-		}
-
 		public static IEnumerable<Subject> LoadSubjects(string path)
 		{
 			var text = File.ReadAllText(path).Split(new char[] { '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
