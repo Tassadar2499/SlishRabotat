@@ -58,7 +58,6 @@
             this.tabPageGrades.TabIndex = 0;
             this.tabPageGrades.Text = "Классы";
             this.tabPageGrades.UseVisualStyleBackColor = true;
-            this.tabPageGrades.Click += new System.EventHandler(this.tabPageGrades_Click);
             // 
             // listOfGrades
             // 
@@ -68,7 +67,6 @@
             this.listOfGrades.Name = "listOfGrades";
             this.listOfGrades.Size = new System.Drawing.Size(280, 407);
             this.listOfGrades.TabIndex = 0;
-            this.listOfGrades.SelectedIndexChanged += new System.EventHandler(this.listOfGrades_SelectedIndexChanged);
             // 
             // tabPageTeachers
             // 
@@ -80,7 +78,6 @@
             this.tabPageTeachers.TabIndex = 1;
             this.tabPageTeachers.Text = "Учителя";
             this.tabPageTeachers.UseVisualStyleBackColor = true;
-            this.tabPageTeachers.Click += new System.EventHandler(this.tabPageTeachers_Click);
             // 
             // listBoxOfTeachers
             // 

@@ -36,39 +36,28 @@ namespace Raspisanie
 
         private void DoubleClickingGrade(object sender, EventArgs e)
         {
-            var nameOfClass = (sender as ListBox).SelectedItem;
+            var gradeName = (sender as ListBox).SelectedItem.ToString();
 
-            if (nameOfClass != null)
+            if (gradeName != null)
             {
-                var formSchedlue = new FormSchedlue(nameOfClass.ToString());
+                var formSchedlue = 
+					new FormSchedlue("Класс - " + gradeName, SchedlueMaker.GetGradeByName(gradeName));
+
                 formSchedlue.Show();
             }
         }
 
         private void DoubleClickingTeacher(object sender, EventArgs e)
         {
-            var nameOfTeacher = (sender as ListBox).SelectedItem;
+            var teacherName = (sender as ListBox).SelectedItem.ToString();
 
-            if (nameOfTeacher != null)
-            {
-                var formSchedlue = new FormSchedlueTeachers(nameOfTeacher.ToString());
-                formSchedlue.Show();
-            }
-        }
+			if (teacherName != null)
+			{
+				var formSchedlue =
+					new FormSchedlue("Учитель - " + teacherName, SchedlueMaker.GetTeacherByName(teacherName));
 
-        private void tabPageGrades_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listOfGrades_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPageTeachers_Click(object sender, EventArgs e)
-        {
-
-        }
+				formSchedlue.Show();
+			}
+		}
     }
 }
