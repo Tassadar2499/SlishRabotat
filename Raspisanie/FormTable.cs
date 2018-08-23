@@ -63,12 +63,25 @@ namespace Raspisanie
 		private void Add_Click(object sender, EventArgs e)
 		{
 			if (textBoxSubjects.Text != null && numericCountAtWeek.Value != 0 && textBoxTeacher.Text != null)
-				dataGridSubjects.Rows.Add(
-					textBoxSubjects.Text,
-					(int)numericDifficulty.Value,
-					(int)numericCountAtWeek.Value,
-					textBoxTeacher.Text
-				);
+			{
+				bool containSubject = false;
+				foreach (var row in dataGridSubjects.Rows)
+				{
+					if ((row as DataGridViewRow).Cells[0].Value.ToString() == textBoxSubjects.Text)
+					{
+						containSubject = true;
+						break;
+					}
+				}
+
+				if (!containSubject)
+					dataGridSubjects.Rows.Add(
+						textBoxSubjects.Text,
+						(int)numericDifficulty.Value,
+						(int)numericCountAtWeek.Value,
+						textBoxTeacher.Text
+					);
+			}
 		}
 
 		private void Delete_Click(object sender, EventArgs e)
