@@ -53,11 +53,12 @@
 			// 
 			this.Классы.Controls.Add(this.tabPage1);
 			this.Классы.Controls.Add(this.tabPage2);
+			this.Классы.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.Классы.ItemSize = new System.Drawing.Size(150, 50);
-			this.Классы.Location = new System.Drawing.Point(2, 35);
+			this.Классы.Location = new System.Drawing.Point(0, 0);
 			this.Классы.Name = "Классы";
 			this.Классы.SelectedIndex = 0;
-			this.Классы.Size = new System.Drawing.Size(663, 540);
+			this.Классы.Size = new System.Drawing.Size(660, 413);
 			this.Классы.TabIndex = 0;
 			// 
 			// tabPage1
@@ -71,15 +72,16 @@
 			this.tabPage1.Location = new System.Drawing.Point(4, 54);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(655, 482);
+			this.tabPage1.Size = new System.Drawing.Size(652, 355);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "Классы";
 			// 
 			// MakeSchedlueButton
 			// 
-			this.MakeSchedlueButton.Location = new System.Drawing.Point(549, 6);
+			this.MakeSchedlueButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.MakeSchedlueButton.Location = new System.Drawing.Point(494, 292);
 			this.MakeSchedlueButton.Name = "MakeSchedlueButton";
-			this.MakeSchedlueButton.Size = new System.Drawing.Size(100, 60);
+			this.MakeSchedlueButton.Size = new System.Drawing.Size(152, 60);
 			this.MakeSchedlueButton.TabIndex = 5;
 			this.MakeSchedlueButton.Text = "Сформировать расписание";
 			this.MakeSchedlueButton.UseVisualStyleBackColor = true;
@@ -87,38 +89,45 @@
 			// 
 			// button2
 			// 
-			this.button2.Location = new System.Drawing.Point(164, 373);
+			this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button2.Location = new System.Drawing.Point(575, 35);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(75, 54);
+			this.button2.Size = new System.Drawing.Size(71, 36);
 			this.button2.TabIndex = 2;
-			this.button2.Text = "Удалить выбранные классы";
+			this.button2.Text = "Удалить";
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.DeleteSelectingGrades_Click);
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(47, 422);
+			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button1.Location = new System.Drawing.Point(494, 35);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 44);
+			this.button1.Size = new System.Drawing.Size(75, 36);
 			this.button1.TabIndex = 1;
-			this.button1.Text = "Добавить класс";
+			this.button1.Text = "Добавить";
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.AddNewGrade_Click);
 			// 
 			// addGradeTextBox
 			// 
-			this.addGradeTextBox.Location = new System.Drawing.Point(8, 373);
+			this.addGradeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.addGradeTextBox.Location = new System.Drawing.Point(494, 4);
 			this.addGradeTextBox.Multiline = true;
 			this.addGradeTextBox.Name = "addGradeTextBox";
-			this.addGradeTextBox.Size = new System.Drawing.Size(114, 43);
+			this.addGradeTextBox.Size = new System.Drawing.Size(152, 25);
 			this.addGradeTextBox.TabIndex = 1;
 			// 
 			// listBoxOfGrades
 			// 
+			this.listBoxOfGrades.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.listBoxOfGrades.FormattingEnabled = true;
-			this.listBoxOfGrades.Location = new System.Drawing.Point(8, 8);
+			this.listBoxOfGrades.IntegralHeight = false;
+			this.listBoxOfGrades.Location = new System.Drawing.Point(3, 3);
 			this.listBoxOfGrades.Name = "listBoxOfGrades";
-			this.listBoxOfGrades.Size = new System.Drawing.Size(485, 342);
+			this.listBoxOfGrades.Size = new System.Drawing.Size(485, 349);
 			this.listBoxOfGrades.TabIndex = 0;
 			// 
 			// tabPage2
@@ -131,67 +140,76 @@
 			this.tabPage2.Location = new System.Drawing.Point(4, 54);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(655, 482);
+			this.tabPage2.Size = new System.Drawing.Size(652, 355);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Учителя";
 			// 
 			// button7
 			// 
-			this.button7.Location = new System.Drawing.Point(523, 231);
+			this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button7.Location = new System.Drawing.Point(575, 35);
 			this.button7.Name = "button7";
-			this.button7.Size = new System.Drawing.Size(75, 54);
+			this.button7.Size = new System.Drawing.Size(71, 36);
 			this.button7.TabIndex = 3;
-			this.button7.Text = "Удалить выбранных учителей";
+			this.button7.Text = "Удалить";
 			this.button7.UseVisualStyleBackColor = true;
 			this.button7.Click += new System.EventHandler(this.DeleteSelectingTeachers_Click);
 			// 
 			// button6
 			// 
-			this.button6.Location = new System.Drawing.Point(388, 181);
+			this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button6.Location = new System.Drawing.Point(494, 35);
 			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(75, 48);
+			this.button6.Size = new System.Drawing.Size(75, 36);
 			this.button6.TabIndex = 2;
-			this.button6.Text = "Добавить учителя";
+			this.button6.Text = "Добавить";
 			this.button6.UseVisualStyleBackColor = true;
 			this.button6.Click += new System.EventHandler(this.AddTeacher_Click);
 			// 
 			// textBoxAddTeacher
 			// 
-			this.textBoxAddTeacher.Location = new System.Drawing.Point(388, 121);
+			this.textBoxAddTeacher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBoxAddTeacher.Location = new System.Drawing.Point(494, 4);
 			this.textBoxAddTeacher.Multiline = true;
 			this.textBoxAddTeacher.Name = "textBoxAddTeacher";
-			this.textBoxAddTeacher.Size = new System.Drawing.Size(100, 54);
+			this.textBoxAddTeacher.Size = new System.Drawing.Size(152, 25);
 			this.textBoxAddTeacher.TabIndex = 1;
 			// 
 			// listBoxOfTeachers
 			// 
+			this.listBoxOfTeachers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.listBoxOfTeachers.FormattingEnabled = true;
-			this.listBoxOfTeachers.Location = new System.Drawing.Point(8, 8);
+			this.listBoxOfTeachers.IntegralHeight = false;
+			this.listBoxOfTeachers.Location = new System.Drawing.Point(3, 3);
 			this.listBoxOfTeachers.Name = "listBoxOfTeachers";
-			this.listBoxOfTeachers.Size = new System.Drawing.Size(344, 316);
+			this.listBoxOfTeachers.Size = new System.Drawing.Size(485, 349);
 			this.listBoxOfTeachers.Sorted = true;
 			this.listBoxOfTeachers.TabIndex = 0;
 			// 
 			// SaveInFile
 			// 
+			this.SaveInFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.SaveInFile.BackColor = System.Drawing.Color.Teal;
-			this.SaveInFile.Location = new System.Drawing.Point(188, 6);
+			this.SaveInFile.Location = new System.Drawing.Point(499, 2);
 			this.SaveInFile.Name = "SaveInFile";
-			this.SaveInFile.Size = new System.Drawing.Size(70, 49);
+			this.SaveInFile.Size = new System.Drawing.Size(75, 50);
 			this.SaveInFile.TabIndex = 1;
 			this.SaveInFile.Text = "Сохранить в файл";
-			this.SaveInFile.UseVisualStyleBackColor = false;
+			this.SaveInFile.UseVisualStyleBackColor = true;
 			this.SaveInFile.Click += new System.EventHandler(this.SaveInFile_Click);
 			// 
 			// LoadFromFile
 			// 
-			this.LoadFromFile.BackColor = System.Drawing.Color.Lime;
-			this.LoadFromFile.Location = new System.Drawing.Point(255, 6);
+			this.LoadFromFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.LoadFromFile.BackColor = System.Drawing.Color.DarkGray;
+			this.LoadFromFile.Location = new System.Drawing.Point(580, 2);
 			this.LoadFromFile.Name = "LoadFromFile";
-			this.LoadFromFile.Size = new System.Drawing.Size(75, 49);
+			this.LoadFromFile.Size = new System.Drawing.Size(75, 50);
 			this.LoadFromFile.TabIndex = 2;
 			this.LoadFromFile.Text = "Загрузить из файла";
-			this.LoadFromFile.UseVisualStyleBackColor = false;
+			this.LoadFromFile.UseVisualStyleBackColor = true;
 			this.LoadFromFile.Click += new System.EventHandler(this.LoadFromFile_Click);
 			// 
 			// saveFileDialog
@@ -210,7 +228,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(668, 587);
+			this.ClientSize = new System.Drawing.Size(660, 413);
 			this.Controls.Add(this.LoadFromFile);
 			this.Controls.Add(this.SaveInFile);
 			this.Controls.Add(this.Классы);
