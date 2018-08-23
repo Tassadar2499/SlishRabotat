@@ -16,8 +16,11 @@ namespace Raspisanie
 		{
 			InitializeComponent();
 
-			gradesListBox.Items.AddRange(SchedlueMaker.Grades.Select(a => a.Name).ToArray());
-			teachersListBox.Items.AddRange(SchedlueMaker.Teachers.Select(a => a.Name).ToArray());
+			gradesListBox.Items.AddRange(
+				SchedlueMaker.Grades.Select(a => a.Name).OrderBy(a => a, new SortingStringByNumber()).ToArray());
+
+			teachersListBox.Items.AddRange(
+				SchedlueMaker.Teachers.Select(a => a.Name).OrderBy(a => a).ToArray());
 
 			gradesListBox.DoubleClick += DoubleClickingGrade;
 			teachersListBox.DoubleClick += DoubleClickingTeacher;
