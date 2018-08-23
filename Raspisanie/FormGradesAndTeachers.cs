@@ -20,14 +20,23 @@ namespace Raspisanie
 		}
 
 		/// <summary>
-		/// Метод для добавления элементов в CheckedListBox
+		/// Метод для добавления элементов в ListBox
 		/// </summary>
-		/// <param name="checkedListBox"></param>
+		/// <param name="listBox"></param>
 		/// <param name="item"></param>
-		public void CheckedList_AddItem(ListBox checkedListBox, string item)
+		public void CheckedList_AddItem(ListBox listBox, string item)
 		{
-			if (item != "" && !checkedListBox.Items.Contains(item))
-				checkedListBox.Items.Add(item);
+			if (item != "" && !listBox.Items.Contains(item))
+				listBox.Items.Add(item);
+
+			var grades = Program.ListBoxToStrings(listBoxOfGrades).ToArray();
+
+			Array.Sort(grades, new SortingStringByNumber());
+
+			listBoxOfGrades.Items.Clear();
+
+			foreach (var schoolClass in grades)
+				listBox.Items.Add(schoolClass);
 		}
 
 		private void MakeSchedlueButton_Click(object sender, EventArgs e)
@@ -61,18 +70,6 @@ namespace Raspisanie
 		{
 			for (var i = listBoxOfGrades.SelectedItems.Count - 1; i >= 0; i--)
 				listBoxOfGrades.Items.Remove(listBoxOfGrades.SelectedItems[i]);
-		}
-
-		private void SortingByNumber_Click(object sender, EventArgs e)
-		{
-			var grades = Program.ListBoxToStrings(listBoxOfGrades).ToArray();
-
-			Array.Sort(grades, new SortingStringByNumber());
-
-			listBoxOfGrades.Items.Clear();
-
-			foreach (var schoolClass in grades)
-				CheckedList_AddItem(listBoxOfGrades, schoolClass);
 		}
 
 		#endregion

@@ -31,7 +31,6 @@
 			this.Классы = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.MakeSchedlueButton = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
 			this.addGradeTextBox = new System.Windows.Forms.TextBox();
@@ -65,7 +64,6 @@
 			// 
 			this.tabPage1.BackColor = System.Drawing.Color.DarkGray;
 			this.tabPage1.Controls.Add(this.MakeSchedlueButton);
-			this.tabPage1.Controls.Add(this.button3);
 			this.tabPage1.Controls.Add(this.button2);
 			this.tabPage1.Controls.Add(this.button1);
 			this.tabPage1.Controls.Add(this.addGradeTextBox);
@@ -86,16 +84,6 @@
 			this.MakeSchedlueButton.Text = "Сформировать расписание";
 			this.MakeSchedlueButton.UseVisualStyleBackColor = true;
 			this.MakeSchedlueButton.Click += new System.EventHandler(this.MakeSchedlueButton_Click);
-			// 
-			// button3
-			// 
-			this.button3.Location = new System.Drawing.Point(269, 373);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(94, 67);
-			this.button3.TabIndex = 3;
-			this.button3.Text = "Отсортировать по номеру";
-			this.button3.UseVisualStyleBackColor = true;
-			this.button3.Click += new System.EventHandler(this.SortingByNumber_Click);
 			// 
 			// button2
 			// 
@@ -248,7 +236,6 @@
         private System.Windows.Forms.TextBox textBoxAddTeacher;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
 		private System.Windows.Forms.Button MakeSchedlueButton;
