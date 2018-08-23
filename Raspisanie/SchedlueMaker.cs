@@ -49,8 +49,6 @@ namespace Raspisanie
 		}
 
 
-		//TODO:
-		//Перепсать, чтобы не хранить учителей//классы, а получать готовые данные
 		public static void CalculateSchedlue()
 		{
 			//Сбрасываем расписания
