@@ -37,7 +37,6 @@
 			this.addGradeTextBox = new System.Windows.Forms.TextBox();
 			this.checkedListBoxOfGrades = new System.Windows.Forms.CheckedListBox();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.button8 = new System.Windows.Forms.Button();
 			this.button7 = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
 			this.textBoxAddTeacher = new System.Windows.Forms.TextBox();
@@ -138,7 +137,6 @@
 			// tabPage2
 			// 
 			this.tabPage2.BackColor = System.Drawing.Color.DarkGray;
-			this.tabPage2.Controls.Add(this.button8);
 			this.tabPage2.Controls.Add(this.button7);
 			this.tabPage2.Controls.Add(this.button6);
 			this.tabPage2.Controls.Add(this.textBoxAddTeacher);
@@ -149,16 +147,6 @@
 			this.tabPage2.Size = new System.Drawing.Size(655, 482);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Учителя";
-			// 
-			// button8
-			// 
-			this.button8.Location = new System.Drawing.Point(388, 304);
-			this.button8.Name = "button8";
-			this.button8.Size = new System.Drawing.Size(100, 70);
-			this.button8.TabIndex = 4;
-			this.button8.Text = "Отсортировать в алфавитном порядке";
-			this.button8.UseVisualStyleBackColor = true;
-			this.button8.Click += new System.EventHandler(this.SortingByAlphabet_Click);
 			// 
 			// button7
 			// 
@@ -195,6 +183,7 @@
 			this.checkedListBoxOfTeachers.Location = new System.Drawing.Point(8, 8);
 			this.checkedListBoxOfTeachers.Name = "checkedListBoxOfTeachers";
 			this.checkedListBoxOfTeachers.Size = new System.Drawing.Size(344, 319);
+			this.checkedListBoxOfTeachers.Sorted = true;
 			this.checkedListBoxOfTeachers.TabIndex = 0;
 			// 
 			// SaveInFile
@@ -219,12 +208,12 @@
 			this.LoadFromFile.UseVisualStyleBackColor = false;
 			this.LoadFromFile.Click += new System.EventHandler(this.LoadFromFile_Click);
 			// 
-			// saveFileDialog1
+			// saveFileDialog
 			// 
 			this.saveFileDialog.DefaultExt = "txt";
 			this.saveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.SaveFileDialog_FileOk);
 			// 
-			// openFileDialog1
+			// openFileDialog
 			// 
 			this.openFileDialog.DefaultExt = "txt";
 			this.openFileDialog.FileName = "openFileDialog1";
@@ -255,16 +244,15 @@
         private System.Windows.Forms.TabControl Классы;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        public System.Windows.Forms.CheckedListBox checkedListBoxOfTeachers;
         private System.Windows.Forms.CheckedListBox checkedListBoxOfGrades;
         private System.Windows.Forms.TextBox addGradeTextBox;
+        private System.Windows.Forms.TextBox textBoxAddTeacher;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        public System.Windows.Forms.CheckedListBox checkedListBoxOfTeachers;
-        private System.Windows.Forms.TextBox textBoxAddTeacher;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
 		private System.Windows.Forms.Button MakeSchedlueButton;
         private System.Windows.Forms.Button SaveInFile;
         private System.Windows.Forms.Button LoadFromFile;

@@ -94,16 +94,6 @@ namespace Raspisanie
 				checkedListBoxOfTeachers.Items.Remove(checkedListBoxOfTeachers.CheckedItems[i]);
 		}
 
-		private void SortingByAlphabet_Click(object sender, EventArgs e)
-		{
-			var teachers = Program.ListBoxToStrings(checkedListBoxOfTeachers).ToArray();
-
-			Array.Sort(teachers);
-
-			checkedListBoxOfTeachers.Items.Clear();
-			checkedListBoxOfTeachers.Items.AddRange(teachers);
-		}
-
 		#endregion
 
 		#region Serialise Methods
