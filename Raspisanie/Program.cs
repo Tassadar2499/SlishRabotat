@@ -10,7 +10,7 @@ namespace Raspisanie
 {
 	static class Program
 	{
-		public static IEnumerable<string> ListBoxToStrings(CheckedListBox checkedList)
+		public static IEnumerable<string> ListBoxToStrings(ListBox checkedList)
 		{
 			for (var i = 0; i < checkedList.Items.Count; i++)
 				yield return checkedList.Items[i].ToString();

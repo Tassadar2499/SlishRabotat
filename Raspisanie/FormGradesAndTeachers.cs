@@ -16,7 +16,7 @@ namespace Raspisanie
 		public FormGradesAndTeachers()
 		{
 			InitializeComponent();
-			checkedListBoxOfGrades.DoubleClick += DoubleClicking;
+			listBoxOfGrades.DoubleClick += DoubleClicking;
 		}
 
 		/// <summary>
@@ -24,7 +24,7 @@ namespace Raspisanie
 		/// </summary>
 		/// <param name="checkedListBox"></param>
 		/// <param name="item"></param>
-		public void CheckedList_AddItem(CheckedListBox checkedListBox, string item)
+		public void CheckedList_AddItem(ListBox checkedListBox, string item)
 		{
 			if (item != "" && !checkedListBox.Items.Contains(item))
 				checkedListBox.Items.Add(item);
@@ -42,40 +42,37 @@ namespace Raspisanie
 
 		private void DoubleClicking(object sender, EventArgs e)
 		{
-			var nameOfClass = (sender as CheckedListBox).SelectedItem;
+			var nameOfClass = (sender as ListBox).SelectedItem;
 
 			if (nameOfClass != null)
 			{
-				var formTable = new FormTable(nameOfClass.ToString(), checkedListBoxOfTeachers);
+				var formTable = new FormTable(nameOfClass.ToString(), Program.ListBoxToStrings(listBoxOfTeachers).ToArray());
 				formTable.Show();
 			}
-			checkedListBoxOfGrades.SetItemChecked(checkedListBoxOfGrades.Items.IndexOf(nameOfClass), true);
 		}
 
 		private void AddNewGrade_Click(object sender, EventArgs e)
 		{
-			CheckedList_AddItem(checkedListBoxOfGrades, addGradeTextBox.Text);
+			CheckedList_AddItem(listBoxOfGrades, addGradeTextBox.Text);
 			addGradeTextBox.Clear();
 		}
 
 		private void DeleteSelectingGrades_Click(object sender, EventArgs e)
 		{
-			var checkedItems = checkedListBoxOfGrades.CheckedItems;
-
-			for (var i = checkedListBoxOfGrades.CheckedItems.Count - 1; i >= 0; i--)
-				checkedListBoxOfGrades.Items.Remove(checkedListBoxOfGrades.CheckedItems[i]);
+			for (var i = listBoxOfGrades.SelectedItems.Count - 1; i >= 0; i--)
+				listBoxOfGrades.Items.Remove(listBoxOfGrades.SelectedItems[i]);
 		}
 
 		private void SortingByNumber_Click(object sender, EventArgs e)
 		{
-			var grades = Program.ListBoxToStrings(checkedListBoxOfGrades).ToArray();
+			var grades = Program.ListBoxToStrings(listBoxOfGrades).ToArray();
 
 			Array.Sort(grades, new SortingStringByNumber());
 
-			checkedListBoxOfGrades.Items.Clear();
+			listBoxOfGrades.Items.Clear();
 
 			foreach (var schoolClass in grades)
-				CheckedList_AddItem(checkedListBoxOfGrades, schoolClass);
+				CheckedList_AddItem(listBoxOfGrades, schoolClass);
 		}
 
 		#endregion
@@ -84,14 +81,14 @@ namespace Raspisanie
 
 		private void AddTeacher_Click(object sender, EventArgs e)
 		{
-			CheckedList_AddItem(checkedListBoxOfTeachers, textBoxAddTeacher.Text);
+			CheckedList_AddItem(listBoxOfTeachers, textBoxAddTeacher.Text);
 			textBoxAddTeacher.Clear();
 		}
 
 		private void DeleteSelectingTeachers_Click(object sender, EventArgs e)
 		{
-			for (var i = checkedListBoxOfTeachers.CheckedItems.Count - 1; i >= 0; i--)
-				checkedListBoxOfTeachers.Items.Remove(checkedListBoxOfTeachers.CheckedItems[i]);
+			for (var i = listBoxOfTeachers.SelectedItems.Count - 1; i >= 0; i--)
+				listBoxOfTeachers.Items.Remove(listBoxOfTeachers.SelectedItems[i]);
 		}
 
 		#endregion
@@ -150,10 +147,10 @@ namespace Raspisanie
 			}
 
 			SchedlueMaker.Grades = grades;
-			checkedListBoxOfGrades.Items.Clear();
+			listBoxOfGrades.Items.Clear();
 
 			foreach (var schoolClass in grades)
-				CheckedList_AddItem(checkedListBoxOfGrades, schoolClass.Name);
+				CheckedList_AddItem(listBoxOfGrades, schoolClass.Name);
 		}
 		#endregion
 	}

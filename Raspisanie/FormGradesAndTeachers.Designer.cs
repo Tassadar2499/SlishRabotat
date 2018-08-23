@@ -35,12 +35,12 @@
 			this.button2 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
 			this.addGradeTextBox = new System.Windows.Forms.TextBox();
-			this.checkedListBoxOfGrades = new System.Windows.Forms.CheckedListBox();
+			this.listBoxOfGrades = new System.Windows.Forms.ListBox();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.button7 = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
 			this.textBoxAddTeacher = new System.Windows.Forms.TextBox();
-			this.checkedListBoxOfTeachers = new System.Windows.Forms.CheckedListBox();
+			this.listBoxOfTeachers = new System.Windows.Forms.ListBox();
 			this.SaveInFile = new System.Windows.Forms.Button();
 			this.LoadFromFile = new System.Windows.Forms.Button();
 			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -69,7 +69,7 @@
 			this.tabPage1.Controls.Add(this.button2);
 			this.tabPage1.Controls.Add(this.button1);
 			this.tabPage1.Controls.Add(this.addGradeTextBox);
-			this.tabPage1.Controls.Add(this.checkedListBoxOfGrades);
+			this.tabPage1.Controls.Add(this.listBoxOfGrades);
 			this.tabPage1.Location = new System.Drawing.Point(4, 54);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -125,14 +125,13 @@
 			this.addGradeTextBox.Size = new System.Drawing.Size(114, 43);
 			this.addGradeTextBox.TabIndex = 1;
 			// 
-			// checkedListBoxOfGrades
+			// listBoxOfGrades
 			// 
-			this.checkedListBoxOfGrades.CheckOnClick = true;
-			this.checkedListBoxOfGrades.FormattingEnabled = true;
-			this.checkedListBoxOfGrades.Location = new System.Drawing.Point(8, 8);
-			this.checkedListBoxOfGrades.Name = "checkedListBoxOfGrades";
-			this.checkedListBoxOfGrades.Size = new System.Drawing.Size(485, 349);
-			this.checkedListBoxOfGrades.TabIndex = 0;
+			this.listBoxOfGrades.FormattingEnabled = true;
+			this.listBoxOfGrades.Location = new System.Drawing.Point(8, 8);
+			this.listBoxOfGrades.Name = "listBoxOfGrades";
+			this.listBoxOfGrades.Size = new System.Drawing.Size(485, 342);
+			this.listBoxOfGrades.TabIndex = 0;
 			// 
 			// tabPage2
 			// 
@@ -140,7 +139,7 @@
 			this.tabPage2.Controls.Add(this.button7);
 			this.tabPage2.Controls.Add(this.button6);
 			this.tabPage2.Controls.Add(this.textBoxAddTeacher);
-			this.tabPage2.Controls.Add(this.checkedListBoxOfTeachers);
+			this.tabPage2.Controls.Add(this.listBoxOfTeachers);
 			this.tabPage2.Location = new System.Drawing.Point(4, 54);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -176,15 +175,14 @@
 			this.textBoxAddTeacher.Size = new System.Drawing.Size(100, 54);
 			this.textBoxAddTeacher.TabIndex = 1;
 			// 
-			// checkedListBoxOfTeachers
+			// listBoxOfTeachers
 			// 
-			this.checkedListBoxOfTeachers.CheckOnClick = true;
-			this.checkedListBoxOfTeachers.FormattingEnabled = true;
-			this.checkedListBoxOfTeachers.Location = new System.Drawing.Point(8, 8);
-			this.checkedListBoxOfTeachers.Name = "checkedListBoxOfTeachers";
-			this.checkedListBoxOfTeachers.Size = new System.Drawing.Size(344, 319);
-			this.checkedListBoxOfTeachers.Sorted = true;
-			this.checkedListBoxOfTeachers.TabIndex = 0;
+			this.listBoxOfTeachers.FormattingEnabled = true;
+			this.listBoxOfTeachers.Location = new System.Drawing.Point(8, 8);
+			this.listBoxOfTeachers.Name = "listBoxOfTeachers";
+			this.listBoxOfTeachers.Size = new System.Drawing.Size(344, 316);
+			this.listBoxOfTeachers.Sorted = true;
+			this.listBoxOfTeachers.TabIndex = 0;
 			// 
 			// SaveInFile
 			// 
@@ -244,8 +242,8 @@
         private System.Windows.Forms.TabControl Классы;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        public System.Windows.Forms.CheckedListBox checkedListBoxOfTeachers;
-        private System.Windows.Forms.CheckedListBox checkedListBoxOfGrades;
+        public System.Windows.Forms.ListBox listBoxOfTeachers;
+        private System.Windows.Forms.ListBox listBoxOfGrades;
         private System.Windows.Forms.TextBox addGradeTextBox;
         private System.Windows.Forms.TextBox textBoxAddTeacher;
         private System.Windows.Forms.Button button1;

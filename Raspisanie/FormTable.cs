@@ -15,7 +15,7 @@ namespace Raspisanie
 	{
 		private string gradeName;
 
-		public FormTable(string gradeName, CheckedListBox checkedListBoxOfTeachers)
+		public FormTable(string gradeName, string[] teachersName)
 		{
 			InitializeComponent();
 
@@ -29,8 +29,7 @@ namespace Raspisanie
 			MakeAutoCompliting(textBoxSubjects,
 				File.ReadAllText("Subjects.txt").Split(new char[] { '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries));
 
-			MakeAutoCompliting(textBoxTeacher,
-				Program.ListBoxToStrings(checkedListBoxOfTeachers).ToArray());
+			MakeAutoCompliting(textBoxTeacher, teachersName);
 
 			GetGradesToDataGrid(gradeName);
 		}
