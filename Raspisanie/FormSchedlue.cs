@@ -29,6 +29,9 @@ namespace Raspisanie
 
 				dataTable.Rows.Add(row);
 			}
+
+			for (var lesson = 0; lesson < schedlue.maxLesson; lesson++)
+				dataTable.Rows[lesson].HeaderCell.Value = (lesson + 1).ToString();
 		}
 	}
 }
