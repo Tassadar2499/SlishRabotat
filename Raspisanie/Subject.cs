@@ -45,12 +45,12 @@ namespace Raspisanie
 					repeatCount++;
 
 			if (lesson > 0 && schedlue.schedlue[day][lesson - 1] == this)
-				weightBonus += 0.01;
+				weightBonus += 0.05;
 			
 			if (lesson < schedlue.schedlue[day].Length - 2 && schedlue.schedlue[day][lesson + 1] == this)
-				weightBonus += 0.01;
+				weightBonus += 0.05;
 
-			return schedlue.schedlueWeights[day][lesson] * (1 - 0.2 * repeatCount + weightBonus);
+			return schedlue.schedlueWeights[day][lesson] * (1 - 0.25 * repeatCount + weightBonus);
 		}
 
 		public List<double[]> ReweightSchedlue(Schedlue schedlue)
