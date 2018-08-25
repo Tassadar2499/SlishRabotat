@@ -70,7 +70,10 @@ namespace Raspisanie
 		private void DeleteSelectingGrades_Click(object sender, EventArgs e)
 		{
 			for (var i = listBoxOfGrades.SelectedItems.Count - 1; i >= 0; i--)
+			{
+				SchedlueMaker.Grades.Remove(SchedlueMaker.GetGradeByName(listBoxOfGrades.SelectedItems[i].ToString()));
 				listBoxOfGrades.Items.Remove(listBoxOfGrades.SelectedItems[i]);
+			}
 		}
 
 		#endregion
