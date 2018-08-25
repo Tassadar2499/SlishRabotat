@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
 			this.dataGridSubjects = new System.Windows.Forms.DataGridView();
-			this.Subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Difficult = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.CountAtWeek = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Teacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.textBoxSubjects = new System.Windows.Forms.TextBox();
 			this.numericDifficulty = new System.Windows.Forms.NumericUpDown();
 			this.numericCountAtWeek = new System.Windows.Forms.NumericUpDown();
@@ -46,6 +42,10 @@
 			this.gradeNameLabel = new System.Windows.Forms.Label();
 			this.button3 = new System.Windows.Forms.Button();
 			this.gradesToCopyComboBox = new System.Windows.Forms.ComboBox();
+			this.Subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Difficult = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.CountAtWeek = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Teacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridSubjects)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericDifficulty)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericCountAtWeek)).BeginInit();
@@ -55,7 +55,6 @@
 			// 
 			this.dataGridSubjects.AllowUserToAddRows = false;
 			this.dataGridSubjects.AllowUserToDeleteRows = false;
-			this.dataGridSubjects.AllowUserToOrderColumns = true;
 			this.dataGridSubjects.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -67,36 +66,13 @@
             this.Difficult,
             this.CountAtWeek,
             this.Teacher});
+			this.dataGridSubjects.ImeMode = System.Windows.Forms.ImeMode.NoControl;
 			this.dataGridSubjects.Location = new System.Drawing.Point(12, 35);
 			this.dataGridSubjects.MultiSelect = false;
 			this.dataGridSubjects.Name = "dataGridSubjects";
-			this.dataGridSubjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dataGridSubjects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
 			this.dataGridSubjects.Size = new System.Drawing.Size(714, 397);
 			this.dataGridSubjects.TabIndex = 0;
-			// 
-			// Subject
-			// 
-			this.Subject.HeaderText = "Предмет";
-			this.Subject.Name = "Subject";
-			this.Subject.ReadOnly = true;
-			// 
-			// Difficult
-			// 
-			this.Difficult.HeaderText = "Сложность";
-			this.Difficult.Name = "Difficult";
-			this.Difficult.ReadOnly = true;
-			// 
-			// CountAtWeek
-			// 
-			this.CountAtWeek.HeaderText = "Количество часов в неделю";
-			this.CountAtWeek.Name = "CountAtWeek";
-			this.CountAtWeek.ReadOnly = true;
-			// 
-			// Teacher
-			// 
-			this.Teacher.HeaderText = "Учитель";
-			this.Teacher.Name = "Teacher";
-			this.Teacher.ReadOnly = true;
 			// 
 			// textBoxSubjects
 			// 
@@ -226,6 +202,27 @@
 			this.gradesToCopyComboBox.Size = new System.Drawing.Size(189, 21);
 			this.gradesToCopyComboBox.TabIndex = 13;
 			// 
+			// Subject
+			// 
+			this.Subject.HeaderText = "Предмет";
+			this.Subject.Name = "Subject";
+			this.Subject.ReadOnly = true;
+			// 
+			// Difficult
+			// 
+			this.Difficult.HeaderText = "Сложность";
+			this.Difficult.Name = "Difficult";
+			// 
+			// CountAtWeek
+			// 
+			this.CountAtWeek.HeaderText = "Количество часов в неделю";
+			this.CountAtWeek.Name = "CountAtWeek";
+			// 
+			// Teacher
+			// 
+			this.Teacher.HeaderText = "Учитель";
+			this.Teacher.Name = "Teacher";
+			// 
 			// FormTable
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,10 +269,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label gradeNameLabel;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Subject;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Difficult;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CountAtWeek;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Teacher;
 		private System.Windows.Forms.ComboBox gradesToCopyComboBox;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Subject;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Difficult;
+		private System.Windows.Forms.DataGridViewTextBoxColumn CountAtWeek;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Teacher;
 	}
 }

@@ -23,7 +23,7 @@ namespace Raspisanie
 			this.gradeName = gradeName;
 
 			gradesToCopyComboBox.Items.AddRange(
-				SchedlueMaker.Grades.Select(a => a.Name).Where(a => a != gradeName).ToArray());
+				SchedlueMaker.Grades.Select(a => a.Name).Where(a => a != gradeName).OrderByDescending(a => a).ToArray());
 
 			MakeAutoCompliting(textBoxSubjects,
 				File.ReadAllText("Subjects.txt").Split(new char[] { '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries));
