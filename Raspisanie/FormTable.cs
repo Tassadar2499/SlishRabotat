@@ -125,7 +125,7 @@ namespace Raspisanie
 
 		private void CopyTheTable_Click(object sender, EventArgs e)
 		{
-			if (gradesToCopyComboBox.SelectedText != "")
+			if (gradesToCopyComboBox.SelectedItem != null)
 				GetGradesToDataGrid(gradesToCopyComboBox.SelectedItem.ToString());
 		}
 	}

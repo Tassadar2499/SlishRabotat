@@ -71,6 +71,7 @@ namespace Raspisanie
 				//ставим
 				for (int i = 0; i < subject.Item1.CountAtWeek; i++)
 				{
+					//раситываем веса изходя из уже выставленных предметов
 					var currentWeight = subject.Item1.ReweightSchedlue(subject.Item2);
 
 					//уроки в которые будем ставить предметы
