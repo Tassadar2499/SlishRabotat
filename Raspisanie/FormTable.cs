@@ -24,7 +24,6 @@ namespace Raspisanie
 
 			gradesToCopyComboBox.Items.AddRange(
 				SchedlueMaker.Grades.Select(a => a.Name).Where(a => a != gradeName).ToArray());
-			gradesToCopyComboBox.SelectedIndex = 0;
 
 			MakeAutoCompliting(textBoxSubjects,
 				File.ReadAllText("Subjects.txt").Split(new char[] { '\t', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries));
@@ -86,7 +85,8 @@ namespace Raspisanie
 
 		private void Delete_Click(object sender, EventArgs e)
 		{
-			dataGridSubjects.Rows.RemoveAt(dataGridSubjects.SelectedCells[0].RowIndex);
+			if (dataGridSubjects.SelectedCells.Count != 0)
+				dataGridSubjects.Rows.RemoveAt(dataGridSubjects.SelectedCells[0].RowIndex);
 		}
 
 		private static string GetValueFromRow(DataGridViewRow row, int index)
@@ -125,7 +125,7 @@ namespace Raspisanie
 
 		private void CopyTheTable_Click(object sender, EventArgs e)
 		{
-			if (gradesToCopyComboBox.SelectedText != null)
+			if (gradesToCopyComboBox.SelectedText != "")
 				GetGradesToDataGrid(gradesToCopyComboBox.SelectedItem.ToString());
 		}
 	}
