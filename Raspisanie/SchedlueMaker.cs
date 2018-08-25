@@ -68,22 +68,24 @@ namespace Raspisanie
 			//пытаемся поставить предметы в расписание
 			foreach (var subject in allSubjects)
 			{
-				//уроки в которые будем ставить предметы
-				//день, урок, вес
-				var allPlace = new List<Tuple<int, int, double>>();
-
-				//берем все уроки
-				for (var day = 0; day < subject.Item2.schedlueWeights.Count; day++)
-					for (var lesson = 0; lesson < subject.Item2.schedlueWeights[day].Length; lesson++)
-						allPlace.Add(new Tuple<int, int, double>
-							(day, lesson, subject.Item2.schedlueWeights[day][lesson]));
-
-				//сортируем по весам
-				allPlace = allPlace.OrderByDescending(a => a.Item3).ToList();
-
 				//ставим
 				for (int i = 0; i < subject.Item1.CountAtWeek; i++)
 				{
+					var currentWeight = subject.Item1.ReweightSchedlue(subject.Item2);
+
+					//уроки в которые будем ставить предметы
+					//день, урок, вес
+					var allPlace = new List<Tuple<int, int, double>>();
+
+					//берем все уроки
+					for (var day = 0; day < currentWeight.Count; day++)
+						for (var lesson = 0; lesson < currentWeight[day].Length; lesson++)
+							allPlace.Add(new Tuple<int, int, double>
+								(day, lesson, currentWeight[day][lesson]));
+
+					//сортируем по весам
+					allPlace = allPlace.OrderByDescending(a => a.Item3).ToList();
+
 					foreach (var place in allPlace)
 					{
 						//если класс и препод свободен в этот момент
