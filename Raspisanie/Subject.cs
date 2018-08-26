@@ -37,15 +37,23 @@ namespace Raspisanie
 
 		private double CalculateWeightBonus(Grade grade, int day, int lesson)
 		{
+			var value = 0.0;
+
 			if (grade.schedlue[day][lesson] == null)
 				return 0;
 
 			if (grade.schedlue[day][lesson] == this)
-				return 0.09;
+				value += 0.03;
 			else if (grade.Subjects[grade.schedlue[day][lesson]] == grade.Subjects[this])
-				return 0.05;
+				value += 0.05;
 
-			return 0;
+			if (grade.schedlue[day][lesson] != null)
+				value -= 0.1;
+
+			if (grade.Subjects[this].schedlue[day][lesson] != null)
+				value += 0.3;
+
+			return value;
 		}
 
 		private double GetNewWeight(Grade grade, int day, int lesson)
@@ -63,7 +71,7 @@ namespace Raspisanie
 				if (subject == this)
 					repeatCount++;
 
-			return grade.schedlueWeights[day][lesson] * (1 - 0.25 * repeatCount + weightBonus);
+			return grade.schedlueWeights[day][lesson] * (1 - 0.4 * repeatCount + weightBonus);
 		}
 
 		public List<double[]> ReweightSchedlue(Grade grade)
