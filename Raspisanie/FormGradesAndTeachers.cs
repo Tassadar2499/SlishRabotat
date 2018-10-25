@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Threading;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Raspisanie
 {
@@ -111,43 +113,44 @@ namespace Raspisanie
 
 			var strOutput = "";
 
-			foreach (var grade in SchedlueMaker.Grades)
-			{
-				strOutput += grade.Name + "\r\n?";
+			//foreach (var grade in SchedlueMaker.Grades)
+			//{
+			//	strOutput += grade.Name + "\r\n?";
 
-				foreach (var subject in grade.Subjects)
-					strOutput += subject.Key.Name + "&" + subject.Key.Difficult.ToString() + "&" + subject.Key.CountAtWeek.ToString() + "&" + subject.Value.Name + "\r\n%";
+			//	foreach (var subject in grade.Subjects)
+			//		strOutput += subject.Key.Name + "&" + subject.Key.Difficult.ToString() + "&" + subject.Key.CountAtWeek.ToString() + "&" + subject.Value.Name + "\r\n%";
 
-				strOutput = strOutput.Remove(strOutput.Length - 1) + "#";
-			}
+			//	strOutput = strOutput.Remove(strOutput.Length - 1) + "#";
+			//}
 
-			strOutput = strOutput.Remove(strOutput.Length - 1);
-
-			File.AppendAllText((sender as SaveFileDialog).FileName, strOutput);
+			//strOutput = strOutput.Remove(strOutput.Length - 1);
+            strOutput = JsonConvert.SerializeObject(SchedlueMaker.Grades);
+            File.AppendAllText((sender as SaveFileDialog).FileName, strOutput);
 		}
 
 		private void OpenFileDialog_FileOk(object sender, CancelEventArgs e)
 		{
 			var grades = new List<Grade>();
-			var arrOfGrades = File.ReadAllText((sender as OpenFileDialog).FileName).Split('#');
+            //var arrOfGrades = File.ReadAllText((sender as OpenFileDialog).FileName).Split('#');
 
-			foreach (var gradeStr in arrOfGrades)
-			{
-				var grade = new Grade(gradeStr.Substring(0, gradeStr.IndexOf('?') - 2));
-				var strArr = gradeStr.Substring(gradeStr.IndexOf('?') + 1).Split('%');
+            //foreach (var gradeStr in arrOfGrades)
+            //{
+            //    var grade = new Grade(gradeStr.Substring(0, gradeStr.IndexOf('?') - 2));
+            //    var strArr = gradeStr.Substring(gradeStr.IndexOf('?') + 1).Split('%');
 
-				foreach (var str in strArr)
-				{
-					var helpArr = str.Split('&');
-					grade.Subjects.Add(
-						new Subject(helpArr[0], int.Parse(helpArr[1]), int.Parse(helpArr[2])),
-						SchedlueMaker.GetOrCreateTeacherByName(helpArr[3].Substring(0, helpArr[3].Length - 2)));
-				}
+            //    foreach (var str in strArr)
+            //    {
+            //        var helpArr = str.Split('&');
+            //        grade.Subjects.Add(
+            //            new Subject(helpArr[0], int.Parse(helpArr[1]), int.Parse(helpArr[2])),
+            //            SchedlueMaker.GetOrCreateTeacherByName(helpArr[3].Substring(0, helpArr[3].Length - 2)));
+            //    }
 
-				grades.Add(grade);
-			}
-
-			SchedlueMaker.Grades = grades;
+            //    grades.Add(grade);
+            //}
+            var json = File.ReadAllText((sender as OpenFileDialog).FileName);
+            List<Grade> kek = JsonConvert.DeserializeObject<List<Grade>>(json);
+            SchedlueMaker.Grades = grades;
 			listBoxOfGrades.Items.Clear();
 
 			foreach (var schoolClass in grades)
