@@ -47,7 +47,7 @@ namespace Raspisanie
 			var formOutput = new FormOutput();
 			formOutput.Show();
 		}
-
+        //
 		#region Grade methods
 
 		private void DoubleClicking(object sender, EventArgs e)
