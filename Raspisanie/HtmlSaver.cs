@@ -15,13 +15,16 @@ namespace Raspisanie
         public static void SaveToHTML(string labelText, Schedlue schedlue)
         {
             var htmlDocText = File.ReadAllText("TablePattern.html");
-            StringBuilder htmlDocBuilder= new StringBuilder();
+
+			var htmlDocBuilder= new StringBuilder();
             htmlDocBuilder.Append(htmlDocText);
             htmlDocBuilder.Replace("Title", labelText);
             htmlDocText = htmlDocBuilder.ToString();
-            var subjects = new string[48];
+
+			var subjects = new string[48];
             var iterator = 0;
-            for (int lesson = 0; lesson < schedlue.maxLesson; lesson++)
+
+			for (int lesson = 0; lesson < schedlue.maxLesson; lesson++)
             {
                 for (var day = 0; day < schedlue.maxDay; day++)
                 {
