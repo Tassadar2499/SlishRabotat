@@ -30,10 +30,11 @@
         {
             this.TabSchedlue = new System.Windows.Forms.TabControl();
             this.tabPageGrades = new System.Windows.Forms.TabPage();
+            this.SaveClassesToHTML = new System.Windows.Forms.Button();
             this.gradesListBox = new System.Windows.Forms.ListBox();
             this.tabPageTeachers = new System.Windows.Forms.TabPage();
             this.teachersListBox = new System.Windows.Forms.ListBox();
-            this.SaveClassesToHTML = new System.Windows.Forms.Button();
+            this.SaveTeachersToHTML = new System.Windows.Forms.Button();
             this.TabSchedlue.SuspendLayout();
             this.tabPageGrades.SuspendLayout();
             this.tabPageTeachers.SuspendLayout();
@@ -63,6 +64,17 @@
             this.tabPageGrades.TabIndex = 0;
             this.tabPageGrades.Text = "Классы";
             // 
+            // SaveClassesToHTML
+            // 
+            this.SaveClassesToHTML.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.SaveClassesToHTML.Location = new System.Drawing.Point(464, 326);
+            this.SaveClassesToHTML.Name = "SaveClassesToHTML";
+            this.SaveClassesToHTML.Size = new System.Drawing.Size(89, 59);
+            this.SaveClassesToHTML.TabIndex = 1;
+            this.SaveClassesToHTML.Text = "Сохранить в html документ";
+            this.SaveClassesToHTML.UseVisualStyleBackColor = true;
+            this.SaveClassesToHTML.Click += new System.EventHandler(this.SaveClassesToHTML_Click);
+            // 
             // gradesListBox
             // 
             this.gradesListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -72,13 +84,14 @@
             this.gradesListBox.Location = new System.Drawing.Point(3, 3);
             this.gradesListBox.MultiColumn = true;
             this.gradesListBox.Name = "gradesListBox";
-            this.gradesListBox.Size = new System.Drawing.Size(443, 396);
+            this.gradesListBox.Size = new System.Drawing.Size(443, 394);
             this.gradesListBox.TabIndex = 0;
             this.gradesListBox.SelectedIndexChanged += new System.EventHandler(this.gradesListBox_SelectedIndexChanged);
             // 
             // tabPageTeachers
             // 
             this.tabPageTeachers.BackColor = System.Drawing.Color.Gray;
+            this.tabPageTeachers.Controls.Add(this.SaveTeachersToHTML);
             this.tabPageTeachers.Controls.Add(this.teachersListBox);
             this.tabPageTeachers.Location = new System.Drawing.Point(4, 22);
             this.tabPageTeachers.Name = "tabPageTeachers";
@@ -95,19 +108,19 @@
             this.teachersListBox.FormattingEnabled = true;
             this.teachersListBox.Location = new System.Drawing.Point(3, 3);
             this.teachersListBox.Name = "teachersListBox";
-            this.teachersListBox.Size = new System.Drawing.Size(417, 396);
+            this.teachersListBox.Size = new System.Drawing.Size(417, 394);
             this.teachersListBox.TabIndex = 0;
             // 
-            // SaveClassesToHTML
+            // SaveTeachersToHTML
             // 
-            this.SaveClassesToHTML.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.SaveClassesToHTML.Location = new System.Drawing.Point(464, 326);
-            this.SaveClassesToHTML.Name = "SaveClassesToHTML";
-            this.SaveClassesToHTML.Size = new System.Drawing.Size(89, 59);
-            this.SaveClassesToHTML.TabIndex = 1;
-            this.SaveClassesToHTML.Text = "Сохранить в html документ";
-            this.SaveClassesToHTML.UseVisualStyleBackColor = true;
-            this.SaveClassesToHTML.Click += new System.EventHandler(this.SaveClassesToHTML_Click);
+            this.SaveTeachersToHTML.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.SaveTeachersToHTML.Location = new System.Drawing.Point(445, 318);
+            this.SaveTeachersToHTML.Name = "SaveTeachersToHTML";
+            this.SaveTeachersToHTML.Size = new System.Drawing.Size(89, 59);
+            this.SaveTeachersToHTML.TabIndex = 2;
+            this.SaveTeachersToHTML.Text = "Сохранить в html документ";
+            this.SaveTeachersToHTML.UseVisualStyleBackColor = true;
+            this.SaveTeachersToHTML.Click += new System.EventHandler(this.SaveTeachersToHTML_Click);
             // 
             // FormOutput
             // 
@@ -132,5 +145,6 @@
         private System.Windows.Forms.ListBox gradesListBox;
         private System.Windows.Forms.ListBox teachersListBox;
         private System.Windows.Forms.Button SaveClassesToHTML;
+        private System.Windows.Forms.Button SaveTeachersToHTML;
     }
 }

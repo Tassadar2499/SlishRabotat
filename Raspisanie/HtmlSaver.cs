@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Raspisanie
 {
@@ -17,8 +18,27 @@ namespace Raspisanie
             StringBuilder htmlDocBuilder= new StringBuilder();
             htmlDocBuilder.Append(htmlDocText);
             htmlDocBuilder.Replace("Title", labelText);
+            htmlDocText = htmlDocBuilder.ToString();
+            var subjects = new string[48];
+            var iterator = 0;
+            for (int lesson = 0; lesson < schedlue.maxLesson; lesson++)
+            {
+                for (var day = 0; day < schedlue.maxDay; day++)
+                {
+                    subjects[iterator] = schedlue.schedlue[day][lesson] != null
+                        ? schedlue.schedlue[day][lesson].Name
+                        : "-";
+                    iterator++;
+                }
+            }
 
-            //File.AppendAllText(labelText + ".html", htmlDocBuilder.ToString());
+            for (int i = 1; i <= subjects.Length; i++)
+            {
+                var regex = new Regex(Regex.Escape("subject"));
+                htmlDocText = regex.Replace(htmlDocText, subjects[i-1], 1);
+            }
+            
+            File.AppendAllText(labelText + ".html", htmlDocText);
         }
     }
 }

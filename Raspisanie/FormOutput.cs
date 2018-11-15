@@ -64,5 +64,11 @@ namespace Raspisanie
             foreach (var grade in gradesListBox.Items)
                 HtmlSaver.saveToHTML(grade.ToString(), SchedlueMaker.GetGradeByName(grade.ToString()));          
         }
+
+        private void SaveTeachersToHTML_Click(object sender, EventArgs e)
+        {
+            foreach (var teacher in teachersListBox.Items)
+                HtmlSaver.saveToHTML(teacher.ToString(), SchedlueMaker.GetTeacherByName(teacher.ToString()));
+        }
     }
 }
