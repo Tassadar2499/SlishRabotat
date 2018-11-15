@@ -12,7 +12,7 @@ namespace Raspisanie
     class HtmlSaver
     {
         public static string DIRECTORY = Assembly.GetExecutingAssembly().Location + "\\Table";
-        public static void saveToHTML(string labelText, Schedlue schedlue)
+        public static void SaveToHTML(string labelText, Schedlue schedlue)
         {
             var htmlDocText = File.ReadAllText("TablePattern.html");
             StringBuilder htmlDocBuilder= new StringBuilder();
