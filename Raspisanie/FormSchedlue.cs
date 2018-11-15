@@ -33,5 +33,10 @@ namespace Raspisanie
 			for (var lesson = 0; lesson < schedlue.maxLesson; lesson++)
 				dataTable.Rows[lesson].HeaderCell.Value = (lesson + 1).ToString();
 		}
-	}
+
+        private void dataTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+    }
 }

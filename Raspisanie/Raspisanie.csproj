@@ -91,6 +91,7 @@
     <Compile Include="FormTable.Designer.cs">
       <DependentUpon>FormTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="HtmlSaver.cs" />
     <Compile Include="Schedlue.cs" />
     <Compile Include="SchedlueMaker.cs" />
     <Compile Include="Program.cs" />

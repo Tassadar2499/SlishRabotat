@@ -53,5 +53,16 @@ namespace Raspisanie
 				formSchedlue.Show();
 			}
 		}
-	}
+
+        private void gradesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SaveClassesToHTML_Click(object sender, EventArgs e)
+        {
+            foreach (var grade in gradesListBox.Items)
+                HtmlSaver.saveToHTML(grade.ToString(), SchedlueMaker.GetGradeByName(grade.ToString()));          
+        }
+    }
 }
