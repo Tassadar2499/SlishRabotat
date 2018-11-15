@@ -35,11 +35,9 @@ namespace Raspisanie
                 }
             }
 
-            for (int i = 1; i <= subjects.Length; i++)
-            {
-                var regex = new Regex(Regex.Escape("subject"));
+			var regex = new Regex(Regex.Escape("subject"));
+			for (int i = 1; i <= subjects.Length; i++)
                 htmlDocText = regex.Replace(htmlDocText, subjects[i-1], 1);
-            }
             
             File.AppendAllText(labelText + ".html", htmlDocText);
         }
