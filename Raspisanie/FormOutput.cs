@@ -62,13 +62,13 @@ namespace Raspisanie
         private void SaveClassesToHTML_Click(object sender, EventArgs e)
         {
             foreach (var grade in gradesListBox.Items)
-                HtmlSaver.SaveToHTML(grade.ToString(), SchedlueMaker.GetGradeByName(grade.ToString()));          
+                HtmlSaver.SaveToHtml(grade.ToString(), SchedlueMaker.GetGradeByName(grade.ToString()));          
         }
 
         private void SaveTeachersToHTML_Click(object sender, EventArgs e)
         {
             foreach (var teacher in teachersListBox.Items)
-                HtmlSaver.SaveToHTML(teacher.ToString(), SchedlueMaker.GetTeacherByName(teacher.ToString()));
+                HtmlSaver.SaveToHtml(teacher.ToString(), SchedlueMaker.GetTeacherByName(teacher.ToString()));
         }
     }
 }
