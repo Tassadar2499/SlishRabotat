@@ -15,7 +15,7 @@ namespace Raspisanie
 			for (var i = 0; i < checkedList.Items.Count; i++)
 				yield return checkedList.Items[i].ToString();
 		}
-
+        //
 		[STAThread]
 		static void Main()
 		{
